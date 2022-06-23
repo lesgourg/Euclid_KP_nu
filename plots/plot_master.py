@@ -43,7 +43,10 @@ def fisher_path(dict) :
 
 def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',error_only=False):
 
+<<<<<<< HEAD
     error_only = error_only
+=======
+>>>>>>> master
     fish_files = [os.path.abspath(i) for i in fish_files] ## This is evaluated at old CWD
     os.chdir(os.path.dirname(os.path.realpath(__file__))) ## CWD changes
     sys.path.append('../../cosmicfish_reloaded/')

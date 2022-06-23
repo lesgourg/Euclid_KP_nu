@@ -1,5 +1,6 @@
 #Initializing params and modules
 import os, sys
+from git import Repo
 from time import time
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 sys.path.append('../../../cosmicfish_reloaded/')
@@ -13,12 +14,17 @@ from cosmicfishpie.fishermatrix import cosmicfish
 obs_dict = {'GCsp' : ['GCsp'], 'WLxGCph' : ['WL', 'GCph'], 'WL' : ['WL'], 'GCph' : ['GCph']}
 derivatives_default = {'GCsp' : 'own' , 'WL' : '3PT','WLxGCph' : '3PT','GCph' : '3PT','WL':'3PT' }
 paths_dict = {'WL':'lensing','WLxGCph':'photometric','GCsp':'spectroscopic'}
-ext_default = '../../../input_4_cast/output/default_{codename}_euclid_WP3_HMCode_{precision}/'
+ext_default = '../../../input_4_cast/output/default_{codename}_{branch}_euclid_WP3_{precision}/'
 precision_def = ['HP']
+try :
+    repo = Repo('../../')
+    branch_name = str(repo.active_branch)
+except :
+    branch_name = ''
 
 ###################################################
 
-def external_runs(observables,codes_list,specifications,precision_list=precision_def,derivatives_dictionary=derivatives_default,name='') :
+def external_runs(observables,codes_list,specifications,precision_list=precision_def,derivatives_dictionary=derivatives_default,branch=branch_name,name='') :
 
     derivatives_default.update(derivatives_dictionary)
     derivatives_dict = derivatives_default.copy()
@@ -71,7 +77,7 @@ def external_runs(observables,codes_list,specifications,precision_list=precision
                                     'code': 'external',
                                     'results_dir' : '../../results/cosmicfish_external/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
                                     })
-                    external.update({'directory':ext_default.format(codename=code,precision=precision)
+                    external.update({'directory':ext_default.format(codename=code,precision=precision,branch=branch)
                                         })
                     print("Reading from dir: ", external['directory']) 
                     print(' *****************External Run: ******{coden}--{obsn}--{specn}****************'.format(coden=code, obsn=obs, specn=specifs))
