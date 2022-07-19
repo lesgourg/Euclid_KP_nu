@@ -10,7 +10,7 @@ snscolors=sns.color_palette("Set1")
 # , 'boltzmann' : 'class'}
 def fisher_path(dict) :
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
-        derivatives_default = {'gcsp' : 'own' , 'wl' : '3PT','wlxgcph' : '3PT','gcph' : '3PT','wl':'3PT' }
+        derivatives_default = {'gcsp' : 'own' , 'wl' : '3PT','wlxgcph' : '3PT','gcph' : '3PT'}
         probe_path = {'wl':'wl_only','wlxgcph':'photometric','gcsp':'spectroscopic'}
         resultsdir = '../results'
 
