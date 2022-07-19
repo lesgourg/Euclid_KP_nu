@@ -5,8 +5,8 @@ ACCURACY:
   'lSampleBoost' : 1
   'accurate_massive_neutrino_transfers' : True
 NUMERICS:
-  'zmax' : 4
-  'zsamples': 80
+  'zmax' : 5
+  'zsamples': 100
 COSMO_SETTINGS: 
 # Massive neutrino baseline model
   'kmax' : 50
