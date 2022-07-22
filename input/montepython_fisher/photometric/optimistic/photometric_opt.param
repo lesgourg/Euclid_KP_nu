@@ -12,13 +12,13 @@ data.experiments=['euclid_photometric']
 
 
 # Cosmological parameter list
-data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.0005,    1, 'cosmo']
-data.parameters['h']               = [0.6737,        0.1, 1.5,  0.002,     1, 'cosmo']
-data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.001,     1, 'cosmo']
-data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.0005,    1, 'cosmo']
-data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.05,      1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          0.,    1,  0.01,     1, 'cosmo']
-data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.0005,   1, 'cosmo']
+data.parameters['Omega_b']         = [0.0491989,     0.005, 1,    0.0005,    1, 'cosmo']
+data.parameters['h']               = [0.6737,        0.1,   1.5,  0.002,     1, 'cosmo']
+data.parameters['n_s']             = [0.96605,       0.8,   1.2,  0.001,     1, 'cosmo']
+data.parameters['sigma8']          = [0.81,          0.7,   0.9,  0.0002,    1, 'cosmo']
+data.parameters['N_eff_camb']      = [3.044,         0.,    6,    0.05,      1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          0.,    1,    0.01,      1, 'cosmo']
+data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,    0.0005,    1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
@@ -52,8 +52,9 @@ data.cosmo_arguments['k_per_decade_for_pk'] = 50
 data.cosmo_arguments['k_per_decade_for_bao'] = 50
 
 data.cosmo_arguments['non linear'] = 'hmcode'
+data.cosmo_arguments['hmcode version'] = 2020
 data.cosmo_arguments['nonlinear_min_k_max'] = 80.
-data.cosmo_arguments['halofit_min_k_nonlinear'] = 3.282e-3
+#data.cosmo_arguments['halofit_min_k_nonlinear'] = 3.282e-3
 
 # HP settings
 data.cosmo_arguments['l_max_g'] = 20
