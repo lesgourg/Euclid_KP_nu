@@ -4,7 +4,7 @@
 
 # and check that the pessimistic settings are on, that is:
 
-    euclid_photometric.fiducial_file  = "euclid_xc_fiducial.dat"
+    euclid_photometric.fiducial_file  = "euclid_xc_fiducial_hmcode.dat"
 
     euclid_photometric.probe = ['WL_GCph_XC']
 
@@ -12,10 +12,14 @@
     euclid_photometric.lmax_GC = 3000
     euclid_photometric.lmax_XC = 3000
 
+    also, you should have:
+
+    euclid_photometric.use_halofit = False
+
 # We assume here that you run within the montepython/ directory, not within this one. Then the commands are:
 
 1) to remove a possible previous fiducial model generated with different settings
-    rm data/euclid_xc_fiducial.dat
+    rm data/euclid_xc_fiducial_hmcode.dat
 
 2) to remove possible results of a previous attempt to run in the same directory
 
