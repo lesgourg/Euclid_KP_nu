@@ -1,4 +1,4 @@
-Go to the input_4_cast directory to run the code, and check that you have correctly checked out the branch wp3, not the main branch
+Go to the input_4_cast directory to run the code, and check that you have correctly checked out to the branch wp3, not the main branch
 
     cd ../input_4_cast
     git status
@@ -7,24 +7,24 @@ Go to the input_4_cast directory to run the code, and check that you have correc
 
 * For producing the CLASS external files, you will use the input files
 
-        ../Euclid_KP_nu/input/input_4_cast/default_class_WP3_LP.ini
-        ../Euclid_KP_nu/input/input_4_cast/default_class_WP3_MP.ini
-        ../Euclid_KP_nu/input/input_4_cast/default_class_WP3_HP.ini
+        ../Euclid_w0wa/input/input_4_cast/class_w0wa_LP.ini
+        ../Euclid_w0wa/input/input_4_cast/class_w0wa_MP.ini
+        ../Euclid_w0wa/input/input_4_cast/class_w0wa_HP.ini
 
     (for respectively low precision, medium precision, high precision).
     The relative paths at the beginning may need some editing if, on your machine, class is not located in the directory ../class/
 
     Then run with e.g.
 
-        python3 run.py ../Euclid_KP_nu/input/input_4_cast/default_class_WP3_LP.ini
+        python3 run.py ../Euclid_w0wa/input/input_4_cast/class_w0wa_LP.ini
 
 ----------------------------
 
 * For producing the CAMB external files, you will use the input file
 
-        ../Euclid_KP_nu/input/input_4_cast/default_camb_WP3_LP.ini
-        ../Euclid_KP_nu/input/input_4_cast/default_camb_WP3_MP.ini
-        ../Euclid_KP_nu/input/input_4_cast/default_camb_WP3_HP.ini
+        ../Euclid_w0wa/input/input_4_cast/camb_w0wa_LP.ini
+        ../Euclid_w0wa/input/input_4_cast/camb_w0wa_MP.ini
+        ../Euclid_w0wa/input/input_4_cast/camb_w0wa_HP.ini
 
     (for respectively low precision, medium precision, high precision).
     The relative paths at the beginning may need some editing if, on your machine, class is not located in the directory ../CAMB/
@@ -33,26 +33,19 @@ Go to the input_4_cast directory to run the code, and check that you have correc
 
     Then run with e.g.
 
-        python3 run.py ../Euclid_KP_nu/input/input_4_cast/default_camb_WP3_LP.ini
+        python3 run.py ../Euclid_w0wa/input/input_4_cast/camb_w0wa_HP.ini
 
 -----------------------------
 
 * For comparing CLASS and CAMB files, run e.g.
 
-    python3 compare.py --save_plots --threshold 0.1 output/default_camb_euclid_WP3_LP output/default_class_euclid_WP3_LP
-
+    python3 compare.py --save_plots --threshold 0.01 output/camb_w0wa_HP output/class_w0wa_HP
 
     All spectra should agree very well (typically better than 0.1% for
-    the linear spectrum with MP or HP) excepted when considering the
-    case of CAMB with N_eff[fiducial]>3 and N_eff[minus epsilon]<3,
-    for which the CAMB treatement leads to a small discontinuity. So,
-    for large epsilons, it is normal that the spectra of
-    Neff_mn_epsilon disagree by a greater amount, e.g. 0.3%.  Thus for
-    N_eff[fiducial]=3.044 it is not recommended to rely on the CAMB
-    Neff_mn_epsilon output for epsilon euqal to 0.015 or greater.
+    the linear spectrum with MP or HP)
 
 -----------------------------
 
-When everything is done, go backs
+When everything is done, go back
 
-     cd ../Euclid_KP_nu
+     cd ../Euclid_w0wa

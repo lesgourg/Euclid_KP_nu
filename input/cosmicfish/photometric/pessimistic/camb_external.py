@@ -15,7 +15,7 @@ precisions = ['HP']
 # Path to the external files for class or camb 
 # {codename} placeholder will be filled with either class or camb,
 # so make sure to have the same directory name as given below.
-# '../../../input_4_cast/output/default_{codename}_euclid_WP3_{precision}'
+# '../../../input_4_cast/output/{codename}_w0wa_{precision}'
 
 ###################################################
 # Derivative options

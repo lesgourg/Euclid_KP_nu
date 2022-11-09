@@ -11,7 +11,7 @@ specifications:
     'lmin_WL': 10
     'fsky_WL': 0.35
     'kmax': 30.
-    'bias_model': 'binned_constant'
+    'bias_model': 'binned'
     'vary_ph_bias': 0.06
     'vary_IA_pars': 0.06
     'spec_sigma_dz': 0.001

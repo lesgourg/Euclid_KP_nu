@@ -18,7 +18,7 @@ parser.add_argument('-c2', '--code2', metavar='\b',
                     camb or camb_int or camb_ext "
                     "\n2) Just class or camb corresponds to both external and \
                     internal modes\n ", default='')
-parser.add_argument('--error-only',action='store_true',dest='error_only',
+parser.add_argument('--error-only', action='store_true', dest='error_only',
                     help='    Plot error comparions plots only',
                     default=False)
 
@@ -27,33 +27,53 @@ c1 = args.code1
 c2 = args.code2
 error_only = args.error_only
 
-if c1 == '':
-    if c2 == '':
-        wildcard = '*.py'
-    else:
-        wildcard = '*' + c2 + '*.py'
 
-elif c2 == '':
+def checker(c1, c2):
     if c1 == '':
-        wildcard = '*.py'
+        if c2 == '':
+            wildcard = '*.py'
+        else:
+            wildcard = '*' + c2 + '*.py'
+
+    elif c2 == '':
+        if c1 == '':
+            wildcard = '*.py'
+        else:
+            wildcard = '*' + c1 + '*.py'
+
     else:
-        wildcard = '*' + c1 + '*.py'
+        wildcard = '*' + c1 + '*' + c2 + '*.py'
+    return wildcard
 
+
+def mainfxn(filepath):
+    print('File exists !')
+    var = ''
+    for file in glob(filepath):
+        var += 'python '
+        var += file
+        if error_only:
+            var += ' --error-only'
+        else : pass
+        if file == glob(filepath)[-1] : pass
+        else :
+            var += ' & '
+
+    print(var)
+    choice = input('\n Do you want to execute the above command ? (y/n)')
+    if choice == 'y' or choice == 'Y':
+        os.system(var)
+
+
+wildcard1 = checker(c1, c2)
+filepath1 = os.path.join(args.dir, wildcard1)
+wildcard2 = checker(c2, c1)
+filepath2 = os.path.join(args.dir, wildcard2)
+
+if glob(filepath1):
+    mainfxn(filepath1)
+
+elif glob(filepath2):
+    mainfxn(filepath2)
 else:
-    wildcard = '*' + c1 + '*' + c2 + '*.py'
-
-filepath = os.path.join(args.dir, wildcard)
-print(filepath)
-var = ''
-
-for file in glob(filepath):
-    var += 'python '
-    var += file
-    if error_only :
-        var += ' --error-only'
-    var += ' & '
-
-print(var)
-choice = input('\n Do you want to execute the above command ? (y/n)')
-if choice == 'y' or choice == 'Y':
-    os.system(var)
+    print('No matches found')

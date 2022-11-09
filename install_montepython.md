@@ -2,14 +2,16 @@ For this project, at the moment, you need to clone montepython from the private 
 
     cd ..
     git clone https://github.com/lesgourg/montepython montepython
+OR
+    git clone git@github.com:lesgourg/montepython.git
     cd montepython
-    git co euclid_cl_xc
+    git checkout euclid_cl_xc
 
 To set up the path to class you need to do:
 
     cp default.conf.template default.conf
 
-the edit default.conf and set the path "root" to the directory that contains class/, montepython/, Euclid_KP_nu/, etc.
+then edit default.conf and set the path "root" to the directory that contains class/, montepython/, Euclid_KP_nu/, etc.
 
 Return here with
 

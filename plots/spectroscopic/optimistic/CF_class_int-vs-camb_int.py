@@ -12,13 +12,13 @@ args = parser.parse_args()
 error_only = args.error_only
 
 fish_files =  [
-    '../../../results/cosmicfish_internal/spectroscopic/optimistic/CosmicFish_v0.9_varying_mnu__internal_class-Optimistic-own_GCsp_fishermatrix.txt',
-    '../../../results/cosmicfish_internal/spectroscopic/optimistic/CosmicFish_v0.9_varying_mnu__internal_camb-Optimistic-own_GCsp_fishermatrix.txt'
+    '../../../results/cosmicfish_internal/spectroscopic/optimistic/CosmicFish_v1.0_w0wa_internal_class-Optimistic-3PT_GCsp_fishermatrix.txt',
+    '../../../results/cosmicfish_internal/spectroscopic/optimistic/CosmicFish_v1.0_w0wa_internal_camb-Optimistic-3PT_GCsp_fishermatrix.txt'
               ]
     
 labels=  [r'CF_int_class GCsp opt',
           r'CF_int_camb GCsp opt']
 
-cutnames=['Neff', 'mnu', 'Omegam', 'Omegab','ns', 'h','sigma8', 'lnbgs8_1', 'lnbgs8_2', 'lnbgs8_3', 'lnbgs8_4', 'Ps_1', 'Ps_2', 'Ps_3', 'Ps_4']
+cutnames=['Omegam', 'Omegab','ns', 'h','sigma8', 'w0', 'wa',  'lnbgs8_1', 'lnbgs8_2', 'lnbgs8_3', 'lnbgs8_4', 'Ps_1', 'Ps_2', 'Ps_3', 'Ps_4']
 
 plotter(fish_files=fish_files,labels=labels,pars=cutnames,error_only=error_only)
