@@ -28,24 +28,24 @@ for line in lines:
     elif "['h']" in line:
         fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
         o.write(r'h    h    '+fiducial+'\n')
-    elif "['w0_fld']" in line:
-        fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
-        o.write(r'w0    w_0    '+fiducial+'\n')
-    elif "['wa_fld']" in line:
-        fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
-        o.write(r'wa    w_a    '+fiducial+'\n')
+    #elif "['w0_fld']" in line:
+    #    fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
+    #    o.write(r'w0    w_0    '+fiducial+'\n')
+    #elif "['wa_fld']" in line:
+    #    fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
+    #    o.write(r'wa    w_a    '+fiducial+'\n')
     elif "['n_s']" in line:
         fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
         o.write(r'ns    n_\mathrm{s}    '+fiducial+'\n')
     elif "['sigma8']" in line:
         fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
         o.write(r'sigma8    \sigma_8    '+fiducial+'\n')
-    #elif "['N_eff_camb']" in line:
-    #    fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
-    #    o.write(r'Neff    N_\mathrm{eff}    '+fiducial+'\n')
-    #elif "['m_nu_camb']" in line:
-    #    fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
-    #    o.write(r'mnu    M_\nu    '+fiducial+'\n')
+    elif "['N_eff_camb']" in line:
+        fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
+        o.write(r'Neff    N_\mathrm{eff}    '+fiducial+'\n')
+    elif "['m_nu_camb']" in line:
+        fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
+        o.write(r'mnu    M_\nu    '+fiducial+'\n')
     elif "['Omega_m_camb']" in line:
         fiducial = ((line.split("=")[1][2:-2]).split(",")[0]).strip()
         o.write(r'Omegam    \Omega_{\mathrm{m}, 0}    '+fiducial+'\n')

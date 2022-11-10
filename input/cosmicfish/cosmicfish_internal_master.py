@@ -16,7 +16,7 @@ obs_dict = {'GCsp' : ['GCsp'], 'WLxGCph' : ['WL', 'GCph'], 'WL' : ['WL'], 'GCph'
 derivatives_default = {'GCsp' : '3PT' , 'WL' : '3PT','WLxGCph' : '3PT','GCph' : '3PT' }
 paths_dict = {'WL':'lensing','WLxGCph':'photometric','GCsp':'spectroscopic'}
 
-model = 'w0waCDM'
+model = 'LCDM'
 
 ###################################################
 def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=derivatives_default,name=''):
@@ -24,9 +24,9 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
     derivatives_dict = derivatives_default.copy()
     start_time = time()
     options = {'derivatives': '3PT',
-            'accuracy': 6,
+            'accuracy': 1,
             'feedback': 1,
-            'outroot': 'w0wa',
+            'outroot': 'nulcdm',
             'survey_name': 'Euclid',
             'cosmo_model' : model,
             'code':'class',
@@ -37,15 +37,13 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
             }
 
 
-    fiducial = {"Omegam": 0.32,
-                "Omegab": 0.05,
-                "h":0.67,
-                "ns":0.96,
-                "sigma8":0.815584,
+    fiducial = {"Omegam": 0.3145714273,
+                "Omegab": 0.0491989,
+                "h":0.6737,
+                "ns":0.96605,
+                "sigma8":0.81,
                 'mnu': 0.06,
-                'Neff': 3.046,
-                'w0' : -1.0,
-                'wa' : 0.0
+                'Neff': 3.044,
                 }
 
 
@@ -58,13 +56,13 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
                             "h":0.01,
                             "ns":0.01,
                             "sigma8":0.01,
-                            'w0' : 0.01,
-                            'wa' : 0.01
+                            'mnu' : 0.1,
+                            'Neff' : 0.01
                             }
                 options.update({
                                 'derivatives' : derivatives_dict[obs],
                                 'survey_name': 'Euclid-ISTF-'+specifs,
-                                'outroot'  : 'w0wa'+'_internal_'+code+'-'+specifs+'-'+derivatives_dict[obs]+name,
+                                'outroot'  : 'nulcdm'+'_internal_'+code+'-'+specifs+'-'+derivatives_dict[obs]+name,
                                 'code': code,
                                 'results_dir': '../../results/cosmicfish_internal/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
                             })

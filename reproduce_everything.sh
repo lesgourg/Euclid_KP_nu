@@ -8,13 +8,13 @@ PYTHON=python3
 
 # Select here the probe (photometric/spectroscopic)
 #
-PROBE=photometric
-PROBE_SHORT=photo
-LKL=euclid_photometric_z
+#PROBE=photometric
+#PROBE_SHORT=photo
+#LKL=euclid_photometric_z
 #
-#PROBE=spectroscopic
-#PROBE_SHORT=spec
-#LKL=euclid_spectroscopic
+PROBE=spectroscopic
+PROBE_SHORT=spec
+LKL=euclid_spectroscopic
 
 # Select here the case (pessimistic/optimistic)
 #
@@ -73,10 +73,10 @@ if [ "$answer" = "y" ] ; then
         if [ "$PROBE" = "spectroscopic" ] ; then
             rm data/euclid_pk_fiducial.dat
         fi
-        rm -rf ../Euclid_w0wa/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
-        $PYTHON montepython/MontePython.py run -p ../Euclid_w0wa/input/montepython_fisher/$PROBE/$CASE/${PROBE}_${CASE_SHORT}_${CLASS_PREC}.param -o ../Euclid_w0wa/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} -f 0
-        $PYTHON montepython/MontePython.py run -o ../Euclid_w0wa/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} --fisher --fisher-step-it 1 --fisher-tol 10000
-        cd ../Euclid_w0wa
+        rm -rf ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
+        $PYTHON montepython/MontePython.py run -p ../Euclid_KP_nu/input/montepython_fisher/$PROBE/$CASE/${PROBE}_${CASE_SHORT}_${CLASS_PREC}.param -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} -f 0
+        $PYTHON montepython/MontePython.py run -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} --fisher --fisher-step-it 1 --fisher-tol 10000
+        cd ../Euclid_wKP_nu
         $PYTHON input/montepython_fisher/paramnames_for_cosmicfish.py results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
     fi
 
@@ -88,13 +88,13 @@ if [ "$answer" = "y" ] ; then
         echo "Shall we erase previous output directory with the chains? [WARNING: make a backup before saying yes] (y/n)"
         read answer
         if [ "$answer" = "y" ] ; then
-            rm -r ../Euclid_w0wa/results/montepython_mcmc/w0wa_${PROBE_SHORT}_${CASE_SHORT}
+            rm -r ../Euclid_KP_nu/results/montepython_mcmc/nulcdm_${PROBE_SHORT}_${CASE_SHORT}
             cd ../montepython
             cp montepython/likelihoods/$LKL/$LKL.data.$CASE montepython/likelihoods/$LKL/$LKL.data
             rm data/euclid_xc_fiducial.dat
-            $PYTHON montepython/MontePython.py run -p ../Euclid_w0wa/input/montepython_fisher/$PROBE/$CASE/${PROBE}_$CASE_SHORT.param -o ../Euclid_w0wa/results/montepython_mcmc/w0wa_${PROBE_SHORT}_${CASE_SHORT} -f 0
-            $PYTHON montepython/MontePython.py run -o ../Euclid_w0wa/results/montepython_mcmc/w0wa_${PROBE_SHORT}_${CASE_SHORT} -N 100000 --update 50 --superupdate 20 --covmat .... --conf default.conf
-            cd ../Euclid_w0wa
+            $PYTHON montepython/MontePython.py run -p ../Euclid_KP_nu/input/montepython_fisher/$PROBE/$CASE/${PROBE}_$CASE_SHORT.param -o ../Euclid_KP_nu/results/montepython_mcmc/nulcdm_${PROBE_SHORT}_${CASE_SHORT} -f 0
+            $PYTHON montepython/MontePython.py run -o ../Euclid_KP_nu/results/montepython_mcmc/nulcdm_${PROBE_SHORT}_${CASE_SHORT} -N 100000 --update 50 --superupdate 20 --covmat .... --conf default.conf
+            cd ../Euclid_KP_nu
         else
             echo "Will not erase old directory and will not rerun. Make a back up of the old chains and rerun the script."
         fi
