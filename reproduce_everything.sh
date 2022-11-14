@@ -8,13 +8,13 @@ PYTHON=python3
 
 # Select here the probe (photometric/spectroscopic)
 #
-#PROBE=photometric
-#PROBE_SHORT=photo
-#LKL=euclid_photometric_z
+PROBE=photometric
+PROBE_SHORT=photo
+LKL=euclid_photometric_z
 #
-PROBE=spectroscopic
-PROBE_SHORT=spec
-LKL=euclid_spectroscopic
+#PROBE=spectroscopic
+#PROBE_SHORT=spec
+#LKL=euclid_spectroscopic
 
 # Select here the case (pessimistic/optimistic)
 #

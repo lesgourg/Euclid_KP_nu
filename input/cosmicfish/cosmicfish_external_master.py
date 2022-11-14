@@ -51,7 +51,12 @@ def external_runs(observables,codes_list,specifications,precision_list=precision
                 'k-units' : 'h/Mpc',
                 'r-units' : 'Mpc',
                 'eps_values': [0.00625, 0.01, 0.0125, 0.01875, 0.02, 0.025, 0.03, 0.0375, 0.05, 0.10]}
-
+#I dont know why i need to do this twice ask Santiago
+    envkey = 'OMP_NUM_THREADS'
+    print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))
+    os.environ[envkey] = str(8)
+    os.environ[envkey] = str(8)
+    print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))
     for precision in precision_list :
         for code in codes_list :
             for obs in observables :
@@ -61,7 +66,7 @@ def external_runs(observables,codes_list,specifications,precision_list=precision
                                 "h":0.01,
                                 "ns":0.01,
                                 "sigma8":0.01,
-                                "mnu" : 0.01,
+                                "mnu" : 0.1,
                                 "Neff" : 0.01
                                 } 
                     options.update({ 

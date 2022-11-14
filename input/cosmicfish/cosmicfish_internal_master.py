@@ -8,7 +8,6 @@ sys.path.append('../../../cosmicfish_reloaded')
 from cosmicfishpie.fishermatrix import cosmicfish
 from cosmicfishpie.utilities.utils import printing as upr
 
-
 ###################################################
 # Dictionaries for translation
 
@@ -46,6 +45,12 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
                 'Neff': 3.044,
                 }
 
+#I dont know why i need to do this twice ask Santiago
+    envkey = 'OMP_NUM_THREADS'
+    print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))
+    os.environ[envkey] = str(8)
+    os.environ[envkey] = str(8)
+    print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))
 
     ## Main block where the code loops over different probes, codes, specifications
     for code in codes_list :
