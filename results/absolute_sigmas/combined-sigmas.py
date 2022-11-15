@@ -11,7 +11,7 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 
 ################################################ Photo Pess #####################################
-paths = {'fisher' : ['../../results/cosmicfish_internal/combined/pess_pess/CosmicFish_v0.9_w0wa_internal_class-combined-pess-pess_fishermatrix.txt','../../results/cosmicfish_internal/combined/pess_opt/CosmicFish_v0.9_w0wa_internal_class-combined-pess-opt_fishermatrix.txt','../../results/cosmicfish_internal/combined/opt_pess/CosmicFish_v0.9_w0wa_internal_class-combined-opt-pess_fishermatrix.txt','../../results/cosmicfish_internal/combined/opt_opt/CosmicFish_v0.9_w0wa_internal_class-combined-opt-opt_fishermatrix.txt']}
+paths = {'fisher' : ['../../results/cosmicfish_internal/combined/pess_pess/CosmicFish_v0.9_nulcdm_internal_class-combined-pess-pess_fishermatrix.txt','../../results/cosmicfish_internal/combined/pess_opt/CosmicFish_v0.9_nulcdm_internal_class-combined-pess-opt_fishermatrix.txt','../../results/cosmicfish_internal/combined/opt_pess/CosmicFish_v0.9_nulcdm_internal_class-combined-opt-pess_fishermatrix.txt','../../results/cosmicfish_internal/combined/opt_opt/CosmicFish_v0.9_nulcdm_internal_class-combined-opt-opt_fishermatrix.txt']}
 
 names = {'fisher' : ['pess/pess','pess/opt','opt/pess','opt/opt']}
 

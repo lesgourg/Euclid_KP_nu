@@ -76,7 +76,7 @@ if [ "$answer" = "y" ] ; then
         rm -rf ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
         $PYTHON montepython/MontePython.py run -p ../Euclid_KP_nu/input/montepython_fisher/$PROBE/$CASE/${PROBE}_${CASE_SHORT}_${CLASS_PREC}.param -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} -f 0
         $PYTHON montepython/MontePython.py run -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} --fisher --fisher-step-it 1 --fisher-tol 10000
-        cd ../Euclid_wKP_nu
+        cd ../Euclid_KP_nu
         $PYTHON input/montepython_fisher/paramnames_for_cosmicfish.py results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
     fi
 

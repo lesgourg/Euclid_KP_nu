@@ -20,6 +20,6 @@ fish_files =  [
 labels=  [r'MP GCsp opt DP',
           r'MP GCsp opt HP']
 
-cutnames=['Omegam', 'Omegab','ns', 'h','sigma8', 'w0', 'wa',  'lnbgs8_1', 'lnbgs8_2', 'lnbgs8_3', 'lnbgs8_4', 'Ps_1', 'Ps_2', 'Ps_3', 'Ps_4']
+cutnames=['Omegam', 'Omegab','ns', 'h','sigma8', 'mnu', 'Neff',  'lnbgs8_1', 'lnbgs8_2', 'lnbgs8_3', 'lnbgs8_4', 'Ps_1', 'Ps_2', 'Ps_3', 'Ps_4']
 
 plotter(fish_files=fish_files,labels=labels,pars=cutnames,error_only=error_only)

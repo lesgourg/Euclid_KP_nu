@@ -1,5 +1,5 @@
-**Git version commit: 76834002cff89fc4ca56ac3957743db7315cf313 
-**Time needed for computation of Fisher matrix: 70.123 seconds 
+**Git version commit: 19197357b7bf1ef11106c9dbcd7928babc1c533f 
+**Time needed for computation of Fisher matrix: 57.358 seconds 
 **Observables: WLGCph 
 ### CosmicFish settings ###
 AP_effect:True
@@ -11,7 +11,7 @@ activateMG:False
 bfs8terms:True
 boltzmann_yaml_path:/home/sefa/anaconda3/envs/cosmicfish/lib/python3.8/site-packages/cosmicfishpie-1.0-py3.8.egg/cosmicfishpie/fishermatrix/../../boltzmann_yaml_files
 camb_config_yaml:./boltzmann_yaml_files/camb/default.yaml
-camb_path:/home/sefa/anaconda3/envs/cosmicfish/lib/python3.8/site-packages/camb
+camb_path:/home/sefa/anaconda3/envs/cosmicfish/lib/python3.8/site-packages/camb-1.3.5-py3.8.egg/camb
 class_config_yaml:./boltzmann_yaml_files/class/default.yaml
 code:external
 cosmo_model:LCDM

@@ -13,13 +13,13 @@ sys.path.append('../../')
 from plot_master import plotter
 
 fish_files =  [
-    '../../../results/cosmicfish_external/photometric/pessimistic/CosmicFish_v1.0_w0wa_external_class-Pessimistic-3PT_HP_WLGCph_fishermatrix.txt',
-    '../../../results/cosmicfish_internal/photometric/pessimistic/CosmicFish_v1.0_w0wa_internal_camb-Pessimistic-3PT_WLGCph_fishermatrix.txt'
+    '../../../results/cosmicfish_external/photometric/pessimistic/CosmicFish_v1.0_nulcdm_external_class-Pessimistic-3PT_HP_WLGCph_fishermatrix.txt',
+    '../../../results/cosmicfish_internal/photometric/pessimistic/CosmicFish_v1.0_nulcdm_internal_camb-Pessimistic-3PT_WLGCph_fishermatrix.txt'
               ]
 
 labels=  [r'CF_ext_class XCph pess',
           r'CF_int_camb Xcph pess']
 
-cutnames=['Omegam', 'Omegab', 'ns', 'h','sigma8','w0', 'wa', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9', 'b10','AIA', 'etaIA']
+cutnames=['Omegam', 'Omegab', 'ns', 'h','sigma8', 'mnu', 'Neff', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9', 'b10','AIA', 'etaIA']
 
 plotter(fish_files=fish_files,labels=labels,pars=cutnames,error_only=error_only)

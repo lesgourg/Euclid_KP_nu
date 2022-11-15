@@ -19,6 +19,6 @@ fish_files =  [
 labels = [r'MP XCph opt DP',
           r'MP XCph opt HP' ]
 
-cutnames=['Omegam', 'Omegab', 'ns', 'h','sigma8','w0', 'wa', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9', 'b10','AIA', 'etaIA']
+cutnames=['Omegam', 'Omegab', 'ns', 'h','sigma8','mnu', 'Neff', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9', 'b10','AIA', 'etaIA']
 
 plotter(fish_files=fish_files,labels=labels,pars=cutnames,error_only=error_only)

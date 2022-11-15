@@ -69,7 +69,7 @@ def plotter(fish_files, labels, pars, outpath='automatic',
         print(script_name)
     else : pass
 
-    cosmo_names = ['Omegam', 'Omegab', 'ns', 'h','sigma8','w0','wa']
+    cosmo_names = ['Omegam', 'Omegab', 'ns', 'h','sigma8','mnu','Neff']
     nuisance_names = list( set(pars) - set(cosmo_names)  )
     fgroup=cfa.CosmicFish_FisherAnalysis()
     for fii in fish_files:
