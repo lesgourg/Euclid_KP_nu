@@ -1,4 +1,4 @@
-name: w0waMP
+name: KPnu
 channels:
   - conda-forge
   - defaults
@@ -19,6 +19,7 @@ dependencies:
     - seaborn
     - openpyxl
     - gitpython
+    - ray
 #    - pytest>=6.2
 #    - pytest-cov>=2.10
 #    - pytest-pycodestyle>=2.2.0
