@@ -19,8 +19,8 @@ data.parameters['h']               = [0.6737,        0.1, 1.5,  1.65251623e-3,  
 data.parameters['n_s']             = [0.96605,       0.8, 1.2,  4.21609630e-4,    1, 'cosmo']
 data.parameters['sigma8']          = [0.81,          0.7, 0.9,  1.89590234e-4,    1, 'cosmo']
 data.parameters['N_eff_camb']      = [3.044,         0.,    6,  3.50354076e-2,    1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          0.,    1,  3.89388098e-3,    1, 'cosmo']
-data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  9.41374387e-5,    1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          5e-3,    1,        0.006,    1, 'cosmo']
+data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,   9.413470e-05,    1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
@@ -86,8 +86,8 @@ data.write_step=5
 
 
 #-----Likelihood-euclid_photometric_z-----
-euclid_photometric_z.data_directory = '/home/sefa/Schreibtisch/Masterarbeit/KPNu_Halofit/montepython/data'
-euclid_photometric_z.fiducial_file = 'euclid_xc_fiducial.dat'
+euclid_photometric_z.data_directory = '/rwthfs/rz/cluster/home/ca030957/sefa/KPNu/montepython/data'
+euclid_photometric_z.fiducial_file = 'euclid_xc_fiducial_opt.dat'
 euclid_photometric_z.probe = ['WL_GCph_XC']
 euclid_photometric_z.lmin = 10
 euclid_photometric_z.lmax_WL = 5000
@@ -113,8 +113,8 @@ data.cosmo_arguments.update({'T_ncdm': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'r
 
 
 #--------Default-Configuration------
-data.path['root']	= '/home/sefa/Schreibtisch/Masterarbeit/KPNu_Halofit/montepython'
-data.path['MontePython']	= '/home/sefa/Schreibtisch/Masterarbeit/KPNu_Halofit/montepython/montepython'
-data.path['data']	= '/home/sefa/Schreibtisch/Masterarbeit/KPNu_Halofit/montepython/data'
+data.path['root']	= '/rwthfs/rz/cluster/home/ca030957/sefa/KPNu/montepython'
+data.path['MontePython']	= '/rwthfs/rz/cluster/home/ca030957/sefa/KPNu/montepython/montepython'
+data.path['data']	= '/rwthfs/rz/cluster/home/ca030957/sefa/KPNu/montepython/data'
 data.path['cosmo']	= '../class'
 data.path['clik']	= '../planck/code/plc_3.0/plc-3.01'
