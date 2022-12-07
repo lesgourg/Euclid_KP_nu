@@ -12,8 +12,8 @@ args = parser.parse_args()
 error_only = args.error_only
 
 fish_files =  [
-    '../../../results/cosmicfish_external/spectroscopic/pessimistic/CosmicFish_v1.0_nulcdm_external_class-Pessimistic-own_HP_GCsp_fishermatrix.txt',
-    '../../../results/cosmicfish_external/spectroscopic/pessimistic/CosmicFish_v1.0_nulcdm_external_camb-Pessimistic-own_P3_GCsp_fishermatrix.txt'
+    '../../../results/cosmicfish_external/spectroscopic/pessimistic/CosmicFish_v1.0_nulcdm_external_class-Pessimistic-3PT_HP_GCsp_fishermatrix.txt',
+    '../../../results/cosmicfish_external/spectroscopic/pessimistic/CosmicFish_v1.0_nulcdm_external_camb-Pessimistic-3PT_P3_GCsp_fishermatrix.txt'
               ]
 
 labels=  [r'CF_ext_class GCsp pess',
