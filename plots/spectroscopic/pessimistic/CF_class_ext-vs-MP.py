@@ -13,7 +13,7 @@ error_only = args.error_only
 from plot_master import plotter
 
 fish_files =  [
-    '../../../results/cosmicfish_external/spectroscopic/pessimistic/CosmicFish_v1.0_nulcdm_external_class-Pessimistic-own_HP_GCsp_fishermatrix.txt',
+    '../../../results/cosmicfish_external/spectroscopic/pessimistic/CosmicFish_v1.0_nulcdm_external_class-Pessimistic-3PT_HP_GCsp_fishermatrix.txt',
     '../../../results/montepython_fisher/spectroscopic/pessimistic_HP/fisher.mat'
         ]
 

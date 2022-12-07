@@ -11,7 +11,7 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 
 ################################################# Spec Pess ###############################################
-paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_spec_opt'], 'fisher' : ['../../results/cosmicfish_internal/spectroscopic/pessimistic/CosmicFish_v0.9_nulcdm_internal_class-Pessimistic-own_GCsp_fishermatrix.txt','../../results/montepython_fisher/spectroscopic/pessimistic_HP/fisher.mat']}
+paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_spec_opt'], 'fisher' : ['../../results/cosmicfish_internal/spectroscopic/pessimistic/CosmicFish_v1.0_nulcdm_internal_class-Pessimistic-3PT_GCsp_fishermatrix.txt','../../results/montepython_fisher/spectroscopic/pessimistic_HP/fisher.mat']}
 
 names = {'fisher' : ['CosmicFish','MontePython Fisher']}
 

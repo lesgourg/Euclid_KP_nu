@@ -8,21 +8,21 @@ PYTHON=python3
 
 # Select here the probe (photometric/spectroscopic)
 #
-#PROBE=photometric
-#PROBE_SHORT=photo
-#LKL=euclid_photometric_z
+PROBE=photometric
+PROBE_SHORT=photo
+LKL=euclid_photometric_z
 #
-PROBE=spectroscopic
-PROBE_SHORT=spec
-LKL=euclid_spectroscopic
+#PROBE=spectroscopic
+#PROBE_SHORT=spec
+#LKL=euclid_spectroscopic
 
 # Select here the case (pessimistic/optimistic)
 #
-CASE=pessimistic
-CASE_SHORT=pess
+#CASE=pessimistic
+#CASE_SHORT=pess
 
-#CASE=optimistic
-#CASE_SHORT=opt
+CASE=optimistic
+CASE_SHORT=opt
 
 # Select here the precision
 CLASS_PREC=HP

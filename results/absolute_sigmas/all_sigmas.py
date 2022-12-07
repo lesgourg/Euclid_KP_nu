@@ -11,7 +11,7 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 
 ################################################ Photo Pess #####################################
-paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_photo_pess'], 'fisher' : ['../../results/cosmicfish_internal/photometric/pessimistic/CosmicFish_v0.9_nulcdm_internal_class-Pessimistic-3PT_WLGCph_fishermatrix.txt','../../results/montepython_fisher/photometric/pessimistic/fisher.mat']}
+paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_photo_pess'], 'fisher' : ['../../results/cosmicfish_internal/photometric/pessimistic/CosmicFish_v1.0_nulcdm_internal_class-Pessimistic-3PT_WLGCph_fishermatrix.txt','../../results/montepython_fisher/photometric/pessimistic/fisher.mat']}
 
 names = {'fisher' : ['CosmicFish','MontePython Fisher']}
 
@@ -21,7 +21,7 @@ df = create_tables(paths_dict=paths,names_dict=names,probe='WLxGCph')
 save_table(df,filename=filename)
 
 ################################################ Photo Opt#########################################
-paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_photo_opt'], 'fisher' : ['../../results/cosmicfish_internal/photometric/optimistic/CosmicFish_v0.9_nulcdm_internal_class-Optimistic-3PT_WLGCph_fishermatrix.txt','../../results/montepython_fisher/photometric/optimistic/fisher.mat']}
+paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_photo_opt'], 'fisher' : ['../../results/cosmicfish_internal/photometric/optimistic/CosmicFish_v1.0_nulcdm_internal_class-Optimistic-3PT_WLGCph_fishermatrix.txt','../../results/montepython_fisher/photometric/optimistic/fisher.mat']}
 
 names = {'fisher' : ['CosmicFish','MontePython Fisher']}
 
@@ -32,7 +32,7 @@ save_table(df,filename=filename)
 
 
 ################################################# Spec Pess ###############################################
-paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_spec_opt'], 'fisher' : ['../../results/cosmicfish_internal/spectroscopic/pessimistic/CosmicFish_v0.9_nulcdm_internal_class-Pessimistic-own_GCsp_fishermatrix.txt','../../results/montepython_fisher/spectroscopic/pessimistic/fisher.mat']}
+paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_spec_opt'], 'fisher' : ['../../results/cosmicfish_internal/spectroscopic/pessimistic/CosmicFish_v1.0_nulcdm_internal_class-Pessimistic-3PT_GCsp_fishermatrix.txt','../../results/montepython_fisher/spectroscopic/pessimistic/fisher.mat']}
 
 names = {'fisher' : ['CosmicFish','MontePython Fisher']}
 
@@ -43,7 +43,7 @@ save_table(df,filename=filename)
 
 
 ################################################# Spec Opt #################################################
-paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_spec_opt'], 'fisher' : ['../../results/cosmicfish_internal/spectroscopic/optimistic/CosmicFish_v0.9_nulcdm_internal_class-Optimistic-own_GCsp_fishermatrix.txt','../../results/montepython_fisher/spectroscopic/optimistic/fisher.mat']}
+paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_spec_opt'], 'fisher' : ['../../results/cosmicfish_internal/spectroscopic/optimistic/CosmicFish_v1.0_nulcdm_internal_class-Optimistic-3PT_GCsp_fishermatrix.txt','../../results/montepython_fisher/spectroscopic/optimistic/fisher.mat']}
 
 names = {'fisher' : ['CosmicFish','MontePython Fisher']}
 

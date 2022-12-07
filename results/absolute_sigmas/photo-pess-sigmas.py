@@ -11,9 +11,9 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 
 ################################################ Photo Pess #####################################
-paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_photo_pess'], 'fisher' : ['../../../fisher_for_public/All_Results/pessimistic/flat/EuclidISTF_GCph_WL_XC_nulcdm_flat_pessimistic.txt','../../results/cosmicfish_internal/photometric/pessimistic/CosmicFish_v0.9_nulcdm_internal_class-Pessimistic-3PT_WLGCph_fishermatrix.txt','../../results/montepython_fisher/photometric/pessimistic_HP/fisher.mat']}
+paths = {'mcmc' : ['../../results/montepython_mcmc/nulcdm_photo_pess'], 'fisher' : ['../../results/cosmicfish_internal/photometric/pessimistic/CosmicFish_v1.0_nulcdm_internal_class-Pessimistic-3PT_WLGCph_fishermatrix.txt','../../results/montepython_fisher/photometric/pessimistic_HP/fisher.mat']}
 
-names = {'fisher' : ['IST:Fisher','CosmicFish','MontePython Fisher']}
+names = {'fisher' : ['CosmicFish','MontePython Fisher']}
 
 filename = 'photo_pess'
 
