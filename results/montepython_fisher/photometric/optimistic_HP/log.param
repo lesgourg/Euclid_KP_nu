@@ -19,7 +19,7 @@ data.parameters['h']               = [0.6737,        0.1, 1.5,  1.65251623e-3,  
 data.parameters['n_s']             = [0.96605,       0.8, 1.2,  4.21609630e-4,    1, 'cosmo']
 data.parameters['sigma8']          = [0.81,          0.7, 0.9,  1.89590234e-4,    1, 'cosmo']
 data.parameters['N_eff_camb']      = [3.044,         0.,    6,  3.50354076e-2,    1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          5e-3,    1,        0.006,    1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          5e-3,  1,   3.893847e-03,    1, 'cosmo']
 data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,   9.413470e-05,    1, 'cosmo']
 
 # Nuisance parameter list

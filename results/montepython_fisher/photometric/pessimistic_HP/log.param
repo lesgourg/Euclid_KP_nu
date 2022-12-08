@@ -14,12 +14,12 @@ data.experiments=['euclid_photometric_z']
 
 
 # Cosmological parameter list
-data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.000267992,   1, 'cosmo']
-data.parameters['h']               = [0.6737,        0.1, 1.5,  0.002654705,   1, 'cosmo']
-data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.000958877,   1, 'cosmo']
-data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.000523797,   1, 'cosmo']
-data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.041604568,   1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          0.,    1,  0.014751514,   1, 'cosmo']
+data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.000267992,    1, 'cosmo']
+data.parameters['h']               = [0.6737,        0.1, 1.5,  0.002654705,     1, 'cosmo']
+data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.000958877,     1, 'cosmo']
+data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.000523797,    1, 'cosmo']
+data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.041604568,      1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          0.,    1,  0.007190402,     1, 'cosmo']
 data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.000306604,   1, 'cosmo']
 
 # Nuisance parameter list
