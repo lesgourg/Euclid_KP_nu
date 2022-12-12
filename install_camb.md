@@ -13,6 +13,4 @@ then:
 
     cd CAMB
     python3 setup.py install [--user]
-    cd fortran
-    make camb
     cd ../../Euclid_KP_nu

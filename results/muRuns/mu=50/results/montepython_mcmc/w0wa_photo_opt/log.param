@@ -1,0 +1,116 @@
+#-----CLASS v3.2.0 (branch: b'master', hash: b'aa92943e4ab86b56970953589b4897adf2bd0f99')-----
+
+#------Experiments to test (separated with commas)-----
+
+data.experiments=['euclid_photometric_z']
+
+#------ Parameter list -------
+
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+
+# Cosmological parameter list
+data.parameters['wa_fld']          = [ 0.,     -1.0,   1.0,  0.005,    1, 'cosmo']
+data.parameters['w0_fld']          = [-1.,     -1.5,  -0.5,  0.001,    1, 'cosmo']
+data.parameters['Omega_b']         = [0.05,     0.005, 1.,   0.0005,   1, 'cosmo']
+data.parameters['h']               = [0.67,     0.1,   1.5,  0.002,    1, 'cosmo']
+data.parameters['n_s']             = [0.96,     0.8,   1.2,  0.001,    1, 'cosmo']
+data.parameters['sigma8']          = [0.815584, 0.7,   0.9,  0.00025,   1, 'cosmo']
+data.parameters['N_eff_camb']      = [3.046,    0.,    6,    0.0,      1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,     0.,    1,    0.0,      1, 'cosmo']
+data.parameters['Omega_m_camb']    = [0.32,     0.005, 1,    0.0005,   1, 'cosmo']
+
+# Nuisance parameter list
+# Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
+# Arbitrary limits for faster convergence in MCMC
+data.parameters['bias_1']	   = [1.0998,  None, None,   0.001,  1,  'nuisance']
+data.parameters['bias_2']	   = [1.2202,  None, None,   0.002,  1,  'nuisance']
+data.parameters['bias_3']	   = [1.2724,  None, None,   0.002,  1,  'nuisance']
+data.parameters['bias_4']	   = [1.3166,  None, None,   0.002,  1,  'nuisance']
+data.parameters['bias_5']	   = [1.3581,  None, None,   0.002,  1,  'nuisance']
+data.parameters['bias_6']	   = [1.3998,  None, None,   0.002,  1,  'nuisance']
+data.parameters['bias_7']	   = [1.4446,  None, None,   0.002,  1,  'nuisance']
+data.parameters['bias_8']	   = [1.4965,  None, None,   0.002,  1,  'nuisance']
+data.parameters['bias_9']	   = [1.5652,  None, None,   0.002,  1,  'nuisance']
+data.parameters['bias_10']	   = [1.743,   None, None,   0.002,  1,  'nuisance']
+
+# limits of 3sigma (according to IST-opt), except a_IA!>0
+# or fix to fiducial value by setting sigma to 0
+data.parameters['aIA']             = [1.72,      0,     12.1,  0.0172,      1, 'nuisance']
+data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.02,      1, 'nuisance']
+#data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.1,      1, 'nuisance']
+data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.,      1, 'nuisance']
+
+
+# Fixed parameter list
+data.cosmo_arguments['T_ncdm'] = 2.7255
+data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['YHe'] = 0.2454006
+data.cosmo_arguments['reio_parametrization'] = 'reio_none'
+data.cosmo_arguments['Omega_Lambda'] = 0.0
+
+# precision parameters
+data.cosmo_arguments['k_per_decade_for_pk'] = 50
+data.cosmo_arguments['k_per_decade_for_bao'] = 50
+
+data.cosmo_arguments['non linear'] = 'halofit'
+data.cosmo_arguments['nonlinear_min_k_max'] = 80.
+data.cosmo_arguments['halofit_min_k_nonlinear'] = 3.282e-3
+
+# HP settings
+#data.cosmo_arguments['l_max_g'] = 20
+#data.cosmo_arguments['l_max_pol_g'] = 15
+#data.cosmo_arguments['radiation_streaming_approximation'] = 2
+#data.cosmo_arguments['radiation_streaming_trigger_tau_over_tau_k'] = 240.
+#data.cosmo_arguments['radiation_streaming_trigger_tau_c_over_tau'] = 100.
+#data.cosmo_arguments['tol_ncdm_synchronous'] = 1.e-5
+#data.cosmo_arguments['l_max_ncdm'] = 22
+#data.cosmo_arguments['ncdm_fluid_trigger_tau_over_tau_k'] = 41.
+
+
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
+
+
+#-----Likelihood-euclid_photometric_z-----
+euclid_photometric_z.data_directory = '/rwthfs/rz/cluster/home/zi440042/euclid/w0wa/montepython/data'
+euclid_photometric_z.fiducial_file = 'euclid_xc_fiducial.dat'
+euclid_photometric_z.probe = ['WL_GCph_XC']
+euclid_photometric_z.lmin = 10
+euclid_photometric_z.lmax_WL = 5000
+euclid_photometric_z.lmax_GC = 3000
+euclid_photometric_z.lmax_XC = 3000
+euclid_photometric_z.lbin = 100
+euclid_photometric_z.zmin = 0.001
+euclid_photometric_z.zmax = 2.5
+euclid_photometric_z.nbin = 10
+euclid_photometric_z.fsky = 0.3636
+euclid_photometric_z.gal_per_sqarcmn = 30.0
+euclid_photometric_z.nzmax = 200
+euclid_photometric_z.rms_shear = 0.3
+euclid_photometric_z.use_halofit = False
+euclid_photometric_z.k_min_h_by_Mpc = 0.001
+euclid_photometric_z.k_max_h_by_Mpc = 50.0
+euclid_photometric_z.scale_dependent_f = False
+euclid_photometric_z.bias_model = 'binned'
+
+
+#-----------Cosmological-arguments---------
+data.cosmo_arguments.update({'T_ncdm': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'Omega_Lambda': 0.0, 'k_per_decade_for_pk': 50, 'k_per_decade_for_bao': 50, 'non linear': 'halofit', 'nonlinear_min_k_max': 80.0, 'halofit_min_k_nonlinear': 0.003282, 'output': ' mPk ', 'z_max_pk': 2.5, 'P_k_max_1/Mpc': 75.0})
+
+
+#--------Default-Configuration------
+data.path['root']	= '/rwthfs/rz/cluster/home/zi440042/euclid/w0wa/montepython'
+data.path['MontePython']	= '/rwthfs/rz/cluster/home/zi440042/euclid/w0wa/montepython/montepython'
+data.path['data']	= '/rwthfs/rz/cluster/home/zi440042/euclid/w0wa/montepython/data'
+data.path['cosmo']	= '/home/zi440042/class-codes/class-public'
+data.path['clik']	= '/home/zi440042/class-codes/planck/code/plc_3.0/plc-3.01'

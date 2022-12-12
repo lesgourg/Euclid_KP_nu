@@ -1,0 +1,81 @@
+**Git version commit: 238b5a1012ffd46ba318499542e8a698dd20a203 
+**Observables: GCsp 
+### CosmicFish settings ###
+AP_effect:True
+accuracy:1
+activateMG:False
+bfs8terms:True
+boltzmann_yaml_path:/home/sabarish/euclid/cosmicfish_reloaded/cosmicfishpie/fishermatrix/../../boltzmann_yaml_files
+camb_config_yaml:./boltzmann_yaml_files/camb/default.yaml
+camb_path:/home/sabarish/miniconda3/envs/kpnu/lib/python3.9/site-packages/camb-1.3.4-py3.9.egg/camb
+class_config_yaml:./boltzmann_yaml_files/class/default.yaml
+code:external
+cosmo_model:w0waCDM
+derivatives:own
+feedback:1
+fishermatrix_file_extension:.txt
+nonlinear:True
+outroot:w0wa_external_camb-Optimistic-own_HP
+results_dir:../../results/cosmicfish_external/spectroscopic/optimistic/
+savgol_internalkmin:0.001
+savgol_internalsamples:800
+savgol_polyorder:3
+savgol_width:1.358528901113328
+savgol_window:101
+specs_dir:./survey_specifications/
+survey_name:Euclid-ISTF-Optimistic
+### Fiducial parameters ###
+Neff:3.046
+Omegab:0.05
+Omegam:0.32
+h:0.67
+mnu:0.06
+ns:0.96
+sigma8:0.815584
+w0:-1.0
+wa:0.0
+### Free parameters ###
+Omegab:0.05
+Omegam:0.32
+Ps_1:0
+Ps_2:0
+Ps_3:0
+Ps_4:0
+h:0.67
+lnbgs8_1:-0.3254202344014366
+lnbgs8_2:-0.31590689414186507
+lnbgs8_3:-0.3115368838951083
+lnbgs8_4:-0.3201779980391533
+ns:0.96
+sigma8:0.815584
+w0:-1.0
+wa:0.0
+### Survey specifications ###
+area_survey:15000
+bias_model:binned
+binrange:range(1, 11)
+ellipt_error:0.3
+fsky_GCph:0.35
+fsky_WL:0.35
+kmax:0.3
+kmax_GCsp:0.3
+kmin:0.001
+kmin_GCsp:0.001
+lmax_GCph:3000
+lmax_WL:5000
+lmin_GCph:10
+lmin_WL:10
+ngal_sqarmin:30
+ngalbin:[35454308.58012684 35454308.58012684 35454308.58012684 35454308.58012684
+ 35454308.58012684 35454308.58012684 35454308.58012684 35454308.58012684
+ 35454308.58012684 35454308.58012684]
+ngamma:1.5
+spec_sigma_dz:0.001
+survey_name:Euclid-ISTF-Optimistic
+vary_IA_pars:0.06
+vary_ph_bias:0.06
+z0:0.6363961030678927
+z0_p:0.6363961030678927
+z_bins:[1.000e-03 4.180e-01 5.600e-01 6.780e-01 7.890e-01 9.000e-01 1.019e+00
+ 1.155e+00 1.324e+00 1.576e+00 2.500e+00]
+zm:0.9

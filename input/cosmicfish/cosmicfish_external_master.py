@@ -1,6 +1,5 @@
 #Initializing params and modules
 import os, sys
-from git import Repo
 from time import time
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 sys.path.append('../../../cosmicfish_reloaded/')
@@ -12,27 +11,22 @@ from cosmicfishpie.fishermatrix import cosmicfish
 #Dictionaries for translation
 
 obs_dict = {'GCsp' : ['GCsp'], 'WLxGCph' : ['WL', 'GCph'], 'WL' : ['WL'], 'GCph' : ['GCph']}
-derivatives_default = {'GCsp' : 'own' , 'WL' : '3PT','WLxGCph' : '3PT','GCph' : '3PT','WL':'3PT' }
-paths_dict = {'WL':'lensing','WLxGCph':'photometric','GCsp':'spectroscopic'}
-ext_default = '../../../input_4_cast/output/default_{codename}_{branch}_euclid_WP3_{precision}/'
+derivatives_default = {'GCsp' : '3PT' , 'WLxGCph' : '3PT','GCph' : '3PT','WL':'3PT' }
+paths_dict = {'WL':'wl_only','WLxGCph':'photometric','GCsp':'spectroscopic'}
+ext_default = '../../../input_4_cast/output/{codename}_nulcdm_WP3_{precision}'
 precision_def = ['HP']
-try :
-    repo = Repo('../../')
-    branch_name = str(repo.active_branch)
-except :
-    branch_name = ''
 
 ###################################################
 
-def external_runs(observables,codes_list,specifications,precision_list=precision_def,derivatives_dictionary=derivatives_default,branch=branch_name,name='') :
+def external_runs(observables,codes_list,specifications,precision_list=precision_def,derivatives_dictionary=derivatives_default,name='') :
 
     derivatives_default.update(derivatives_dictionary)
     derivatives_dict = derivatives_default.copy()
     start_time = time()
-    options = {'derivatives': 'own',
+    options = {'derivatives': '3PT',
             'accuracy': 1,
             'feedback': 1,
-            'outroot': 'varying_mnu',
+            'outroot': 'nulcdm',
             'survey_name': 'Euclid',
             'cosmo_model' : 'LCDM',
             'code':'external',
@@ -57,7 +51,13 @@ def external_runs(observables,codes_list,specifications,precision_list=precision
                 'k-units' : 'h/Mpc',
                 'r-units' : 'Mpc',
                 'eps_values': [0.00625, 0.01, 0.0125, 0.01875, 0.02, 0.025, 0.03, 0.0375, 0.05, 0.10]}
-
+#I dont know why i need to do this twice ask Santiago
+    envkey = 'OMP_NUM_THREADS'
+    print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))
+    os.environ[envkey] = str(8)
+    os.environ[envkey] = str(8)
+    print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))
+    
     for precision in precision_list :
         for code in codes_list :
             for obs in observables :
@@ -73,11 +73,11 @@ def external_runs(observables,codes_list,specifications,precision_list=precision
                     options.update({ 
                                     'derivatives' : derivatives_dict[obs],
                                     'survey_name': 'Euclid-ISTF-'+specifs,
-                                    'outroot'  : 'varying_mnu_'+'_external_'+code+'-'+specifs+'-'+derivatives_dict[obs] + '_' + precision + name,
+                                    'outroot'  : 'nulcdm'+'_external_'+code+'-'+specifs+'-'+derivatives_dict[obs] + '_' + precision + name,
                                     'code': 'external',
                                     'results_dir' : '../../results/cosmicfish_external/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
                                     })
-                    external.update({'directory':ext_default.format(codename=code,precision=precision,branch=branch)
+                    external.update({'directory':ext_default.format(codename=code,precision=precision)
                                         })
                     print("Reading from dir: ", external['directory']) 
                     print(' *****************External Run: ******{coden}--{obsn}--{specn}****************'.format(coden=code, obsn=obs, specn=specifs))

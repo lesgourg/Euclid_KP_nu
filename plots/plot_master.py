@@ -10,7 +10,7 @@ snscolors=sns.color_palette("Set1")
 # , 'boltzmann' : 'class'}
 def fisher_path(dict) :
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
-        derivatives_default = {'gcsp' : 'own' , 'wl' : '3PT','wlxgcph' : '3PT','gcph' : '3PT'}
+        derivatives_default = {'gcsp' : '3PT' , 'wl' : '3PT','wlxgcph' : '3PT','gcph' : '3PT'}
         probe_path = {'wl':'wl_only','wlxgcph':'photometric','gcsp':'spectroscopic'}
         resultsdir = '../results'
 
@@ -21,7 +21,7 @@ def fisher_path(dict) :
                 path = os.path.join(path,'fisher.mat')
 
         elif 'cosmicfish' in dict['code'].lower() or dict['code'].lower() == 'cf' :
-                probe_filename = {'wlxgcph':'WLGCph','gcsp':'GCsp','wl':'WL'} 
+                probe_filename = {'wlxgcph':'WLGCph','gcsp':'GCsp','wl':'WL'}
                 probe_dir = probe_path[dict['probe'].lower()]
                 specs_dir = dict['specs'].lower()
                 mode = dict['mode'].lower()
@@ -35,13 +35,14 @@ def fisher_path(dict) :
                 else :
                         dr = derivatives_default[dict['probe'].lower()]
 
-                filename = 'CosmicFish_v0.9_varying_mnu__'+mode+'_'+code+'-'+ specs +'-'+ dr +'_' + \
+                filename = 'CosmicFish_v1.0_w0wa_'+mode+'_'+code+'-'+ specs +'-'+ dr +'_' + \
                           precision + probe_filename[dict['probe'].lower()] +'_'+'fishermatrix.txt'
                 path = os.path.join(resultsdir,'cosmicfish'+'_'+mode,probe_dir,specs_dir,filename)
         return os.path.realpath(path)
 
 
-def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',error_only=False):
+def plotter(fish_files, labels, pars, outpath='automatic',
+            script_name='automatic', error_only=False, compare_errors_dict=dict()):
 
     fish_files = [os.path.abspath(i) for i in fish_files] ## This is evaluated at old CWD
     os.chdir(os.path.dirname(os.path.realpath(__file__))) ## CWD changes
@@ -50,9 +51,10 @@ def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',e
     from cosmicfishpie.analysis import fisher_plotting as cfp
     from cosmicfishpie.analysis import fisher_matrix as cfm
     print('\n\n')
-    print('Fishers are located at\n')
-    print(fish_files[0],'\n')
-    print(fish_files[1],'\n')
+    print('----> Fishers are located at ----> \n')
+    for fi in fish_files:
+        print(fi,'\n')
+    #print(fish_files[1],'\n')
     if outpath == 'automatic' :
         outpath = inspect.stack()[1][1]
         outpath = Path(outpath).parent
@@ -67,7 +69,7 @@ def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',e
         print(script_name)
     else : pass
 
-    cosmo_names = ['Neff', 'mnu', 'Omegam', 'Omegab', 'ns', 'h','sigma8']
+    cosmo_names = ['Omegam', 'Omegab', 'ns', 'h','sigma8','mnu','Neff']
     nuisance_names = list( set(pars) - set(cosmo_names)  )
     fgroup=cfa.CosmicFish_FisherAnalysis()
     for fii in fish_files:
@@ -79,6 +81,7 @@ def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',e
         fgroup.add_fisher_matrix(ftemp)
 
 #     #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     COSMO + Nuisance      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     cutnames=pars
 
     fgroupRe = fgroup.reshuffle(params=cutnames, update_names=False)
@@ -92,18 +95,21 @@ def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',e
             'plot_method': 'Gaussian',
             'axis_custom_factors' : {'all':4},
             'outpath': outpath,
-            'outroot': script_name + '_' + 'cosmo_and_nuisance'
+            'outroot': script_name + '_' + 'cosmo_and_nuisance',
+            'param_labels' : pars
             }
-
+    compare_errors_dict_opts = {'save_error':True}
+    compare_errors_dict_opts.update(compare_errors_dict)
     fish_plotter = cfp.fisher_plotting(**pessions)
     if error_only :
-        fish_plotter.compare_errors({'save_error':True})
+        fish_plotter.compare_errors(compare_errors_dict_opts)
     else :
         fish_plotter.load_gaussians()
         fish_plotter.plot_fisher(filled=True)
-        fish_plotter.compare_errors({'save_error':True})
-        fish_plotter.matrix_ratio()
+        fish_plotter.compare_errors(compare_errors_dict_opts)
+        #fish_plotter.matrix_ratio()
 
+    return
 
 #     #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    COSMO marginalizing Nuisance   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     cutnames=pars
@@ -124,12 +130,11 @@ def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',e
 
     fish_plotter = cfp.fisher_plotting(**pessions)
     if error_only :
-        fish_plotter.compare_errors({'save_error':True})
+        fish_plotter.compare_errors(compare_errors_dict_opts)
     else :
         fish_plotter.load_gaussians()
         fish_plotter.plot_fisher(filled=True)
-        fish_plotter.compare_errors({'save_error':True})
-
+        fish_plotter.compare_errors(compare_errors_dict_opts)
 
 
 
@@ -152,11 +157,11 @@ def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',e
 
     fish_plotter = cfp.fisher_plotting(**pessions)
     if error_only :
-        fish_plotter.compare_errors({'save_error':True})
+        fish_plotter.compare_errors(compare_errors_dict_opts)
     else :
         fish_plotter.load_gaussians()
         fish_plotter.plot_fisher(filled=True)
-        fish_plotter.compare_errors({'save_error':True})
+        fish_plotter.compare_errors(compare_errors_dict_opts)
 
     #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     Nuisance fixing cosmo     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     cutnames=nuisance_names
@@ -177,8 +182,8 @@ def plotter(fish_files,labels,pars,outpath='automatic',script_name='automatic',e
 
     fish_plotter = cfp.fisher_plotting(**pessions)
     if error_only :
-        fish_plotter.compare_errors({'save_error':True})
+        fish_plotter.compare_errors(compare_errors_dict_opts)
     else :
         fish_plotter.load_gaussians()
         fish_plotter.plot_fisher(filled=True)
-        fish_plotter.compare_errors({'save_error':True})
+        fish_plotter.compare_errors(compare_errors_dict_opts)
