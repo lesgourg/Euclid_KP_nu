@@ -50,7 +50,7 @@ def external_runs(observables,codes_list,specifications,precision_list=precision
                 'folder_paramnames': ['Om', 'Ob', 'h', 'ns', 's8', 'Mnu','Neff'],
                 'k-units' : 'h/Mpc',
                 'r-units' : 'Mpc',
-                'eps_values': [0.00625, 0.01, 0.0125, 0.01875, 0.02, 0.025, 0.03, 0.0375, 0.05, 0.10]}
+                'eps_values': [0.01,0.10]}
 #I dont know why i need to do this twice ask Santiago
     envkey = 'OMP_NUM_THREADS'
     print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))

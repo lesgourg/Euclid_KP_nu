@@ -1,6 +1,6 @@
 #------Experiments to test (separated with commas)-----
 
-data.experiments=['euclid_photometric']
+data.experiments=['euclid_photometric_z']
 
 #------ Parameter list -------
 
@@ -12,34 +12,36 @@ data.experiments=['euclid_photometric']
 
 
 # Cosmological parameter list
-data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.0015,    1, 'cosmo']
-data.parameters['h']               = [0.6737,        0.1, 1.5,  0.0075,     1, 'cosmo']
-data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.0055,     1, 'cosmo']
-data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.001,    1, 'cosmo']
-data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.15,      1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          0.,    1,  0.03,     1, 'cosmo']
-data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.001,   1, 'cosmo']
+data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.000267992,   1, 'cosmo']
+data.parameters['h']               = [0.6737,        0.1, 1.5,  0.002654705,   1, 'cosmo']
+data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.000958877,   1, 'cosmo']
+data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.000523797,   1, 'cosmo']
+data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.041604568,   1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          0.,    1,  0.007190402,   1, 'cosmo']
+data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.000306604,   1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
 # Arbitrary limits for faster convergence in MCMC
-data.parameters['bias_1']	   = [1.0998,  None, None,   0.003,  1,  'nuisance']
-data.parameters['bias_2']	   = [1.2202,  None, None,   0.003,  1,  'nuisance']
-data.parameters['bias_3']	   = [1.2724,  None, None,   0.003,  1,  'nuisance']
-data.parameters['bias_4']	   = [1.3166,  None, None,   0.003,  1,  'nuisance']
-data.parameters['bias_5']	   = [1.3581,  None, None,   0.003,  1,  'nuisance']
-data.parameters['bias_6']	   = [1.3998,  None, None,   0.003,  1,  'nuisance']
-data.parameters['bias_7']	   = [1.4446,  None, None,   0.003,  1,  'nuisance']
-data.parameters['bias_8']	   = [1.4965,  None, None,   0.004,  1,  'nuisance']
-data.parameters['bias_9']	   = [1.5652,  None, None,   0.005,  1,  'nuisance']
-data.parameters['bias_10']	   = [1.743,  None, None,   0.006,  1,  'nuisance']
+data.parameters['bias_1']	   = [1.0998,  None, None,   0.000763673,  1,  'nuisance']
+data.parameters['bias_2']	   = [1.2202,  None, None,   0.000710685,  1,  'nuisance']
+data.parameters['bias_3']	   = [1.2724,  None, None,   0.000712390,  1,  'nuisance']
+data.parameters['bias_4']	   = [1.3166,  None, None,   0.000714635,  1,  'nuisance']
+data.parameters['bias_5']	   = [1.3581,  None, None,   0.000728128,  1,  'nuisance']
+data.parameters['bias_6']	   = [1.3998,  None, None,   0.000735309,  1,  'nuisance']
+data.parameters['bias_7']	   = [1.4446,  None, None,   0.000761696,  1,  'nuisance']
+data.parameters['bias_8']	   = [1.4965,  None, None,   0.000748879,  1,  'nuisance']
+data.parameters['bias_9']	   = [1.5652,  None, None,   0.000759071,  1,  'nuisance']
+data.parameters['bias_10']	   = [1.743,  None, None,    0.000814293,  1,  'nuisance']
 
 # limits of 3sigma (according to IST-opt), except a_IA!>0
 # or fix to fiducial value by setting sigma to 0
-data.parameters['aIA']             = [1.72,      0,     12.1,  0.0172,      1, 'nuisance']
-data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.03,      1, 'nuisance']
+#data.parameters['aIA']             = [1.72,      0,     12.1,  0.0172,      1, 'nuisance']
 #data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.1,      1, 'nuisance']
-data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.,      1, 'nuisance']
+#data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.03,      1, 'nuisance']
+data.parameters['aIA']             = [1.72,      0,     12.1,  0.018163164,      1, 'nuisance']
+data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.011060753,      1, 'nuisance']
+data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.0,      1, 'nuisance']
 
 # Fixed parameter list
 data.cosmo_arguments['T_ncdm'] = 2.7255
@@ -51,9 +53,8 @@ data.cosmo_arguments['reio_parametrization'] = 'reio_none'
 data.cosmo_arguments['k_per_decade_for_pk'] = 50
 data.cosmo_arguments['k_per_decade_for_bao'] = 50
 
-data.cosmo_arguments['non linear'] = 'halofit'
+data.cosmo_arguments['non linear'] = 'hmcode'
 data.cosmo_arguments['nonlinear_min_k_max'] = 80.
-data.cosmo_arguments['halofit_min_k_nonlinear'] = 3.282e-3
 
 # HP settings
 data.cosmo_arguments['l_max_g'] = 20
@@ -64,6 +65,11 @@ data.cosmo_arguments['radiation_streaming_trigger_tau_c_over_tau'] = 100.
 data.cosmo_arguments['tol_ncdm_synchronous'] = 1.e-5
 data.cosmo_arguments['l_max_ncdm'] = 22
 data.cosmo_arguments['ncdm_fluid_trigger_tau_over_tau_k'] = 41.
+
+data.cosmo_arguments['background_Nloga'] = 6000
+data.cosmo_arguments['thermo_Nz_log'] = 20000
+data.cosmo_arguments['thermo_Nz_lin'] = 40000
+data.cosmo_arguments['tol_perturbations_integration'] = 1.e-6
 
 #------ Mcmc parameters ----
 # Number of steps taken, by default (overwritten by the -N command)

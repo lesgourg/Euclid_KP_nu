@@ -10,7 +10,7 @@ NUMERICS:
   'zsamples': 100
 COSMO_SETTINGS:   ## Massive neutrino baseline model
   'share_delta_neff' : True
-  'halofit_version' : 'mead2020'
+  'halofit_version' : 9
   'dark_energy_model' : 'ppf'
   'num_nu_massive' : 1
   'TCMB': 2.7255
@@ -23,6 +23,7 @@ COSMO_SETTINGS:   ## Massive neutrino baseline model
   'Want_cl_2D_array' : False
   'DoLateRadTruncation': True
   'DoLensing': False
+
 LCDM:
   'Omegak' : 0.
   'tau' : 0.058
