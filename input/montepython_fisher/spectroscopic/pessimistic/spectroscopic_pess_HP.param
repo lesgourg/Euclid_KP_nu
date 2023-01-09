@@ -57,8 +57,8 @@ data.cosmo_arguments['radiation_streaming_approximation'] = 2
 data.cosmo_arguments['radiation_streaming_trigger_tau_over_tau_k'] = 240.
 data.cosmo_arguments['radiation_streaming_trigger_tau_c_over_tau'] = 100.
 data.cosmo_arguments['tol_ncdm_synchronous'] = 1.e-5
-data.cosmo_arguments['l_max_ncdm'] = 22
-data.cosmo_arguments['ncdm_fluid_trigger_tau_over_tau_k'] = 41.
+data.cosmo_arguments['l_max_ncdm'] = 40
+data.cosmo_arguments['ncdm_fluid_trigger_tau_over_tau_k'] = 90.
 
 
 #------ Mcmc parameters ----

@@ -1,4 +1,4 @@
-#-----CLASS v3.2.0 (branch: b'hmcode_2020_24112022', hash: b'068dc47041f8ac908c0f37949b39ea4daaacd756')-----
+#-----CLASS v3.2.0 (branch: b'hmcode_2020', hash: b'46359503496302339506e1c26f83006f23e9222d')-----
 
 #------Experiments to test (separated with commas)-----
 
@@ -59,8 +59,8 @@ data.cosmo_arguments['k_per_decade_for_bao'] = 50
 data.cosmo_arguments['non linear'] = 'hmcode'
 
 data.cosmo_arguments['nonlinear_min_k_max'] = 80.
-data.cosmo_arguments['halofit_min_k_nonlinear'] = 3.282e-3
 data.cosmo_arguments['P_k_max_1/Mpc']= 50
+data.cosmo_arguments['hmcode_tol_sigma']= 1.e-7
 
 # HP settings
 data.cosmo_arguments['l_max_g'] = 20
@@ -69,8 +69,8 @@ data.cosmo_arguments['radiation_streaming_approximation'] = 2
 data.cosmo_arguments['radiation_streaming_trigger_tau_over_tau_k'] = 240.
 data.cosmo_arguments['radiation_streaming_trigger_tau_c_over_tau'] = 100.
 data.cosmo_arguments['tol_ncdm_synchronous'] = 1.e-5
-data.cosmo_arguments['l_max_ncdm'] = 22
-data.cosmo_arguments['ncdm_fluid_trigger_tau_over_tau_k'] = 41.
+data.cosmo_arguments['l_max_ncdm'] = 40
+data.cosmo_arguments['ncdm_fluid_trigger_tau_over_tau_k'] = 90.
 
 # ODEHP settings (ODE high precision)
 data.cosmo_arguments['background_Nloga'] = 6000
@@ -110,7 +110,7 @@ euclid_photometric_z.bias_model = 'binned'
 
 
 #-----------Cosmological-arguments---------
-data.cosmo_arguments.update({'T_ncdm': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'k_per_decade_for_pk': 50, 'k_per_decade_for_bao': 50, 'non linear': 'hmcode', 'nonlinear_min_k_max': 80.0, 'halofit_min_k_nonlinear': 0.003282, 'P_k_max_1/Mpc': 75.0, 'l_max_g': 20, 'l_max_pol_g': 15, 'radiation_streaming_approximation': 2, 'radiation_streaming_trigger_tau_over_tau_k': 240.0, 'radiation_streaming_trigger_tau_c_over_tau': 100.0, 'tol_ncdm_synchronous': 1e-05, 'l_max_ncdm': 22, 'ncdm_fluid_trigger_tau_over_tau_k': 41.0, 'background_Nloga': 6000, 'thermo_Nz_log': 20000, 'thermo_Nz_lin': 40000, 'tol_perturbations_integration': 1e-06, 'output': ' mPk ', 'z_max_pk': 2.5})
+data.cosmo_arguments.update({'T_ncdm': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'k_per_decade_for_pk': 50, 'k_per_decade_for_bao': 50, 'non linear': 'hmcode', 'nonlinear_min_k_max': 80.0, 'P_k_max_1/Mpc': 75.0, 'hmcode_tol_sigma': 1e-07, 'l_max_g': 20, 'l_max_pol_g': 15, 'radiation_streaming_approximation': 2, 'radiation_streaming_trigger_tau_over_tau_k': 240.0, 'radiation_streaming_trigger_tau_c_over_tau': 100.0, 'tol_ncdm_synchronous': 1e-05, 'l_max_ncdm': 40, 'ncdm_fluid_trigger_tau_over_tau_k': 90.0, 'background_Nloga': 6000, 'thermo_Nz_log': 20000, 'thermo_Nz_lin': 40000, 'tol_perturbations_integration': 1e-06, 'output': ' mPk ', 'z_max_pk': 2.5})
 
 
 #--------Default-Configuration------

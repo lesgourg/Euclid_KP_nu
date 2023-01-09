@@ -18,11 +18,11 @@ LKL=euclid_photometric_z
 
 # Select here the case (pessimistic/optimistic)
 #
-#CASE=pessimistic
-#CASE_SHORT=pess
+CASE=pessimistic
+CASE_SHORT=pess
 #
-CASE=optimistic
-CASE_SHORT=opt
+#CASE=optimistic
+#CASE_SHORT=opt
 
 # Select here the precision
 CLASS_PREC=HP
