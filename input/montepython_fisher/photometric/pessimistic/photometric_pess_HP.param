@@ -39,8 +39,8 @@ data.parameters['bias_10']	   = [1.743,  None, None,    0.000846288,  1,  'nuisa
 #data.parameters['aIA']             = [1.72,      0,     12.1,  0.0172,      1, 'nuisance']
 #data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.1,      1, 'nuisance']
 #data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.03,      1, 'nuisance']
-data.parameters['aIA']             = [1.72,      0,     12.1,  0.010120912,      1, 'nuisance']
-data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.005051097,      1, 'nuisance']
+data.parameters['aIA']             = [1.72,      0,     12.1,  0.018163164,      1, 'nuisance']
+data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.011060753,      1, 'nuisance']
 data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.0,      1, 'nuisance']
 
 # Fixed parameter list
