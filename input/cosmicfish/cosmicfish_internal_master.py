@@ -2,7 +2,8 @@
 import os, sys
 from time import time
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
-sys.path.append('../../../cosmicfish_cb')
+sys.path.append('../../../cosmicfish_reloaded')
+#sys.path.append('../../../cosmicfish_cb')
 
 #Importing main module
 from cosmicfishpie.fishermatrix import cosmicfish
