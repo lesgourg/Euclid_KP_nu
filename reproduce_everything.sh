@@ -10,19 +10,19 @@ PYTHON=python3
 #
 PROBE=photometric
 PROBE_SHORT=photo
-LKL=euclid_photometric_z
+LKL=euclid_photometric_z_cb
 #
 #PROBE=spectroscopic
 #PROBE_SHORT=spec
-#LKL=euclid_spectroscopic
+#LKL=euclid_spectroscopic_cb
 
 # Select here the case (pessimistic/optimistic)
 #
-#CASE=pessimistic
-#CASE_SHORT=pess
+CASE=pessimistic
+CASE_SHORT=pess
 #
-CASE=optimistic
-CASE_SHORT=opt
+#CASE=optimistic
+#CASE_SHORT=opt
 
 # Select here the precision
 CLASS_PREC=HP
@@ -69,9 +69,11 @@ if [ "$answer" = "y" ] ; then
         cp montepython/likelihoods/$LKL/$LKL.data.$CASE montepython/likelihoods/$LKL/$LKL.data
         if [ "$PROBE" = "photometric" ] ; then
             rm data/euclid_xc_fiducial.dat
+            rm data/euclid_xc_cb_fiducial.dat
         fi
         if [ "$PROBE" = "spectroscopic" ] ; then
             rm data/euclid_pk_fiducial.dat
+            rm data/euclid_pk_cb_fiducial.dat
         fi
         rm -rf ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
         $PYTHON montepython/MontePython.py run -p ../Euclid_KP_nu/input/montepython_fisher/$PROBE/$CASE/${PROBE}_${CASE_SHORT}_${CLASS_PREC}.param -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} -f 0

@@ -1,6 +1,6 @@
 #------Experiments to test (separated with commas)-----
 
-data.experiments=['euclid_spectroscopic']
+data.experiments=['euclid_spectroscopic_cb']
 
 #------ Parameter list -------
 

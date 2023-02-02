@@ -1,4 +1,4 @@
-#-----CLASS v3.2.0 (branch: b'hmcode_2020', hash: b'46359503496302339506e1c26f83006f23e9222d')-----
+#-----CLASS v3.2.0 (branch: b'hmcode_2020_24112022', hash: b'068dc47041f8ac908c0f37949b39ea4daaacd756')-----
 
 #------Experiments to test (separated with commas)-----
 
@@ -90,7 +90,7 @@ euclid_spectroscopic.savgol_order = 3
 euclid_spectroscopic.use_halofit = False
 euclid_spectroscopic.dewiggle = 'savgol_filter'
 euclid_spectroscopic.h_fid = 0.67
-euclid_spectroscopic.scale_dependent_growth_factor_f = False
+euclid_spectroscopic.scale_dependent_growth_factor_f = True
 
 
 #-----------Cosmological-arguments---------
