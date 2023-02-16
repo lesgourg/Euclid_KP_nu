@@ -2,8 +2,8 @@
 import os, sys
 from time import time
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
-sys.path.append('../../../cosmicfish_reloaded')
-#sys.path.append('../../../cosmicfish_cb')
+#sys.path.append('../../../cosmicfish_reloaded')
+sys.path.append('../../../cosmicfish_cb')
 
 #Importing main module
 from cosmicfishpie.fishermatrix import cosmicfish
@@ -34,6 +34,7 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
             'class_config_yaml' : './boltzmann_yaml_files/class/default.yaml',
             'camb_config_yaml' : './boltzmann_yaml_files/camb/default.yaml',
             'results_dir': '../../results/cosmicfish_internal/'
+            #,'nonlinear':False
             }
 
 
@@ -68,7 +69,7 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
                 options.update({
                                 'derivatives' : derivatives_dict[obs],
                                 'survey_name': 'Euclid-ISTF-'+specifs,
-                                'outroot'  : 'nulcdm'+'_internal_'+code+'-'+specifs+'-'+derivatives_dict[obs]+name,
+                                'outroot'  : 'nulcdm'+'_internal_'+code+'-'+specifs+derivatives_dict[obs]+name,
                                 'code': code,
                                 'results_dir': '../../results/cosmicfish_internal/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
                             })

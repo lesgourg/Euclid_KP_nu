@@ -1,5 +1,5 @@
 **Git version commit: e851ef30a5b34b2f7a01643e164319c53d4f8fef 
-**Time needed for computation of Fisher matrix: 1019.245 seconds 
+**Time needed for computation of Fisher matrix: 957.664 seconds 
 **Observables: WLGCph 
 ### CosmicFish settings ###
 AP_effect:True
@@ -22,9 +22,9 @@ external_activateMG:False
 feedback:1
 fishermatrix_file_extension:.txt
 fix_cosmo_nl_terms:True
-nonlinear:True
+nonlinear:False
 nonlinear_photo:True
-outroot:nulcdm_internal_camb-Pessimistic-3PT
+outroot:nulcdm_internal_camb-Pessimistic-Linear-3PT
 results_dir:../../results/cosmicfish_internal/photometric/pessimistic/
 savgol_internalkmin:0.001
 savgol_internalsamples:800

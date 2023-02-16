@@ -12,35 +12,35 @@ data.experiments=['euclid_photometric_z_cb']
 
 
 # Cosmological parameter list
-data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.000339269,   1, 'cosmo']
-data.parameters['h']               = [0.6737,        0.1, 1.5,  0.005601531,   1, 'cosmo']
-data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.002416876,   1, 'cosmo']
-data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.000542131,   1, 'cosmo']
-data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.060918537,   1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          0.,    1,  0.008021163,   1, 'cosmo']
-data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.000340534,   1, 'cosmo']
+data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.000335865,   1, 'cosmo']
+data.parameters['h']               = [0.6737,        0.1, 1.5,  0.005361388,   1, 'cosmo']
+data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.002228723,   1, 'cosmo']
+data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.000422951,   1, 'cosmo']
+data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.061049015,   1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          0.,    1,  0.007817011,   1, 'cosmo']
+data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.000278786,   1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
 # Arbitrary limits for faster convergence in MCMC
-data.parameters['bias_1']	   = [1.0998,  None, None,   0.000854949,  1,  'nuisance']
-data.parameters['bias_2']	   = [1.2202,  None, None,   0.00079628,  1,  'nuisance']
-data.parameters['bias_3']	   = [1.2724,  None, None,   0.000787818,  1,  'nuisance']
-data.parameters['bias_4']	   = [1.3166,  None, None,   0.000782241,  1,  'nuisance']
-data.parameters['bias_5']	   = [1.3581,  None, None,   0.000788814,  1,  'nuisance']
-data.parameters['bias_6']	   = [1.3998,  None, None,   0.000790011,  1,  'nuisance']
-data.parameters['bias_7']	   = [1.4446,  None, None,   0.000810551,  1,  'nuisance']
-data.parameters['bias_8']	   = [1.4965,  None, None,   0.000794054,  1,  'nuisance']
-data.parameters['bias_9']	   = [1.5652,  None, None,   0.000798857,  1,  'nuisance']
-data.parameters['bias_10']	   = [1.743,  None, None,    0.000846288,  1,  'nuisance']
+data.parameters['bias_1']	   = [1.0998,  None, None,   0.000665245,  1,  'nuisance']
+data.parameters['bias_2']	   = [1.2202,  None, None,   0.000676157,  1,  'nuisance']
+data.parameters['bias_3']	   = [1.2724,  None, None,   0.000711225,  1,  'nuisance']
+data.parameters['bias_4']	   = [1.3166,  None, None,   0.000746222,  1,  'nuisance']
+data.parameters['bias_5']	   = [1.3581,  None, None,   0.000788296,  1,  'nuisance']
+data.parameters['bias_6']	   = [1.3998,  None, None,   0.000825648,  1,  'nuisance']
+data.parameters['bias_7']	   = [1.4446,  None, None,   0.000877294,  1,  'nuisance']
+data.parameters['bias_8']	   = [1.4965,  None, None,   0.000901816,  1,  'nuisance']
+data.parameters['bias_9']	   = [1.5652,  None, None,   0.000959492,  1,  'nuisance']
+data.parameters['bias_10']	   = [1.743,  None, None,    0.001102102,  1,  'nuisance']
 
 # limits of 3sigma (according to IST-opt), except a_IA!>0
 # or fix to fiducial value by setting sigma to 0
 #data.parameters['aIA']             = [1.72,      0,     12.1,  0.0172,      1, 'nuisance']
 #data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.1,      1, 'nuisance']
 #data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.03,      1, 'nuisance']
-data.parameters['aIA']             = [1.72,      0,     12.1,  0.018163164,      1, 'nuisance']
-data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.011060753,      1, 'nuisance']
+data.parameters['aIA']             = [1.72,      0,     12.1,  0.018113094,      1, 'nuisance']
+data.parameters['etaIA']           = [-0.41,     -7.0,  6.17,  0.011046615,      1, 'nuisance']
 data.parameters['betaIA']          = [2.17,      0.63,   5.0,  0.0,      1, 'nuisance']
 
 # Fixed parameter list

@@ -75,11 +75,11 @@ if [ "$answer" = "y" ] ; then
             rm data/euclid_pk_fiducial.dat
             rm data/euclid_pk_cb_fiducial.dat
         fi
-        rm -rf ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
-        $PYTHON montepython/MontePython.py run -p ../Euclid_KP_nu/input/montepython_fisher/$PROBE/$CASE/${PROBE}_${CASE_SHORT}_${CLASS_PREC}.param -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} -f 0
-        $PYTHON montepython/MontePython.py run -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} --fisher --fisher-step-it 1 --fisher-tol 10000
+        rm -rf ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}_Linear
+        $PYTHON montepython/MontePython.py run -p ../Euclid_KP_nu/input/montepython_fisher/$PROBE/$CASE/${PROBE}_${CASE_SHORT}_${CLASS_PREC}_Linear.param -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}_Linear -f 0
+        $PYTHON montepython/MontePython.py run -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}_Linear --fisher --fisher-step-it 1 --fisher-tol 10000
         cd ../Euclid_KP_nu
-        $PYTHON input/montepython_fisher/paramnames_for_cosmicfish.py results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
+        $PYTHON input/montepython_fisher/paramnames_for_cosmicfish.py results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}_Linear
     fi
 
     # TBD: run MCMC
