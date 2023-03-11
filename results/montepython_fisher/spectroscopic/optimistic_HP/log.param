@@ -1,4 +1,4 @@
-#-----CLASS v3.2.0 (branch: b'hmcode_2020_24112022', hash: b'068dc47041f8ac908c0f37949b39ea4daaacd756')-----
+#-----CLASS v3.2.0 (branch: b'class_nonlinear_sefa_camb', hash: b'8b4d4ee73e673b937fbae70cb4b64f120c3b2f43')-----
 
 #------Experiments to test (separated with commas)-----
 
@@ -30,10 +30,10 @@ data.parameters['P_shot0']  = [0,  None, None,   1.02267979e+00, 1, 'nuisance']
 data.parameters['P_shot1']  = [0,  None, None,   1.08221783e+00, 1, 'nuisance']
 data.parameters['P_shot2']  = [0,  None, None,   1.17235639e+00, 1, 'nuisance']
 data.parameters['P_shot3']  = [0,  None, None,   1.24880162e+00, 1, 'nuisance']
-data.parameters['lnbsigma8_0']  = [-0.3255807310587479,  None, None,   3.80728546e-04,  1,  'nuisance']
-data.parameters['lnbsigma8_1']  = [-0.3160462157381254,  None, None,   3.97502884e-04,  1,  'nuisance']
-data.parameters['lnbsigma8_2']  = [-0.3116576878035215,  None, None,   4.11570390e-04,  1,  'nuisance']
-data.parameters['lnbsigma8_3']  = [-0.320278300814655,  None, None,    4.24002620e-04,  1,  'nuisance']
+data.parameters['lnbsigma8_0']  = [-0.329357,  None, None,   3.80728546e-04,  1,  'nuisance']
+data.parameters['lnbsigma8_1']  = [-0.319616,  None, None,   3.97502884e-04,  1,  'nuisance']
+data.parameters['lnbsigma8_2']  = [-0.315075,  None, None,   4.11570390e-04,  1,  'nuisance']
+data.parameters['lnbsigma8_3']  = [-0.323559,  None, None,    4.24002620e-04,  1,  'nuisance']
 
 # Fixed parameter list
 data.cosmo_arguments['T_ncdm'] = 2.7255
@@ -90,7 +90,7 @@ euclid_spectroscopic.savgol_order = 3
 euclid_spectroscopic.use_halofit = False
 euclid_spectroscopic.dewiggle = 'savgol_filter'
 euclid_spectroscopic.h_fid = 0.67
-euclid_spectroscopic.scale_dependent_growth_factor_f = True
+euclid_spectroscopic.scale_dependent_growth_factor_f = False
 
 
 #-----------Cosmological-arguments---------

@@ -15,8 +15,8 @@ ACCURACY:
   'tol_perturbations_integration' : 1.e-6
 COSMO_SETTINGS:
   'P_k_max_1/Mpc': 50
-  'output' : 'mPk'
-  'non linear' : 'hmcode'
+  'output' : 'mPk,mTk'
+  'non linear' : 'hmcode2020'
   'z_max_pk' : 5.0
   'N_ncdm': 1
   'T_cmb' : 2.7255
