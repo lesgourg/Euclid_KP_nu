@@ -1,6 +1,6 @@
 #------Experiments to test (separated with commas)-----
 
-data.experiments=['euclid_spectroscopic']
+data.experiments=['euclid_spectroscopic_cb']
 
 #------ Parameter list -------
 
@@ -17,7 +17,7 @@ data.parameters['h']               = [0.6737,        0.1, 1.5,  1.45402540e-04, 
 data.parameters['n_s']             = [0.96605,       0.8, 1.2,  7.49269890e-04,  1, 'cosmo']
 data.parameters['sigma8']          = [0.81,          0.7, 0.9,  3.69664466e-04,  1, 'cosmo']
 data.parameters['N_eff_camb']      = [3.044,         0.,    6,  1.46655380e-02,  1, 'cosmo']
-data.parameters['m_nu_camb']     = [0.06,          0.,    1,    4.82942624e-03,  1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          0.,    1,  4.82942624e-03,  1, 'cosmo']
 data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  3.25007603e-04,  1, 'cosmo']
 
 # Nuisance parameter list
@@ -28,10 +28,10 @@ data.parameters['P_shot0']  = [0,  None, None,   1.02267979e+00, 1, 'nuisance']
 data.parameters['P_shot1']  = [0,  None, None,   1.08221783e+00, 1, 'nuisance']
 data.parameters['P_shot2']  = [0,  None, None,   1.17235639e+00, 1, 'nuisance']
 data.parameters['P_shot3']  = [0,  None, None,   1.24880162e+00, 1, 'nuisance']
-data.parameters['lnbsigma8_0']  = [-0.329357,  None, None,   3.80728546e-04,  1,  'nuisance']
-data.parameters['lnbsigma8_1']  = [-0.319616,  None, None,   3.97502884e-04,  1,  'nuisance']
-data.parameters['lnbsigma8_2']  = [-0.315075,  None, None,   4.11570390e-04,  1,  'nuisance']
-data.parameters['lnbsigma8_3']  = [-0.323559,  None, None,   4.24002620e-04,  1,  'nuisance']
+data.parameters['lnbsigma8_0']  = [-0.324980,  None, None,   3.80728546e-04,  1,  'nuisance']
+data.parameters['lnbsigma8_1']  = [-0.315229,  None, None,   3.97502884e-04,  1,  'nuisance']
+data.parameters['lnbsigma8_2']  = [-0.310679,  None, None,   4.11570390e-04,  1,  'nuisance']
+data.parameters['lnbsigma8_3']  = [-0.319153,  None, None,   4.24002620e-04,  1,  'nuisance']
 
 # Fixed parameter list
 data.cosmo_arguments['T_ncdm'] = 2.7255

@@ -9,7 +9,6 @@ NUMERICS:
   'zmax' : 5
   'zsamples': 100
 COSMO_SETTINGS:   ## Massive neutrino baseline model
-  'share_delta_neff' : True
   'halofit_version' : 9
   'dark_energy_model' : 'ppf'
   'num_nu_massive' : 1

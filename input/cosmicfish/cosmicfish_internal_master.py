@@ -32,8 +32,11 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
             'code':'class',
             'specs_dir' : './survey_specifications/',
             'class_config_yaml' : './boltzmann_yaml_files/class/default.yaml',
-            'camb_config_yaml' : './boltzmann_yaml_files/camb/defaultSP.yaml',
-            'results_dir': '../../results/cosmicfish_internal/'
+            'camb_config_yaml' : './boltzmann_yaml_files/camb/default.yaml',
+            'results_dir': '../../results/cosmicfish_internal/',
+            'GCsp_Tracer': 'clustering',
+            'GCph_Tracer': 'clustering',
+            'ShareDeltaNeff': False
             #,'nonlinear':False
             }
 
@@ -72,6 +75,7 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
                                 'outroot'  : 'nulcdm'+'_internal_'+code+'-'+specifs+'-'+derivatives_dict[obs]+name,
                                 'code': code,
                                 'results_dir': '../../results/cosmicfish_internal/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
+                                #'results_dir': '../../results_mm/cosmicfish_internal/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
                             })
 
                 print(' *****************Internal Run: ******{coden}--{obsn}--{specn}****************'.format(coden=code, obsn=obs, specn=specifs))
