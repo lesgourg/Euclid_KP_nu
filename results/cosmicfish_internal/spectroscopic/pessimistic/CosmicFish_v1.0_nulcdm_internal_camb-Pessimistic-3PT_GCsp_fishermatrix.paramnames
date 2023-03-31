@@ -9,10 +9,10 @@ ns    n_{\rm s}    0.966050
 sigma8    \sigma_8    0.810000
 mnu    M_\nu    0.060000
 Neff    N_\mathrm{eff}    3.044000
-lnbgs8_1    \ln(b_g \sigma_8)_1    -0.329352
-lnbgs8_2    \ln(b_g \sigma_8)_2    -0.319616
-lnbgs8_3    \ln(b_g \sigma_8)_3    -0.315081
-lnbgs8_4    \ln(b_g \sigma_8)_4    -0.323570
+lnbgs8_1    \ln(b_g \sigma_8)_1    -0.325045
+lnbgs8_2    \ln(b_g \sigma_8)_2    -0.315297
+lnbgs8_3    \ln(b_g \sigma_8)_3    -0.310750
+lnbgs8_4    \ln(b_g \sigma_8)_4    -0.319227
 Ps_1    P_{S1}    0.000000
 Ps_2    P_{S2}    0.000000
 Ps_3    P_{S3}    0.000000
