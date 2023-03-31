@@ -1,13 +1,13 @@
 **Git version commit: 5fb1d58ca14bfbc3e4957c2fff59e56df3866858 
-**Time needed for computation of Fisher matrix: 721.946 seconds 
-**Observables: WLGCph 
+**Time needed for computation of Fisher matrix: 4602.555 seconds 
+**Observables: GCsp 
 ### CosmicFish settings ###
 AP_effect:True
 FoG_switch:True
 GCph_Tracer:clustering
 GCsp_Tracer:clustering
 GCsp_linear:False
-Pshot_nuisance_fiducial:0.0
+Pshot_nuisance_fiducial:0
 ShareDeltaNeff:False
 accuracy:1
 activateMG:False
@@ -28,7 +28,7 @@ fix_cosmo_nl_terms:True
 nonlinear:True
 nonlinear_photo:True
 outroot:nulcdm_internal_class-Optimistic-3PT
-results_dir:../../results/cosmicfish_internal/photometric/optimistic/
+results_dir:../../results/cosmicfish_internal/spectroscopic/optimistic/
 savgol_internalkmin:0.001
 savgol_internalsamples:800
 savgol_polyorder:3
@@ -46,23 +46,18 @@ mnu:0.06
 ns:0.96605
 sigma8:0.81
 ### Free parameters ###
-AIA:0.06
 Neff:0.01
 Omegab:0.01
 Omegam:0.01
-b1:0.06
-b10:0.06
-b2:0.06
-b3:0.06
-b4:0.06
-b5:0.06
-b6:0.06
-b7:0.06
-b8:0.06
-b9:0.06
-betaIA:0.06
-etaIA:0.06
+Ps_1:0.0001
+Ps_2:0.0001
+Ps_3:0.0001
+Ps_4:0.0001
 h:0.01
+lnbgs8_1:0.0001
+lnbgs8_2:0.0001
+lnbgs8_3:0.0001
+lnbgs8_4:0.0001
 mnu:0.1
 ns:0.01
 sigma8:0.01
@@ -71,13 +66,12 @@ area_survey:15000
 bias_model:binned
 binrange:range(1, 11)
 ellipt_error:0.3
-ellmax:5000
-ellmin:10
 fsky_GCph:0.35
 fsky_WL:0.35
 gc_specs_files_dict:{'Euclid': 'Euclid_GCsp_IST.dat', 'SKA1': 'SKA1_GCsp_MDB2_Redbook.dat', 'SKA2': 'SKA2_GCsp.dat', 'DESI_ELG': 'DESI_ELG_GCsp.dat', 'SKA1 x DESI_ELG': 'DESI_ELG_GCsp.dat', 'DESI_BGS': 'DESI_BGS_GCsp.dat'}
-kmax:30.0
+kmax:0.3
 kmax_GCsp:0.3
+kmin:0.001
 kmin_GCsp:0.001
 lmax_GCph:3000
 lmax_WL:5000

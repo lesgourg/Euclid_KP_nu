@@ -2,7 +2,7 @@
 
 #------Experiments to test (separated with commas)-----
 
-data.experiments=['euclid_photometric_z_cb']
+data.experiments=['euclid_photometric_z']
 
 #------ Parameter list -------
 
@@ -84,32 +84,32 @@ data.N=10
 data.write_step=5
 
 
-#-----Likelihood-euclid_photometric_z_cb-----
-euclid_photometric_z_cb.data_directory = '/home/sefa/Schreibtisch/Masterarbeit/KPNu_HMCode/montepython/data'
-euclid_photometric_z_cb.fiducial_file = 'euclid_xc_cb_fiducial.dat'
-euclid_photometric_z_cb.probe = ['WL_GCph_XC']
-euclid_photometric_z_cb.lmin = 10
-euclid_photometric_z_cb.lmax_WL = 5000
-euclid_photometric_z_cb.lmax_GC = 3000
-euclid_photometric_z_cb.lmax_XC = 3000
-euclid_photometric_z_cb.lbin = 100
-euclid_photometric_z_cb.zmin = 0.001
-euclid_photometric_z_cb.zmax = 2.5
-euclid_photometric_z_cb.nbin = 10
-euclid_photometric_z_cb.fsky = 0.3636
-euclid_photometric_z_cb.gal_per_sqarcmn = 30.0
-euclid_photometric_z_cb.nzmax = 200
-euclid_photometric_z_cb.rms_shear = 0.3
-euclid_photometric_z_cb.use_halofit = False
-euclid_photometric_z_cb.k_min_h_by_Mpc = 0.001
-euclid_photometric_z_cb.k_max_h_by_Mpc = 50.0
-euclid_photometric_z_cb.scale_dependent_f = True
-euclid_photometric_z_cb.bias_model = 'binned'
-euclid_photometric_z_cb.use_multithreading = True
+#-----Likelihood-euclid_photometric_z-----
+euclid_photometric_z.data_directory = '/home/sefa/Schreibtisch/Masterarbeit/KPNu_HMCode/montepython/data'
+euclid_photometric_z.fiducial_file = 'euclid_xc_fiducial.dat'
+euclid_photometric_z.probe = ['WL_GCph_XC']
+euclid_photometric_z.lmin = 10
+euclid_photometric_z.lmax_WL = 5000
+euclid_photometric_z.lmax_GC = 3000
+euclid_photometric_z.lmax_XC = 3000
+euclid_photometric_z.lbin = 100
+euclid_photometric_z.zmin = 0.001
+euclid_photometric_z.zmax = 2.5
+euclid_photometric_z.nbin = 10
+euclid_photometric_z.fsky = 0.3636
+euclid_photometric_z.gal_per_sqarcmn = 30.0
+euclid_photometric_z.nzmax = 200
+euclid_photometric_z.rms_shear = 0.3
+euclid_photometric_z.use_halofit = False
+euclid_photometric_z.use_tracer = 'clustering'
+euclid_photometric_z.k_min_h_by_Mpc = 0.001
+euclid_photometric_z.k_max_h_by_Mpc = 50.0
+euclid_photometric_z.scale_dependent_f = True
+euclid_photometric_z.bias_model = 'binned'
 
 
 #-----------Cosmological-arguments---------
-data.cosmo_arguments.update({'T_ncdm': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'k_per_decade_for_pk': 50, 'k_per_decade_for_bao': 50, 'non linear': 'hmcode', 'nonlinear_min_k_max': 80.0, 'P_k_max_1/Mpc': 75.0, 'hmcode_tol_sigma': 1e-08, 'l_max_g': 20, 'l_max_pol_g': 15, 'radiation_streaming_approximation': 2, 'radiation_streaming_trigger_tau_over_tau_k': 240.0, 'radiation_streaming_trigger_tau_c_over_tau': 100.0, 'tol_ncdm_synchronous': 1e-05, 'l_max_ncdm': 40, 'ncdm_fluid_trigger_tau_over_tau_k': 90.0, 'background_Nloga': 6000, 'thermo_Nz_log': 20000, 'thermo_Nz_lin': 40000, 'tol_perturbations_integration': 1e-06, 'output': ' mPk,mTk ', 'z_max_pk': 2.5})
+data.cosmo_arguments.update({'T_ncdm': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'k_per_decade_for_pk': 50, 'k_per_decade_for_bao': 50, 'non linear': 'hmcode', 'nonlinear_min_k_max': 80.0, 'P_k_max_1/Mpc': 75.0, 'hmcode_tol_sigma': 1e-08, 'l_max_g': 20, 'l_max_pol_g': 15, 'radiation_streaming_approximation': 2, 'radiation_streaming_trigger_tau_over_tau_k': 240.0, 'radiation_streaming_trigger_tau_c_over_tau': 100.0, 'tol_ncdm_synchronous': 1e-05, 'l_max_ncdm': 40, 'ncdm_fluid_trigger_tau_over_tau_k': 90.0, 'background_Nloga': 6000, 'thermo_Nz_log': 20000, 'thermo_Nz_lin': 40000, 'tol_perturbations_integration': 1e-06, 'output': ' mPk, dTk ', 'z_max_pk': 2.5})
 
 
 #--------Default-Configuration------
