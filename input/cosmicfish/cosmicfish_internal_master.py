@@ -16,7 +16,7 @@ obs_dict = {'GCsp' : ['GCsp'], 'WLxGCph' : ['WL', 'GCph'], 'WL' : ['WL'], 'GCph'
 derivatives_default = {'GCsp' : '3PT' , 'WL' : '3PT','WLxGCph' : '3PT','GCph' : '3PT' }
 paths_dict = {'WL':'lensing','WLxGCph':'photometric','GCsp':'spectroscopic'}
 
-model = 'LCDM'
+model = 'w0waCDM'
 
 ###################################################
 def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=derivatives_default,name=''):
@@ -36,7 +36,8 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
             'results_dir': '../../results/cosmicfish_internal/',
             'GCsp_Tracer': 'clustering',
             'GCph_Tracer': 'clustering',
-            'ShareDeltaNeff': False
+            'ShareDeltaNeff': False,
+            'rescale_boost':3
             #,'nonlinear':False
             }
 
@@ -47,7 +48,9 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
                 "ns":0.96605,
                 "sigma8":0.81,
                 'mnu': 0.06,
-                'Neff': 3.044,
+                'Neff': 3.046,
+                'w0' : -1.0,
+                'wa' : 0.0
                 }
 
 #I dont know why i need to do this twice ask Santiago
@@ -67,12 +70,14 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
                             "ns":0.01,
                             "sigma8":0.01,
                             'mnu' : 0.1,
-                            'Neff' : 0.01
+                            'Neff' : 0.01,
+                            'w0' : 0.01,
+                            'wa' : 0.01
                             }
                 options.update({
                                 'derivatives' : derivatives_dict[obs],
                                 'survey_name': 'Euclid-ISTF-'+specifs,
-                                'outroot'  : 'nulcdm'+'_internal_'+code+'-'+specifs+'-'+derivatives_dict[obs]+name,
+                                'outroot'  : 'nuNeff+wowa'+'_internal_'+code+'-'+specifs+'-'+derivatives_dict[obs]+name,
                                 'code': code,
                                 'results_dir': '../../results/cosmicfish_internal/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
                                 #'results_dir': '../../results_mm/cosmicfish_internal/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
