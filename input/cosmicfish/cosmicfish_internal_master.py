@@ -53,14 +53,7 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
                 'wa' : 0.0
                 }
 
-#I dont know why i need to do this twice ask Santiago
-    envkey = 'OMP_NUM_THREADS'
-    print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))
-    os.environ[envkey] = str(8)
-    os.environ[envkey] = str(8)
-    print("The value of {:s} is: ".format(envkey), os.environ.get(envkey))
-
-    ## Main block where the code loops over different probes, codes, specifications
+## Main block where the code loops over different probes, codes, specifications
     for code in codes_list :
         for obs in obs_opts :
             for specifs in specifications :
@@ -77,7 +70,7 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
                 options.update({
                                 'derivatives' : derivatives_dict[obs],
                                 'survey_name': 'Euclid-ISTF-'+specifs,
-                                'outroot'  : 'nuNeff+wowa'+'_internal_'+code+'-'+specifs+'-'+derivatives_dict[obs]+name,
+                                'outroot'  : 'wCDM+mnu+Neff'+'_internal_'+code+'-'+specifs+'-'+derivatives_dict[obs]+name,
                                 'code': code,
                                 'results_dir': '../../results/cosmicfish_internal/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
                                 #'results_dir': '../../results_mm/cosmicfish_internal/'+paths_dict[obs].lower()+'/'+specifs.lower()+'/'
