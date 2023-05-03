@@ -1,18 +1,26 @@
-**Git version commit: 5fb1d58ca14bfbc3e4957c2fff59e56df3866858 
-**Time needed for computation of Fisher matrix: 2583.555 seconds 
+<<<<<<< HEAD
+**Git version commit: cad7164082a65e6a09ecacc1da62f5e2a14ffb04 
+**Time needed for computation of Fisher matrix: 1348.611 seconds 
+=======
+**Git version commit: e851ef30a5b34b2f7a01643e164319c53d4f8fef 
+**Time needed for computation of Fisher matrix: 3297.159 seconds 
+>>>>>>> 928f00c1f87fd98f0cc54fd75364770c38e70f92
 **Observables: GCsp 
 ### CosmicFish settings ###
 AP_effect:True
 FoG_switch:True
-GCsp_Tracer:clustering
 GCsp_linear:False
 Pshot_nuisance_fiducial:0
 accuracy:1
 activateMG:False
 bfs8terms:True
-boltzmann_yaml_path:/home/sefa/anaconda3/envs/HM02Fish/lib/python3.8/site-packages/cosmicfishpie-0.1.dev313+gde0ae16.d20230318-py3.8.egg/cosmicfishpie/fishermatrix/../../boltzmann_yaml_files
+<<<<<<< HEAD
+boltzmann_yaml_path:/rwthfs/rz/cluster/home/ca030957/.local/lib/python3.9/site-packages/cosmicfishpie-0.1.dev311+g5653c9e.d20230123-py3.9.egg/cosmicfishpie/fishermatrix/../../boltzmann_yaml_files
+=======
+boltzmann_yaml_path:/home/sefa/anaconda3/envs/HM02Fish/lib/python3.8/site-packages/cosmicfishpie-0.1.dev311+g5653c9e.d20230206-py3.8.egg/cosmicfishpie/fishermatrix/../../boltzmann_yaml_files
+>>>>>>> 928f00c1f87fd98f0cc54fd75364770c38e70f92
 camb_config_yaml:./boltzmann_yaml_files/camb/default.yaml
-camb_path:/home/sefa/anaconda3/envs/HM02Fish/lib/python3.8/site-packages/camb-1.3.8-py3.8.egg/camb
+camb_path:/home/ca030957/.local/lib/python3.9/site-packages/camb-1.3.7-py3.9.egg/camb
 class_config_yaml:./boltzmann_yaml_files/class/default.yaml
 code:camb
 cosmo_model:LCDM
@@ -56,7 +64,7 @@ lnbgs8_1:0.0001
 lnbgs8_2:0.0001
 lnbgs8_3:0.0001
 lnbgs8_4:0.0001
-mnu:0.07
+mnu:0.1
 ns:0.01
 sigma8:0.01
 ### Survey specifications ###
