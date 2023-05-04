@@ -22,8 +22,8 @@ if True:
     ax1.set_ylabel(r'error on $F_{w_0\,w_a}$ (%)')
     ax1.set_xlim(0.,0.4)
 
-    DP = np.loadtxt('photometric/pessimistic_DP/d2L_dw0_dwa.dat')
-    HP = np.loadtxt('photometric/pessimistic_HP/d2L_dw0_dwa.dat')
+    DP = np.loadtxt('photometric/pessimistic_DP/d2L_dmnu_dNeff.dat')
+    HP = np.loadtxt('photometric/pessimistic_HP/d2L_dmnu_dNeff.dat')
     fit = np.polynomial.polynomial.Polynomial.fit(HP[:,0], HP[:,1], 2, domain=[0.1,1.])
     asymptot=fit(0)
 
@@ -34,8 +34,8 @@ if True:
 
     ######################
 
-    DP = np.loadtxt('photometric/optimistic_DP/d2L_dw0_dwa.dat')
-    HP = np.loadtxt('photometric/optimistic_HP/d2L_dw0_dwa.dat')
+    DP = np.loadtxt('photometric/optimistic_DP/d2L_dmnu_dNeff.dat')
+    HP = np.loadtxt('photometric/optimistic_HP/d2L_dmnu_dNeff.dat')
     fit = np.polynomial.polynomial.Polynomial.fit(HP[:,0], HP[:,1], 2, domain=[0.1,1])
     asymptot=fit(0)
 
@@ -56,8 +56,8 @@ if True:
     ax3.set_xlabel(r'stepsize/error')
     ax3.set_ylabel(r'error on $F_{w_0\,w_a}$ (%)')
 
-    DP = np.loadtxt('spectroscopic/pessimistic_DP/d2L_dw0_dwa.dat')
-    HP = np.loadtxt('spectroscopic/optimistic_HP/d2L_dw0_dwa.dat')
+    DP = np.loadtxt('spectroscopic/pessimistic_DP/d2L_dmnu_dNeff.dat')
+    HP = np.loadtxt('spectroscopic/optimistic_HP/d2L_dmnu_dNeff.dat')
     fit = np.polynomial.polynomial.Polynomial.fit(HP[:,0], HP[:,1], 2, domain=[0.1,1])
     asymptot=fit(0)
 
@@ -70,8 +70,8 @@ if True:
 
     ax4.set_xlabel(r'stepsize/error')
 
-    DP = np.loadtxt('spectroscopic/optimistic_DP/d2L_dw0_dwa.dat')
-    HP = np.loadtxt('spectroscopic/optimistic_HP/d2L_dw0_dwa.dat')
+    DP = np.loadtxt('spectroscopic/optimistic_DP/d2L_dmnu_dNeff.dat')
+    HP = np.loadtxt('spectroscopic/optimistic_HP/d2L_dmnu_dNeff.dat')
     fit = np.polynomial.polynomial.Polynomial.fit(HP[:,0], HP[:,1], 2, domain=[0.1,1])
     asymptot=fit(0)
 
@@ -82,7 +82,7 @@ if True:
 
     ######################
 
-    plt.savefig('test_stepsizes.pdf')
+    plt.savefig('test_stepsizes_mnuneff.pdf')
 
     ######################
 
@@ -122,4 +122,4 @@ if False:
 
     ######################
 
-    plt.savefig('test_stepsizes_diag.pdf')
+    plt.savefig('test_stepsizes_w0wa_diag.pdf')
