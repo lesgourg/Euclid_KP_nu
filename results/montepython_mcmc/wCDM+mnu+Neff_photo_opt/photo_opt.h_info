@@ -1,0 +1,19 @@
+ param names	:  w0_{fld }     wa_{fld }     \Omega_{b }   h             n_{s }        \sigma8       N_{eff camb } m_{\nu camb } \Omega_{m camb }bias_{1 }     bias_{2 }     bias_{3 }     bias_{4 }     bias_{5 }     bias_{6 }     bias_{7 }     bias_{8 }     bias_{9 }     bias_{10 }    aIA           etaIA         
+ R-1 values	:  0.141794	 0.239301	 0.522110	 0.202270	 0.236915	 0.129515	 0.715910	 0.336475	 0.140183	 0.354113	 0.287624	 0.623560	 0.401756	 0.444169	 0.447341	 0.424906	 0.375470	 0.567993	 0.476772	 0.738466	 0.630906	
+ Best Fit  	: -9.877082e-01	-6.083127e-02	 4.747520e-02	 6.447295e-01	 9.788517e-01	 8.099369e-01	 2.869884e+00	 3.221669e-02	 3.147437e-01	 1.100989e+00	 1.221504e+00	 1.275376e+00	 1.319760e+00	 1.363311e+00	 1.404092e+00	 1.449459e+00	 1.503501e+00	 1.570101e+00	 1.751220e+00	 1.793863e+00	-4.552153e-01	
+ mean      	: -9.938824e-01	-3.273518e-02	 4.907480e-02	 6.658441e-01	 9.690477e-01	 8.088052e-01	 2.938344e+00	 7.172530e-02	 3.153666e-01	 1.099916e+00	 1.220707e+00	 1.272993e+00	 1.317359e+00	 1.359237e+00	 1.401156e+00	 1.445314e+00	 1.498180e+00	 1.565894e+00	 1.744398e+00	 1.725616e+00	-4.148208e-01	
+ sigma     	:  2.371044e-02	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+
+ 1-sigma - 	: -1.963524e-02	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 1-sigma + 	:  2.778564e-02	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 2-sigma - 	:  nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 2-sigma + 	:  nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 3-sigma - 	:  nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 3-sigma + 	:  nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+
+ 1-sigma > 	: -1.013518e+00	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 1-sigma < 	: -9.660968e-01	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 2-sigma > 	:  nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 2-sigma < 	:  nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 3-sigma > 	:  nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
+ 3-sigma < 	:  nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	 nan	
