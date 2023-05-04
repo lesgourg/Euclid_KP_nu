@@ -10,7 +10,7 @@ snscolors=sns.color_palette("Set1")
 # , 'boltzmann' : 'class'}
 def fisher_path(dict) :
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
-        derivatives_default = {'gcsp' : '3PT' , 'wl' : '3PT','wlxgcph' : '3PT','gcph' : '3PT'}
+        derivatives_default = {'gcsp' : 'own' , 'wl' : '3PT','wlxgcph' : '3PT','gcph' : '3PT'}
         probe_path = {'wl':'wl_only','wlxgcph':'photometric','gcsp':'spectroscopic'}
         resultsdir = '../results'
 
@@ -35,15 +35,34 @@ def fisher_path(dict) :
                 else :
                         dr = derivatives_default[dict['probe'].lower()]
 
-                filename = 'CosmicFish_v1.0_w0wa_'+mode+'_'+code+'-'+ specs +'-'+ dr +'_' + \
+                filename = 'CosmicFish_v0.9_w0wa_'+mode+'_'+code+'-'+ specs +'-'+ dr +'_' + \
                           precision + probe_filename[dict['probe'].lower()] +'_'+'fishermatrix.txt'
                 path = os.path.join(resultsdir,'cosmicfish'+'_'+mode,probe_dir,specs_dir,filename)
         return os.path.realpath(path)
 
 
-def plotter(fish_files, labels, pars, outpath='automatic',
-            script_name='automatic', error_only=False, compare_errors_dict=dict()):
-
+def plotter(fish_files, labels, pars, outpath='automatic', cosmo_names=[],
+            outfile_name='automatic', error_only=False, compare_errors_dict=dict(), marginalise=False, yrange=[-10, 10]):
+    transf_labels={'\\ln(b_g \\sigma_8)_1': r'\ln(b \sigma_8)_1',
+               '\\ln(b_g \\sigma_8)_2': r'\ln(b \sigma_8)_2',
+               '\\ln(b_g \\sigma_8)_3': r'\ln(b \sigma_8)_3',
+               '\\ln(b_g \\sigma_8)_4': r'\ln(b \sigma_8)_4'
+               }
+    compare_errors_dict_def={'ncol_legend':2,
+                                  'xticksrotation':45,
+                                  'yticklabelsize': 55,
+                                  'xticklabelsize': 38,
+                                  'xtickfontsize': 38,
+                                  'ylabelfontsize': 28,
+                                  'yrang' : yrange,
+                                  'patches_legend_fontsize' : 32,
+                                  'dots_legend_fontsize' : 36,
+                                  'figsize' : (20,10),
+                                  'dpi': 100,
+                                  'transform_latex_dict': transf_labels,
+                                  'legend_title_fontsize':28}
+    compare_errors_dict_def.update(compare_errors_dict)
+    compare_errors_dict = compare_errors_dict_def.copy()
     fish_files = [os.path.abspath(i) for i in fish_files] ## This is evaluated at old CWD
     os.chdir(os.path.dirname(os.path.realpath(__file__))) ## CWD changes
     sys.path.append('../../cosmicfish_reloaded/')
@@ -62,14 +81,19 @@ def plotter(fish_files, labels, pars, outpath='automatic',
         print('Output path not provided ! defaulting to ',outpath)
 
     else : pass
-    if script_name == 'automatic':
-        script_name = inspect.stack()[1][1]
-        script_name = os.path.splitext(os.path.basename(os.path.realpath(script_name)))[0]
-        script_name = str(script_name)
-        print(script_name)
+
+    if 'automatic' in outfile_name :
+        outfile_name = inspect.stack()[1][1]
+        outfile_name = os.path.splitext(os.path.basename(os.path.realpath(outfile_name)))[0]
+        outfile_name = str(outfile_name)
+        print(outfile_name)
+    if 'labels' in outfile_name:
+        labs = '__'.join(labels)
+        outfile_name = outfile_name+'-'+labs 
     else : pass
 
-    cosmo_names = ['Omegam', 'Omegab', 'ns', 'h','sigma8','mnu','Neff']
+    #cosmo_names = ['Omegam', 'Omegab', 'ns', 'h','sigma8','w0','wa']
+    #cosmo_names = ['Omegam', 'Omegab', 'ns', 'h','sigma8','mnu','Neff', 'w0']
     nuisance_names = list( set(pars) - set(cosmo_names)  )
     fgroup=cfa.CosmicFish_FisherAnalysis()
     for fii in fish_files:
@@ -82,9 +106,13 @@ def plotter(fish_files, labels, pars, outpath='automatic',
 
 #     #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     COSMO + Nuisance      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    cutnames=pars
-
-    fgroupRe = fgroup.reshuffle(params=cutnames, update_names=False)
+    cutnames=pars 
+    if marginalise==True:
+        print("marginalising over not: ", cutnames)
+        fgroupRe = fgroup.marginalise(params=cutnames, update_names=False)
+    if marginalise==False:
+        print("fixing over not: ", cutnames)
+        fgroupRe = fgroup.reshuffle(params=cutnames, update_names=False)
 
 
     pessions = {'fishers_group': fgroupRe,
@@ -95,7 +123,7 @@ def plotter(fish_files, labels, pars, outpath='automatic',
             'plot_method': 'Gaussian',
             'axis_custom_factors' : {'all':4},
             'outpath': outpath,
-            'outroot': script_name + '_' + 'cosmo_and_nuisance',
+            'outroot': outfile_name + '_' + 'cosmo_and_nuisance',
             'param_labels' : pars
             }
     compare_errors_dict_opts = {'save_error':True}
@@ -109,7 +137,7 @@ def plotter(fish_files, labels, pars, outpath='automatic',
         fish_plotter.compare_errors(compare_errors_dict_opts)
         #fish_plotter.matrix_ratio()
 
-    return
+    return None
 
 #     #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    COSMO marginalizing Nuisance   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     cutnames=pars
@@ -125,7 +153,7 @@ def plotter(fish_files, labels, pars, outpath='automatic',
             'plot_method': 'Gaussian',
             'axis_custom_factors' : {'all':4},
             'outpath': outpath,
-            'outroot': script_name + '_' + 'cosmo_marg_nuisance'
+            'outroot': outfile_name + '_' + 'cosmo_marg_nuisance'
             }
 
     fish_plotter = cfp.fisher_plotting(**pessions)
@@ -152,7 +180,7 @@ def plotter(fish_files, labels, pars, outpath='automatic',
             'plot_method': 'Gaussian',
             'axis_custom_factors' : {'all':4},
             'outpath': outpath,
-            'outroot': script_name+ '_' + 'cosmo_fix_nuisance'
+            'outroot': outfile_name+ '_' + 'cosmo_fix_nuisance'
             }
 
     fish_plotter = cfp.fisher_plotting(**pessions)
@@ -177,7 +205,7 @@ def plotter(fish_files, labels, pars, outpath='automatic',
             'plot_method': 'Gaussian',
             'axis_custom_factors' : {'all':4},
             'outpath': outpath,
-            'outroot':script_name+ '_' +'nuisance_fix_cosmo'
+            'outroot':outfile_name+ '_' +'nuisance_fix_cosmo'
             }
 
     fish_plotter = cfp.fisher_plotting(**pessions)
