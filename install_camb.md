@@ -1,10 +1,10 @@
 For this task you can clone the master branch of camb in a directory CAMB/ on
-the same level as this one. At some point it should become possible to use the public repository:
+the same level as this one. It should be equivalent to use the public repository:
 
     cd ..
     git clone --recursive https://github.com/cmbant/CAMB
 
-However, so far, a small bug makes input_4_cast incompatible with this version, and we use instead
+or the version of Santiago (which differs only for things relevant for input_4_cast, not used in KP_nu):
 
     cd ..
     git clone --recursive https://github.com/santiagocasas/CAMB

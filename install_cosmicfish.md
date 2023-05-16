@@ -1,9 +1,9 @@
-For this project you should use (for the moment) the branch classtest of cosmicfish. You should clone it in a directory cosmicfish_reloaded/ on the same level as this one
+For this project you should use (for the moment) the branch KPnu of cosmicfish. You should clone it in a directory cosmicfish_reloaded/ on the same level as this one
 
     cd ..
     git clone https://gitlab.com/matmartinelli/cosmicfish_reloaded.git
     cd cosmicfish_reloaded
-    git checkout classtest
+    git checkout KPnu
 
 You can install the packages that are required using pip, or you can create a conda environment. For installing the packages use,
 
