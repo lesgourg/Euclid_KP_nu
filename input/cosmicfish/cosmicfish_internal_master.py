@@ -13,7 +13,7 @@ from cosmicfishpie.utilities.utils import printing as upr
 # Dictionaries for translation
 
 obs_dict = {'GCsp' : ['GCsp'], 'WLxGCph' : ['WL', 'GCph'], 'WL' : ['WL'], 'GCph' : ['GCph']}
-derivatives_default = {'GCsp' : '3PT' , 'WL' : '3PT','WLxGCph' : '3PT','GCph' : '3PT' }
+derivatives_default = {'GCsp' : '3PT' , 'WL' : '4PT_FWD','WLxGCph' : '4PT_FWD','GCph' : '4PT_FWD' }
 paths_dict = {'WL':'lensing','WLxGCph':'photometric','GCsp':'spectroscopic'}
 
 model = 'w0waCDM'
