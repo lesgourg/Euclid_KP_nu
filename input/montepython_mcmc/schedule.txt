@@ -1,20 +1,20 @@
-1. P_w0waMN: photo pess w0wa+Mnu+Neff
+1. P_w0waMN: photo pess w0wa+Mnu+Neff: Sefa
 2. P_opt_w0waMN: photo opt w0wa+Mnu+Neff DONE
 
-3. S_w0waMN: spectro pess w0wa+Mnu+Neff
+3. S_w0waMN: spectro pess w0wa+Mnu+Neff : Sebastien
 4. S_opt_w0waMN: spectro opt w0wa+Mnu+Neff DONE
 
-5. PS_w0waMN: photo+spectro pess w0wa+Mnu+Neff
+5. PS_w0waMN: photo+spectro pess w0wa+Mnu+Neff : Nils, Sebastien
 
-6. PSP_M: photo+spectro+Planck-realistic pess +Mnu
+6. PSP_M: photo+spectro+Planck-realistic pess +Mnu : Maria
 7. PSP_MN: photo+spectro+Planck-realistic pess +Mnu+Neff
 8. PSP_w0waM: photo+spectro+Planck-realistic pess w0wa+Mnu
-9. PSP_w0waMN: photo+spectro+Planck-realistic pess w0wa+Mnu+Neff
+9. PSP_w0waMN: photo+spectro+Planck-realistic pess w0wa+Mnu+Neff : Santiago
 
-10. PSSL_M: photo+spectro+SO+Litebird pess +Mnu
-11. PSSL_MN: photo+spectro+SO+Litebird pess +Mnu+Neff
-12. PSSL_w0waM: photo+spectro+SO+Litebird pess w0wa+Mnu
-13. PSSL_w0waMN: photo+spectro+SO+Litebird pess w0wa+Mnu+Neff
+10. PSSL_M: photo+spectro+S4+Litebird pess +Mnu
+11. PSSL_MN: photo+spectro+S4+Litebird pess +Mnu+Neff
+12. PSSL_w0waM: photo+spectro+S4+Litebird pess w0wa+Mnu
+13. PSSL_w0waMN: photo+spectro+S4+Litebird pess w0wa+Mnu+Neff
 
 14. PSC_w0waMN: photo+spectro+clusters pess w0wa+Mnu+Neff
 
