@@ -19,6 +19,7 @@ data.parameters['sigma8']          = [0.81,          0.7, 0.9,  1.89590234e-4,  
 data.parameters['N_eff_camb']      = [3.044,         3.044,    3.044,  0.,    1, 'cosmo']
 data.parameters['m_nu_camb']       = [0.06,          5e-3,  1,   3.893847e-03,    1, 'cosmo']
 data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,   9.413470e-05,    1, 'cosmo']
+data.parameters['tau_reio']        = [  0.0543,      0.004, None,       0.008,    1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
@@ -53,7 +54,7 @@ data.parameters['lnbsigma8_3']  = [-0.319153,  None, None, 0.0008856205545237601
 data.cosmo_arguments['Omega_Lambda'] = 0.0
 data.cosmo_arguments['YHe'] = 0.2454006
 data.cosmo_arguments['T_cmb'] = 2.7255
-data.cosmo_arguments['reio_parametrization'] = 'reio_none'
+#data.cosmo_arguments['reio_parametrization'] = 'reio_none'
 data.cosmo_arguments['N_ncdm'] = 1
 
 # Non-Linear matter power spectrum settings
