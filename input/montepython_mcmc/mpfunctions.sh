@@ -121,7 +121,7 @@ get_fiducial_file() {
   local likename=$1
   local DATA=$2
   local FIDUCIAL_SEARCH="$likename.fiducial_file"
-  export FIDUCIAL_FILE=$(grep $FIDUCIAL_SEARCH $DATA | awk -F "$FIDUCIAL_SEARCH *= *" '{print $2}' | sed 's/"//g')
+  export FIDUCIAL_FILE=$(grep $FIDUCIAL_SEARCH $DATA | awk -F "$FIDUCIAL_SEARCH *= *" '{print $2}' | sed 's/"//g' | sed "s/'//g")
   #echo "Found: "
   #echo $FIDUCIAL_FILE
 }
@@ -141,7 +141,6 @@ for ii in "${!EXPERIMENTS[@]}"; do
     cp -v $DATA_EXTRA $DATA
     fi
   get_fiducial_file $likename $DATA
-  #if [[ -n $FIDUCIAL_FILE ]]; then
     echo "Fiducial file for $likename: $FIDUCIAL_FILE"
     FIDUCIAL_FILES[$ii]="${FIDUCIAL_FILE}"
     if [[ -e "${datadir}${FIDUCIAL_FILE}" && $rm_fiducial == true ]]; then 
@@ -173,12 +172,15 @@ get_fiducial_files_array
 remove_oldchains
 if [[ -e $COVMAT && $usecovmat == true ]]; then Copt="-c $COVMAT"; else echo "Covmat $COVMAT non-existing or use covmat option not wanted"; Copt=""; fi
 echo "Creating fiducial"
-if [ "$run" = "fiducial" ]; then
+if [[ "$run" = "fiducial" || "$run" = "run" ]]; then
   $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt
   echo "Generated fiducial"
   echo "Running chain with 1 point on fiducial"
   $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt
+  if [ "$run" = "fiducial" ]; then
+   echo "Only fiducial run requested, exiting script."
    exit 1
+  fi
 fi
 if [ "$run" = "dryrun" ]; then
   echo "$PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt"
