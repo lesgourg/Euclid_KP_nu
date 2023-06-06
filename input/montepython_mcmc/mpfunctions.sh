@@ -2,7 +2,7 @@
 
 # Function to display the help message
 display_help() {
-    echo "Usage: $0 [options] [run|fiducial|info|print]"
+    echo "Usage: $0 [options] [run|fiducial|info|print] [more options]"
     echo
     echo "This script runs a MontePython job with MPI support."
     echo
@@ -15,6 +15,9 @@ display_help() {
     echo "  fiducial         Create the fiducial file and exit."
     echo "  info             Obtain information from existing chains and exit."
     echo "  print            Print configuration details and exit."
+    echo
+    echo "More options for info: "
+    echo "  --second_chain   Path to chains to plot together with the original chains"
     echo
     echo "Default values:"
     echo "  run                  = 'run'"
@@ -84,7 +87,14 @@ function check_run_info {
         echo "CHAINS folder exists, obtaining info from chains..."
         if [[ -n "$secondchain" ]]; then echo "comparing against second chains at: $secondchain"; fi
         if [[ $non_markov == true ]]; then nmkvopt="--keep-non-markovian"; echo "non-markovian option selected, keeping non-markovian points"; else nmkvopt=""; fi
-        $PYTHON montepython/MontePython.py info --want-covmat --plot-mean $nmkvopt $CHAINS $secondchain
+	chainsnum=${def_Nsteps}
+	echo "Analyzing chains:  $CHAINS/$chainsnum "
+	pwdir=$(pwd)
+	echo $pwdir
+        echo "$PYTHON montepython/MontePython.py info --want-covmat --plot-mean $nmkvopt "$CHAINS/\*$chainsnum\*" $secondchain"
+        $PYTHON montepython/MontePython.py info --want-covmat --plot-mean $nmkvopt "$CHAINS/"*"$chainsnum"* $secondchain
+	echo "Copyng covmat into montepython's covmat folder"
+        cp -v "${CHAINS}/${CASE}_${EXTRA}.covmat" "covmat/"
         echo "Info obtained, exit script."
         exit 1
     fi
@@ -176,7 +186,7 @@ if [[ "$run" = "fiducial" || "$run" = "run" ]]; then
   $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt
   echo "Generated fiducial"
   echo "Running chain with 1 point on fiducial"
-  $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt
+  $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt --display-each-chi2
   if [ "$run" = "fiducial" ]; then
    echo "Only fiducial run requested, exiting script."
    exit 1

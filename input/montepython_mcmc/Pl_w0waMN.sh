@@ -9,9 +9,9 @@
 # ask for 24 threads per task=MPI rank (which is 1 thread per core on one socket on CLAIX18)
 #SBATCH --cpus-per-task=4
 #SBATCH --time=23:59:00
-#SBATCH --output="mpkpnu1.out"
-#SBATCH --error="mpkpnu1.err"
-#SBATCH --job-name="mpkpnu1"
+#SBATCH --output="mpPl.out"
+#SBATCH --error="mpPl.err"
+#SBATCH --job-name="mpPl"
 
 #
 #################
@@ -65,8 +65,8 @@ echo "****** Running script with $run ******"
 cd ../MontePythons/montepython_kpnu/
 
 ## Choose case to run and extra options
-CASE="PSP_w0waMN"  # for changes that only involve options in the .param file
-EXTRA="pessimistic"       # for changes that only involve options in the .data file
+CASE="Pl_w0waMN"  # for changes that only involve options in the .param file
+EXTRA=""       # for changes that only involve options in the .data file
 
 ## Print INPUT .param file
 INPUT="${rootdir}${inputdir}${CASE}.param"
@@ -79,7 +79,7 @@ echo "Chains will be saved to: $CHAINS "
 # Proposal CovMat to be used
 #COVMAT="covmat/${CASE}_${EXTRA}.covmat"
 COVMAT="covmat/photo_opt.covmat"
-usecovmat=true #    false or 0
+usecovmat=false #    false or 0
 rm_oldchains=true # false or 0
 rm_fiducial=true #  false or 0
 # MontePython chains default parameters
