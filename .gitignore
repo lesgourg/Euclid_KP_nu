@@ -4,3 +4,4 @@
 #*.pdf*
 *testing*
 memory_cache/
+results/montepython_mcmc/*
