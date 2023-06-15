@@ -1,0 +1,71 @@
+#------Experiments to test (separated with commas)-----
+data.experiments=['euclid_photometric_z','euclid_spectroscopic','litebird_lowl','cmb_s4_highl']
+
+#------ Parameter list -------
+
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+# Cosmological parameter list
+data.parameters['w0_fld']          = [-1.0,      -1.5, -0.5,        0.086678,  1, 'cosmo']
+data.parameters['wa_fld']          = [ 0.0,      -1.0,  1.0,        0.281240,  1, 'cosmo']
+data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  2.54986132e-4,    1, 'cosmo']
+data.parameters['h']               = [0.6737,        0.1, 1.5,  1.65251623e-3,    1, 'cosmo']
+data.parameters['n_s']             = [0.96605,       0.8, 1.2,  4.21609630e-4,    1, 'cosmo']
+data.parameters['sigma8']          = [0.81,          0.7, 0.9,  1.89590234e-4,    1, 'cosmo']
+data.parameters['N_eff_camb']      = [3.044,         1.015,    6,  3.50354076e-2,    1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          5e-3,  1,   3.893847e-03,    1, 'cosmo']
+data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,   9.413470e-05,    1, 'cosmo']
+data.parameters['tau_reio']        = [  0.0543,      0.004, None,       0.008,    1, 'cosmo']
+
+# Nuisance parameter list
+# Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
+# Arbitrary limits for faster convergence in MCMC
+data.parameters['bias_1']          = [1.0998,  None, None,   2.21512028e-04,  1,  'nuisance']
+data.parameters['bias_2']          = [1.2202,  None, None,   2.52145760e-04,  1,  'nuisance']
+data.parameters['bias_3']          = [1.2724,  None, None,   2.63602488e-04,  1,  'nuisance']
+data.parameters['bias_4']          = [1.3166,  None, None,   2.72233538e-04,  1,  'nuisance']
+data.parameters['bias_5']          = [1.3581,  None, None,   2.79564834e-04,  1,  'nuisance']
+data.parameters['bias_6']          = [1.3998,  None, None,   2.82364577e-04,  1,  'nuisance']
+data.parameters['bias_7']          = [1.4446,  None, None,   2.92878201e-04,  1,  'nuisance']
+data.parameters['bias_8']          = [1.4965,  None, None,   2.80139819e-04,  1,  'nuisance']
+data.parameters['bias_9']          = [1.5652,  None, None,   2.76034179e-04,  1,  'nuisance']
+data.parameters['bias_10']         = [1.7430,  None, None,   2.90438397e-04,  1,  'nuisance']
+
+
+# limits of 3sigma (according to IST-opt), except a_IA!>0
+data.parameters['aIA']             = [1.72,      0,  12.1,  1.19184070e-02,      1, 'nuisance']
+data.parameters['etaIA']           = [-0.41,   -7.,  6.17,  7.37626757e-03,      1, 'nuisance']
+data.parameters['betaIA']          = [2.17,   0.63,   5.0,              0.,      1, 'nuisance']
+
+data.parameters['P_shot0']  = [0,  None, None, 1.058483559536866,   1, 'nuisance']
+data.parameters['P_shot1']  = [0,  None, None, 1.1271137562786895,   1, 'nuisance']
+data.parameters['P_shot2']  = [0,  None, None, 1.156364145541881,   1, 'nuisance']
+data.parameters['P_shot3']  = [0,  None, None, 1.2406943374046109,   1, 'nuisance']
+data.parameters['lnbsigma8_0']  = [-0.324980,  None, None, 0.0009016106927228733,    1,  'nuisance']
+data.parameters['lnbsigma8_1']  = [-0.315229,  None, None, 0.0008930783478655937,    1,  'nuisance']
+data.parameters['lnbsigma8_2']  = [-0.310679,  None, None, 0.0008818347026015016,    1,  'nuisance']
+data.parameters['lnbsigma8_3']  = [-0.319153,  None, None, 0.0008856205545237601,    1,  'nuisance']
+
+# Fixed parameter list
+data.cosmo_arguments['Omega_Lambda'] = 0.0
+data.cosmo_arguments['YHe'] = 0.2454006
+data.cosmo_arguments['T_cmb'] = 2.7255
+#data.cosmo_arguments['reio_parametrization'] = 'reio_none'
+data.cosmo_arguments['N_ncdm'] = 1
+
+# Non-Linear matter power spectrum settings
+data.cosmo_arguments['P_k_max_1/Mpc'] = 50.
+data.cosmo_arguments['k_per_decade_for_pk'] = 50.
+data.cosmo_arguments['k_per_decade_for_bao'] = 50.
+data.cosmo_arguments['non linear']= 'hmcode2020'
+data.cosmo_arguments['nonlinear_min_k_max']= 80.
+
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
