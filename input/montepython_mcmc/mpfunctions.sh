@@ -202,11 +202,15 @@ fi
 
 function check_run_run {
 if [ "$run" = "dryrun" ]; then
+	echo "Deleting for security the _1_ files"
+	echo "rm -v $CHAINS/*_1_*"
 	echo "Launching chains in dry run:"
 	echo "$MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run -o $CHAINS --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt"
   exit 1
 fi
 if [ "$run" = "run" ]; then
+	echo "Deleting for security the _1_ files"
+	rm -v "$CHAINS/"*"_1_"*
 	echo "Launching chains"
 	$MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run -o $CHAINS --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt
 else
