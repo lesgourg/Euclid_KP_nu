@@ -32,10 +32,10 @@ with open(matrix_2_path, 'r') as f:
     header_2[-1] = str(header_2[-1]) + ","
 
 # Find decomposition of input covmats into  
-AohneB_indexinA    = np.array([ iA for iA, Ai in enumerate(header_1) if not Ai in header_2])
-BohneA_indexinB    = np.array([ iB for iB, Bi in enumerate(header_2) if not Bi in header_1])
-AschnittB_indexinA = np.array([ iA for iA, Ai in enumerate(header_1) if     Ai in header_2 ])
-AschnittB_indexinB = np.array([ iB for iB, Bi in enumerate(header_2) if     Bi in header_1 ])
+AohneB_indexinA    = np.array([ iA for iA, Ai in enumerate(header_1) if not Ai in header_2], dtype=int)
+BohneA_indexinB    = np.array([ iB for iB, Bi in enumerate(header_2) if not Bi in header_1], dtype=int)
+AschnittB_indexinA = np.array([ iA for iA, Ai in enumerate(header_1) if     Ai in header_2], dtype=int)
+AschnittB_indexinB = np.array([ iB for iB, Bi in enumerate(header_2) if     Bi in header_1], dtype=int)
 
 # Translate Matricies into fishers 
 fisher_1 = inv(matrix_1)
@@ -58,6 +58,7 @@ result_fisher=np.block([[CC  ,AC  , BC],
                         [BC.T,AB.T, BB]])
 
 result_matrix= inv(result_fisher)
+result_matrix[np.where(result_matrix==0)]=0
 
 result_header = np.concatenate([header_1[AschnittB_indexinA],header_1[AohneB_indexinA],header_2[BohneA_indexinB]])
 
@@ -70,6 +71,7 @@ with open (output_path, 'w') as f:
 
     # write body
     for (i,j), elem in np.ndenumerate(result_matrix):
+
         f.write((" " if elem >= 0 else "") + str("{:.20e}".format(elem)) + "\t" + ("\n" if j == len(result_matrix)-1 else ""))
 
 
