@@ -11,14 +11,14 @@ data.experiments=['euclid_spectroscopic']
 
 
 # Cosmological parameter list
-data.parameters['w0_fld']          = [-1.0,      -1.5, -0.5,        0.086678,  1, 'cosmo']
-data.parameters['wa_fld']          = [ 0.0,      -1.0,  1.0,        0.281240,  1, 'cosmo']
+data.parameters['w0_fld']          = [-1.0,      -1.5, -0.5,    0.086678,  1, 'cosmo']
+data.parameters['wa_fld']          = [ 0.0,      -1.0,  1.0,    0.281240,  1, 'cosmo']
 data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.0034449441402599,  1, 'cosmo']
 data.parameters['h']               = [0.6737,        0.1, 1.5,  0.0032288407710488,  1, 'cosmo']
 data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.0192950276636101,  1, 'cosmo']
 data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.0206365121091943,  1, 'cosmo']
-data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.3077575120912134,  1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          5.e-3,    1,  0.1477006057903574,  1, 'cosmo']
+data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.0,  1, 'cosmo']
+data.parameters['m_nu_camb']       = [0.06,          5.e-3, 1,  0.0,  1, 'cosmo']
 data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.0171696502466091,  1, 'cosmo']
 
 # Nuisance parameter list
