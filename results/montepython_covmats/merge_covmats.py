@@ -37,21 +37,27 @@ BohneA_indexinB    = np.array([ iB for iB, Bi in enumerate(header_2) if not Bi i
 AschnittB_indexinA = np.array([ iA for iA, Ai in enumerate(header_1) if     Ai in header_2 ])
 AschnittB_indexinB = np.array([ iB for iB, Bi in enumerate(header_2) if     Bi in header_1 ])
 
-CinA = matrix_1[AschnittB_indexinA].T[AschnittB_indexinA]
-CinB = matrix_2[AschnittB_indexinB].T[AschnittB_indexinB]
-CC = inv(inv(CinA)+inv(CinB))
+# Translate Matricies into fishers 
+fisher_1 = inv(matrix_1)
+fisher_2 = inv(matrix_2)
 
-AA = matrix_1[AohneB_indexinA].T[AohneB_indexinA].T
-BB = matrix_2[BohneA_indexinB].T[BohneA_indexinB].T
+CinA = fisher_1[AschnittB_indexinA].T[AschnittB_indexinA]
+CinB = fisher_2[AschnittB_indexinB].T[AschnittB_indexinB]
+CC = CinA + CinB
 
-AC = matrix_1[AschnittB_indexinA].T[AohneB_indexinA].T
-BC = matrix_2[AschnittB_indexinB].T[BohneA_indexinB].T
+AA = fisher_1[AohneB_indexinA].T[AohneB_indexinA].T
+BB = fisher_2[BohneA_indexinB].T[BohneA_indexinB].T
+
+AC = fisher_1[AschnittB_indexinA].T[AohneB_indexinA].T
+BC = fisher_2[AschnittB_indexinB].T[BohneA_indexinB].T
 AB = np.zeros((AA.shape[0],BB.shape[1]))
 
 #Create Output Array and Header
-result_matrix=np.block([[CC  ,AC  , BC],
+result_fisher=np.block([[CC  ,AC  , BC],
                         [AC.T,AA  , AB],
                         [BC.T,AB.T, BB]])
+
+result_matrix= inv(result_fisher)
 
 result_header = np.concatenate([header_1[AschnittB_indexinA],header_1[AohneB_indexinA],header_2[BohneA_indexinB]])
 
