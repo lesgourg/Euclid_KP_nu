@@ -3,15 +3,15 @@
 # ask for four tasks (which are 4 MPI ranks)
 #SBATCH --ntasks=8
 #SBATCH --nodes=1
-#SBATCH --account=rwth1304
+####SBATCH --account=rwth1304
 ##comment --account=rwth1304
 
 # ask for 24 threads per task=MPI rank (which is 1 thread per core on one socket on CLAIX18)
 #SBATCH --cpus-per-task=4
-#SBATCH --time=23:59:00
-#SBATCH --output="mpS.out"
-#SBATCH --error="mpS.err"
-#SBATCH --job-name="mpS"
+#SBATCH --time=16:59:00
+#SBATCH --output="mpS3.out"
+#SBATCH --error="mpS3.err"
+#SBATCH --job-name="mpS3"
 
 #
 #################
@@ -77,8 +77,8 @@ CHAINS="${rootdir}${resultsdir}${CASE}_${EXTRA}"
 echo "Chains will be saved to: $CHAINS "
 
 # Proposal CovMat to be used
-#COVMAT="covmat/${CASE}_${EXTRA}.covmat"
-COVMAT="covmat/spec_opt.covmat"
+COVMAT="covmat/${CASE}_${EXTRA}.covmat"
+#COVMAT="covmat/spec_opt.covmat"
 
 usecovmat=true #    false or 0
 rm_oldchains=true # false or 0
