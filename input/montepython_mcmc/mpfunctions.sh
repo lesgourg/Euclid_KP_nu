@@ -182,7 +182,7 @@ get_fiducial_files_array
 remove_oldchains
 if [[ -e $COVMAT && $usecovmat == true ]]; then Copt="-c $COVMAT"; else echo "Covmat $COVMAT non-existing or use covmat option not wanted"; Copt=""; fi
 echo "Creating fiducial"
-if [[ "$run" = "fiducial" || "$run" = "run" ]]; then
+if [[ "$run" = "fiducial" || "$run" = "run" || "$run" = "fisher" ]]; then
   $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt
   echo "Generated fiducial"
   echo "Running chain with 1 point on fiducial"
@@ -208,6 +208,11 @@ if [ "$run" = "dryrun" ]; then
 	echo "$MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run -o $CHAINS --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt"
   exit 1
 fi
+
+if [ "$run" = "fisher" ]; then
+	echo "Launching fisher"
+	$MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run --fisher -o $CHAINS --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt
+fi
 if [ "$run" = "run" ]; then
 	echo "Deleting for security the _1_ files"
 	rm -v "$CHAINS/"*"_1_"*
@@ -217,5 +222,6 @@ else
 	echo "run input argument not specified, MP run with chains has not been started"
 	exit 1
 fi
+
 }
 

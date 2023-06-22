@@ -78,7 +78,7 @@ echo "Chains will be saved to: $CHAINS "
 
 # Proposal CovMat to be used
 #COVMAT="covmat/${CASE}_${EXTRA}.covmat"
-COVMAT="covmat/photo_opt.covmat"
+COVMAT="covmat/PSP_MN.covmat"
 usecovmat=false #    false or 0
 rm_oldchains=true # false or 0
 rm_fiducial=true #  false or 0
