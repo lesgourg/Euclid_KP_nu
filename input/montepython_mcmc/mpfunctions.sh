@@ -11,10 +11,10 @@ display_help() {
     echo
     echo "Modes:"
     echo "  dryrun           Test (dry) Run the MontePython script printing commands to be run"
-    echo "  run              Run the MontePython script with MPI support (default)."
+    echo "  run              Run the MontePython script with MPI support."
     echo "  fiducial         Create the fiducial file and exit."
     echo "  info             Obtain information from existing chains and exit."
-    echo "  print            Print configuration details and exit."
+    echo "  print            Print configuration details and exit. (default)"
     echo
     echo "More options for info: "
     echo "  --second_chain   Path to chains to plot together with the original chains"
@@ -48,9 +48,11 @@ export date_time=$(date +"%Y-%m-%d_%H-%M")
 echo "Current Date and Time: $date_time"
 
 process_arguments() {
-export run="${1:-"run"}"
+export run="${1:-"print"}"
 # Initialize the option variable
 export secondchain=""
+export input_param=false
+export non_markov=true
 # Loop through the command line arguments
 for arg in "$@"
 do
@@ -61,6 +63,22 @@ do
       # Remove the current argument from the positional arguments
       #
       echo $secondchain
+      #shift
+      ;;
+    --input_param)
+      # Extract the option value after the equal sign
+      export input_param=true
+      # Remove the current argument from the positional arguments
+      #
+      echo $input_param
+      #shift
+      ;;
+    --keep_only_markovian)
+      # Extract the option value after the equal sign
+      export non_markov=false
+      # Remove the current argument from the positional arguments
+      #
+      echo $input_param
       #shift
       ;;
     *)
@@ -200,24 +218,28 @@ if [ "$run" = "dryrun" ]; then
 fi
 }
 
-function check_run_run {
-if [ "$run" = "dryrun" ]; then
-	echo "Deleting for security the _1_ files"
-	echo "rm -v $CHAINS/*_1_*"
-	echo "Launching chains in dry run:"
-	echo "$MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run -o $CHAINS --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt"
-  exit 1
-fi
-
-if [ "$run" = "fisher" ]; then
+function check_run_run () {
+if [ "$run" = "runfisher" ]; then
 	echo "Launching fisher"
-	$MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run --fisher -o $CHAINS --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt
+        fishopt="--fisher"
+	run="run"
+else
+        fishopt=""
 fi
-if [ "$run" = "run" ]; then
-	echo "Deleting for security the _1_ files"
-	rm -v "$CHAINS/"*"_1_"*
-	echo "Launching chains"
-	$MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run -o $CHAINS --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt
+if [[ "$run" = "run" || "$run" = "dryrun" ]]; then
+        if [[ $input_param == true || "$1" = "input_param" ]]; then 
+	    $inputopt="-p $INPUT"
+        else  
+            $inputopt="" 
+        fi
+	if [[ "$run" = "run" ]]; then
+	    echo "Deleting for security the _1_ files"
+	    rm -v "$CHAINS/"*"_1_"*
+	    echo "Launching chains"
+	    $MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run $inputopt -o $CHAINS $fishopt --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt
+        else 
+	    echo "$MPIEXEC $FLAGS_MPI_BATCH $PYTHON montepython/MontePython.py run $inputopt -o $CHAINS $fishopt --conf myconf.conf -f "$def_jumping" -N "$def_Nsteps" --update "$def_upd" --superupdate "$def_superupd" $Copt"
+	fi
 else
 	echo "run input argument not specified, MP run with chains has not been started"
 	exit 1

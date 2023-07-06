@@ -7,11 +7,11 @@
 ##comment --account=rwth1304
 
 # ask for 24 threads per task=MPI rank (which is 1 thread per core on one socket on CLAIX18)
-#SBATCH --cpus-per-task=4
-#SBATCH --time=23:59:00
-#SBATCH --output="mpPSP9.out"
-#SBATCH --error="mpPSP9.err"
-#SBATCH --job-name="mpPSP9"
+#SBATCH --cpus-per-task=6
+#SBATCH --time=12:00:00
+#SBATCH --output="PSP9wwMN.out"
+#SBATCH --error="PSP9wwMN.err"
+#SBATCH --job-name="PSP9wwMN"
 
 #
 #################
@@ -89,7 +89,8 @@ def_Nsteps="100000"
 def_upd="100"
 def_superupd="20"
 # MontePython parameter for info and plots
-non_markov=true
+## uncomment to overwrite default or line argument
+# non_markov=true
 
 # Run functions according to options
 check_run_print
