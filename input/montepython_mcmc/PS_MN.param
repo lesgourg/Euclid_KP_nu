@@ -1,5 +1,5 @@
 #------Experiments to test (separated with commas)-----
-data.experiments=['euclid_photometric_z','euclid_spectroscopic','fake_planck_realistic']
+data.experiments=['euclid_photometric_z','euclid_spectroscopic']
 
 #------ Parameter list -------
 
@@ -10,16 +10,15 @@ data.experiments=['euclid_photometric_z','euclid_spectroscopic','fake_planck_rea
 # - role is either 'cosmo', 'nuisance' or 'derived'
 
 # Cosmological parameter list
-data.parameters['w0_fld']          = [-1.0,      -1.0, -0.0,        0.,  1, 'cosmo']
-data.parameters['wa_fld']          = [ 0.0,       0.0,  0.0,        0.,  1, 'cosmo']
+data.parameters['w0_fld']          = [-1.0,      -1.5, -0.5,        0.0,  1, 'cosmo']
+data.parameters['wa_fld']          = [ 0.0,      -1.0,  1.0,        0.0,  1, 'cosmo']
 data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  2.54986132e-4,    1, 'cosmo']
 data.parameters['h']               = [0.6737,        0.1, 1.5,  1.65251623e-3,    1, 'cosmo']
 data.parameters['n_s']             = [0.96605,       0.8, 1.2,  4.21609630e-4,    1, 'cosmo']
 data.parameters['sigma8']          = [0.81,          0.7, 0.9,  1.89590234e-4,    1, 'cosmo']
-data.parameters['N_eff_camb']      = [3.044,         3.044,    3.044,  0.,    1, 'cosmo']
+data.parameters['N_ur']            = [0.,             0.,   5, 0.017672788763494048,   1, 'cosmo']
 data.parameters['m_nu_camb']       = [0.06,          5e-3,  1,   3.893847e-03,    1, 'cosmo']
 data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,   9.413470e-05,    1, 'cosmo']
-data.parameters['tau_reio']        = [  0.0543,      0.004, None,       0.008,    1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
@@ -62,8 +61,9 @@ data.parameters['sigma_p3']  = [4.067725, 0, None, 0.2, 1,  'nuisance']
 data.cosmo_arguments['Omega_Lambda'] = 0.0
 data.cosmo_arguments['YHe'] = 0.2454006
 data.cosmo_arguments['T_cmb'] = 2.7255
-#data.cosmo_arguments['reio_parametrization'] = 'reio_none'
+data.cosmo_arguments['reio_parametrization'] = 'reio_none'
 data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['deg_ncdm'] = 3
 
 # Non-Linear matter power spectrum settings
 data.cosmo_arguments['P_k_max_1/Mpc'] = 50.
