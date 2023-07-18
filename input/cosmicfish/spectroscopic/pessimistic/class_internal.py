@@ -18,4 +18,4 @@ specifications = ['Pessimistic']        # ['Pessimistic-ql', 'Pessimistic', 'Opt
 
 # derivatives_dict = {'GCsp' : 'own' , 'WL' : '3PT','WLxGCph' : '3PT','GCph' : '3PT','WL':'3PT' }
 
-internal_runs(obs_opts=obs_opts,codes_list=codes_list,specifications=specifications)
+internal_runs(obs_opts=obs_opts,codes_list=codes_list,specifications=specifications,inputyaml='default_spectro.yaml')

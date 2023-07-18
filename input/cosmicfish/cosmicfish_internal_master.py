@@ -19,7 +19,7 @@ paths_dict = {'WL':'lensing','WLxGCph':'photometric','GCsp':'spectroscopic'}
 model = 'w0waCDM'
 
 ###################################################
-def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=derivatives_default,name=''):
+def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=derivatives_default,name='',inputyaml='default.yaml'):
     derivatives_default.update(derivatives_dictionary)
     derivatives_dict = derivatives_default.copy()
     start_time = time()
@@ -31,7 +31,7 @@ def internal_runs(obs_opts,codes_list,specifications,derivatives_dictionary=deri
             'cosmo_model' : model,
             'code':'class',
             'specs_dir' : './survey_specifications/',
-            'class_config_yaml' : './boltzmann_yaml_files/class/default.yaml',
+            'class_config_yaml' : './boltzmann_yaml_files/class/{}'.format(inputyaml),
             'camb_config_yaml' : './boltzmann_yaml_files/camb/default.yaml',
             'results_dir': '../../results/cosmicfish_internal/',
             'GCsp_Tracer': 'clustering',
