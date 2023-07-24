@@ -5,3 +5,4 @@
 *testing*
 memory_cache/
 results/montepython_mcmc/*
+slurm_outerr/*
