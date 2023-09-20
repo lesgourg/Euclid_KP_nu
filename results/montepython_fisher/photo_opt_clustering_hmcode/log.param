@@ -129,7 +129,7 @@ data.cosmo_arguments['thermo_Nz_lin'] = 40000
 #data.cosmo_arguments['tol_perturbations_integration'] = 1.e-6
 
 # NLHP settings (non-linear high precision)
-data.cosmo_arguments['halofit_tol_sigma'] = 1.e-8
+data.cosmo_arguments['hmcode_tol_sigma'] = 1.e-8
 
 #------ Mcmc parameters ----
 # Number of steps taken, by default (overwritten by the -N command)
@@ -164,7 +164,7 @@ euclid_photometric_z.bias_model = 'binned'
 
 
 #-----------Cosmological-arguments---------
-data.cosmo_arguments.update({'T_ncdm': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'Omega_Lambda': 0.0, 'k_per_decade_for_pk': 50, 'k_per_decade_for_bao': 50, 'non linear': 'hmcode2020', 'nonlinear_min_k_max': 80.0, 'l_max_g': 20, 'l_max_pol_g': 15, 'radiation_streaming_approximation': 2, 'radiation_streaming_trigger_tau_over_tau_k': 240.0, 'radiation_streaming_trigger_tau_c_over_tau': 100.0, 'tol_ncdm_synchronous': 1e-05, 'l_max_ncdm': 22, 'ncdm_fluid_trigger_tau_over_tau_k': 41.0, 'background_Nloga': 6000, 'thermo_Nz_log': 20000, 'thermo_Nz_lin': 40000, 'halofit_tol_sigma': 1e-08, 'output': ' mPk, dTk ', 'z_max_pk': 2.5, 'P_k_max_1/Mpc': 75.0})
+data.cosmo_arguments.update({'T_ncdm': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'Omega_Lambda': 0.0, 'k_per_decade_for_pk': 50, 'k_per_decade_for_bao': 50, 'non linear': 'hmcode2020', 'nonlinear_min_k_max': 80.0, 'l_max_g': 20, 'l_max_pol_g': 15, 'radiation_streaming_approximation': 2, 'radiation_streaming_trigger_tau_over_tau_k': 240.0, 'radiation_streaming_trigger_tau_c_over_tau': 100.0, 'tol_ncdm_synchronous': 1e-05, 'l_max_ncdm': 22, 'ncdm_fluid_trigger_tau_over_tau_k': 41.0, 'background_Nloga': 6000, 'thermo_Nz_log': 20000, 'thermo_Nz_lin': 40000, 'hmcode_tol_sigma': 1e-08, 'output': ' mPk, dTk ', 'z_max_pk': 2.5, 'P_k_max_1/Mpc': 75.0})
 
 
 #--------Default-Configuration------

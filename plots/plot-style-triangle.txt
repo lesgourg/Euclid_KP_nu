@@ -1,15 +1,15 @@
 xtick.alignment : center
 xtick.bottom : True
 xtick.color: 323034
-xtick.direction : out
+xtick.direction : in
 xtick.labelbottom : True
-xtick.labelsize : 14.0
+xtick.labelsize : 10.0
 xtick.labeltop : False
 xtick.major.bottom : True
 xtick.major.pad : 3.5
-xtick.major.size : 10.0
+xtick.major.size : 5.0
 xtick.major.top : True
-xtick.major.width : 2.0
+xtick.major.width : 0.5
 xtick.minor.bottom : True
 xtick.minor.pad : 3.4
 xtick.minor.size : 1.0
@@ -17,18 +17,18 @@ xtick.minor.top : True
 xtick.minor.visible : False
 xtick.minor.width : 0.5
 xtick.top : False
-ytick.alignment : center_baseline
+ytick.alignment : center
 ytick.color: 323034
-ytick.direction : out
+ytick.direction : in
 ytick.labelleft : True
 ytick.labelright : False
-ytick.labelsize : 14.0
+ytick.labelsize : 10.0
 ytick.left : True
 ytick.major.left : True
 ytick.major.pad : 3.5
 ytick.major.right : True
-ytick.major.size : 10.0
-ytick.major.width : 2.0
+ytick.major.size : 5.0
+ytick.major.width : 0.5
 ytick.minor.left : True
 ytick.minor.pad : 3.4
 ytick.minor.right : True
@@ -51,8 +51,9 @@ axes.grid.axis : both
 axes.grid.which : major
 axes.labelcolor : black
 axes.labelpad : 3.0
-axes.labelsize : 14.0
+axes.labelsize : 15.0
 axes.labelweight : normal
+axes.linewidth : 0.6
 axes.prop_cycle : (cycler('color', ['bc80bd' ,'fb8072', 'b3de69','fdb462','fccde5','8dd3c7','ffed6f','bebada','80b1d3', 'ccebc5', 'd9d9d9']))
 axes.spines.bottom : True
 axes.spines.left : True
@@ -61,18 +62,19 @@ axes.spines.top : True
 axes.titlecolor : auto
 axes.titlelocation : left
 axes.titlepad : 20.0
-axes.titlesize : 40.0
+axes.labelpad : 0.0
+axes.titlesize : 30.0
 axes.titleweight : normal
 axes.unicode_minus : True
 axes.xmargin : 0.05
 axes.ymargin : 0.05
-axes.linewidth: 2
+axes.linewidth: 0.5
 legend.borderaxespad : 0.5
 legend.borderpad : 0.2
 legend.columnspacing : 1.5
 legend.edgecolor : gray
 legend.facecolor : inherit
-legend.fancybox : False
+legend.fancybox : True
 legend.fontsize : 12.0
 legend.framealpha : 0.8
 legend.frameon : True
@@ -104,7 +106,7 @@ figure.subplot.left : 0.125
 figure.subplot.right : 0.9
 figure.subplot.top : 0.88
 figure.subplot.wspace : 0.2
-figure.titlesize : 1
+figure.titlesize : large
 figure.titleweight : normal
 patch.antialiased : True
 patch.edgecolor : black
