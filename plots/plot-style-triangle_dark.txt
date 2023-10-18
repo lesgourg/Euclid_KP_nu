@@ -1,9 +1,9 @@
 xtick.alignment : center
 xtick.bottom : True
-xtick.color: 323034
+xtick.color: white
 xtick.direction : in
 xtick.labelbottom : True
-xtick.labelsize : 10.0
+xtick.labelsize : 14.0
 xtick.labeltop : False
 xtick.major.bottom : True
 xtick.major.pad : 3.5
@@ -18,11 +18,11 @@ xtick.minor.visible : False
 xtick.minor.width : 0.5
 xtick.top : False
 ytick.alignment : center
-ytick.color: 323034
+ytick.color: white
 ytick.direction : in
 ytick.labelleft : True
 ytick.labelright : False
-ytick.labelsize : 10.0
+ytick.labelsize : 14.0
 ytick.left : True
 ytick.major.left : True
 ytick.major.pad : 3.5
@@ -38,7 +38,7 @@ ytick.minor.width : 0.5
 ytick.right : False
 axes.autolimit_mode : round_numbers
 axes.axisbelow : line
-axes.edgecolor : black
+axes.edgecolor : white
 axes.facecolor : white
 axes.formatter.limits : -4, 4
 axes.formatter.min_exponent : 0
@@ -49,9 +49,9 @@ axes.formatter.useoffset : True
 axes.grid : False
 axes.grid.axis : both
 axes.grid.which : major
-axes.labelcolor : black
+axes.labelcolor : white
 axes.labelpad : 3.0
-axes.labelsize : 20
+axes.labelsize : 18.0
 axes.labelweight : normal
 axes.linewidth : 0.6
 axes.prop_cycle : (cycler('color', ['bc80bd' ,'fb8072', 'b3de69','fdb462','fccde5','8dd3c7','ffed6f','bebada','80b1d3', 'ccebc5', 'd9d9d9']))
@@ -88,6 +88,7 @@ legend.numpoints : 1
 legend.scatterpoints : 1
 legend.shadow : False
 legend.title_fontsize : 12.0
+legend.labelcolor : black
 figure.autolayout : False
 figure.constrained_layout.h_pad : 0.04167
 figure.constrained_layout.hspace : 0.02

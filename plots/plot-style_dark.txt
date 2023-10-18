@@ -3,13 +3,15 @@ xtick.bottom : True
 xtick.color: 323034
 xtick.direction : in
 xtick.labelbottom : True
-xtick.labelsize : 10.0
+xtick.labelsize : 14.0
 xtick.labeltop : False
 xtick.major.bottom : True
 xtick.major.pad : 3.5
-xtick.major.size : 5.0
+xtick.major.size : 10.0
 xtick.major.top : True
-xtick.major.width : 0.5
+xtick.major.width : 2.0
+xtick.color : White
+xtick.labelcolor : White
 xtick.minor.bottom : True
 xtick.minor.pad : 3.4
 xtick.minor.size : 1.0
@@ -17,18 +19,20 @@ xtick.minor.top : True
 xtick.minor.visible : False
 xtick.minor.width : 0.5
 xtick.top : False
-ytick.alignment : center
+ytick.alignment : center_baseline
 ytick.color: 323034
 ytick.direction : in
 ytick.labelleft : True
 ytick.labelright : False
-ytick.labelsize : 10.0
+ytick.labelsize : 14.0
+ytick.color : White
+ytick.labelcolor : White
 ytick.left : True
 ytick.major.left : True
 ytick.major.pad : 3.5
 ytick.major.right : True
-ytick.major.size : 5.0
-ytick.major.width : 0.5
+ytick.major.size : 10.0
+ytick.major.width : 2.0
 ytick.minor.left : True
 ytick.minor.pad : 3.4
 ytick.minor.right : True
@@ -38,8 +42,7 @@ ytick.minor.width : 0.5
 ytick.right : False
 axes.autolimit_mode : round_numbers
 axes.axisbelow : line
-axes.edgecolor : black
-axes.facecolor : white
+axes.edgecolor : white
 axes.formatter.limits : -4, 4
 axes.formatter.min_exponent : 0
 axes.formatter.offset_threshold : 4
@@ -49,11 +52,10 @@ axes.formatter.useoffset : True
 axes.grid : False
 axes.grid.axis : both
 axes.grid.which : major
-axes.labelcolor : black
+axes.labelcolor : white
 axes.labelpad : 3.0
-axes.labelsize : 20
+axes.labelsize : 14.0
 axes.labelweight : normal
-axes.linewidth : 0.6
 axes.prop_cycle : (cycler('color', ['bc80bd' ,'fb8072', 'b3de69','fdb462','fccde5','8dd3c7','ffed6f','bebada','80b1d3', 'ccebc5', 'd9d9d9']))
 axes.spines.bottom : True
 axes.spines.left : True
@@ -62,21 +64,21 @@ axes.spines.top : True
 axes.titlecolor : auto
 axes.titlelocation : left
 axes.titlepad : 20.0
-axes.labelpad : 0.0
-axes.titlesize : 30.0
+axes.titlesize : 40.0
 axes.titleweight : normal
 axes.unicode_minus : True
 axes.xmargin : 0.05
 axes.ymargin : 0.05
-axes.linewidth: 0.5
+axes.linewidth: 2
 legend.borderaxespad : 0.5
 legend.borderpad : 0.2
 legend.columnspacing : 1.5
 legend.edgecolor : gray
+legend.labelcolor: white
 legend.facecolor : inherit
-legend.fancybox : True
-legend.fontsize : 18.0
-legend.framealpha : 0.8
+legend.fancybox : False
+legend.fontsize : 12.0
+legend.framealpha : 0.
 legend.frameon : True
 legend.handleheight : 0.7
 legend.handlelength : 2.0
@@ -88,6 +90,7 @@ legend.numpoints : 1
 legend.scatterpoints : 1
 legend.shadow : False
 legend.title_fontsize : 12.0
+legend.title_color : white
 figure.autolayout : False
 figure.constrained_layout.h_pad : 0.04167
 figure.constrained_layout.hspace : 0.02
@@ -96,7 +99,6 @@ figure.constrained_layout.w_pad : 0.04167
 figure.constrained_layout.wspace : 0.02
 figure.dpi : 200.0
 figure.edgecolor : white
-figure.facecolor : white
 figure.figsize : 6.4, 4.8
 figure.frameon : True
 figure.max_open_warning : 20
@@ -106,10 +108,10 @@ figure.subplot.left : 0.125
 figure.subplot.right : 0.9
 figure.subplot.top : 0.88
 figure.subplot.wspace : 0.2
-figure.titlesize : large
+figure.titlesize : 1
 figure.titleweight : normal
 patch.antialiased : True
-patch.edgecolor : black
+patch.edgecolor : white
 patch.facecolor : bc80bd
 patch.force_edgecolor : True
 patch.linewidth : 0.8
@@ -126,8 +128,8 @@ font.style : normal
 font.variant : normal
 font.weight : normal
 text.color:323034
-lines.markeredgecolor:black
-scatter.edgecolors:black
+lines.markeredgecolor:white
+scatter.edgecolors:white
 grid.color:b1afb5
 lines.linewidth:2
 text.usetex:False
