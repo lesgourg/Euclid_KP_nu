@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 
 from cosmicfishpie.analysis import fisher_plotting as fpp
 from cosmicfishpie.analysis import fisher_matrix as fm
+from cosmicfishpie.analysis import fisher_operations as fo
 
 A =fm.fisher_matrix(file_name='CosmicFish_v1.0_Camb_Spectro-Opt_3PT_epsmu_0.1_GCsp_fishermatrix.txt')
 B =fm.fisher_matrix(file_name='CosmicFish_v1.0_Camb_Spectro-Opt_4PT_FWD_epsmu_0.1_GCsp_fishermatrix.txt')
@@ -32,6 +33,9 @@ for i in range(4):
    transform_latex_dict['\\ln(b_g \\sigma_8)_{}'.format(i+1)] = 'lbs_{{{}}}'.format(i+1)
 
 fishers_list= array([A,B])
+all_pars =['Omegam','Omegab','h','ns','sigma8','Neff','w0','wa','lnbgs8_1','lnbgs8_2','lnbgs8_3','lnbgs8_4','Ps_1','Ps_2','Ps_3','Ps_4']
+all_pars =['Omegam','Omegab','h','ns','sigma8','Neff','mnu','w0','wa']
+fishers_list= array([fo.reshuffle(fish,all_pars) for fish in fishers_list])
 
 plot_options = {'fishers_list':fishers_list, 
           'colors': snscolors,
@@ -44,7 +48,7 @@ plot_options = {'fishers_list':fishers_list,
           'plot_method': 'Gaussian',
           'file_format': '.pdf',   ##file format for all the plots
           'outpath' : './plots/',  ## directory where to store the files, if non-existent, it will be created
-          'outroot':'cosmopars_3PT_v_4PTFWD',  ## file name root for all the plots, extra names can be added individually
+          'outroot':'fix_bias_3PT_v_4PTFWD',  ## file name root for all the plots, extra names can be added individually
           'legend_title':r'${\tt CF/CAMB}$ Spectroscopic Optimistic',
           'legend_title_fontsize':30,
           'dots_legend_fontsize':30,
@@ -54,7 +58,7 @@ plot_options = {'fishers_list':fishers_list,
           'yticklabsize'  :35,
           'ylabelfontsize':35,
           'patches_legend_fontsize':35,
-          'yrang':[-10,10],
+          'yrang':[-1,1],
           'transform_latex_dict':transform_latex_dict,
           'figure_title':r'Impact of Derivative Method'
           ,'xticksrotation':45
@@ -65,3 +69,5 @@ plt.style.use('../../../plots/plot-style.txt')
 fish_plotter = fpp.fisher_plotting(**plot_options)
 fish_plotter.load_gaussians()
 fish_plotter.compare_errors(plot_options)
+
+fish_plotter.matrix_ratio()
