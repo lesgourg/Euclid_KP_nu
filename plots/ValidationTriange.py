@@ -58,7 +58,7 @@ labels_dict={
 'AIA' : 'A_{\mathrm{IA}}', 'etaIA' :'\eta_\mathrm{IA}', 'betaIA' : '\beta_\mathrm{IA}',
 'lnbgs8_1' : '\ln(b_g \sigma_8)_1', 'lnbgs8_2' : '\ln(b_g \sigma_8)_2', 'lnbgs8_3' : '\ln(b_g \sigma_8)_3', 'lnbgs8_4' : '\ln(b_g \sigma_8)_4',
 'Ps_1'  :  'P_{S1}', 'Ps_2'  :  'P_{S2}','Ps_3'  :  'P_{S3}','Ps_4'  :  'P_{S4}',
-'Neff' : 'N_\mathrm{eff}', 'mnu':r'm_\nu \mathrm{(eV)}','logfR0':r'\log_{10}(f_{R0})',        
+'Neff' : 'N_\mathrm{eff}', 'mnu':r'\sum m_\nu \mathrm{[eV]}','logfR0':r'\log_{10}(f_{R0})',        
         'sigmap_0': r'\sigma_{p\,0}',
         'sigmap_1': r'\sigma_{p\,1}',
         'sigmap_2': r'\sigma_{p\,2}',
@@ -152,9 +152,9 @@ for i in range(len(cosmo_pars)):
             ttick.append(float('{:.2e}'.format(ticks_array[j,i])))
     tick_array.append(ttick)
 
-tick_array= [[0.63, 0.724], [0.311, 0.318], [0.0432, 0.0552], [0.804, 0.816], [0.95, 0.981], [0.0639, 0.2], [2.22, 3.96]]
+tick_array= [[0.63, 0.73], [0.31, 0.32], [0.043, 0.055], [0.80, 0.82], [0.95, 0.98], [0.06, 0.2], [2, 4]]
 ## Cosmo Triangle
-g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 0.75,width_inch=6)
+g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
 g.triangle_plot([mcmc1.samples,gauss1,gauss2],filled=[True,False,False],params=cosmo_pars,legend_labels=[r'${\tt MP/MCMC}$',r'${\tt CF/CAMB}$',r'${\tt MP/Fish}$'],contour_lws=[1,1,1],colors=colors,    contour_colors=colors)
 
 for i in range(len(cosmo_pars)):
@@ -164,22 +164,24 @@ for i in range(len(cosmo_pars)):
         # g.subplots[i,j].minorticks_on()
         if i == j:
             g.subplots[i,i].xaxis.set_ticks(tick_array[i],labelsize=20)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
             continue
         if i > 0 and j == 0:
             g.subplots[i,j].yaxis.set_ticks(tick_array[i],labelsize=15)
-            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=9)
         if i== len(cosmo_pars)-1:
             g.subplots[i,j].xaxis.set_ticks(tick_array[j],labelsize=15)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
 
 g.fig.align_ylabels(axs=None)
 
 g.export('./Validation_Plots/P_MN_validation.pdf')
 print('Cosmo triangle finished')
 del g
+
 #####################spectro######################
 all_pars =['Omegam','Omegab','h','ns','sigma8','mnu','Neff','lnbgs8_1','lnbgs8_2','lnbgs8_3','lnbgs8_4','Ps_1','Ps_2','Ps_3','Ps_4']
+cosmo_pars = ['h','Omegam','Omegab','sigma8','ns','mnu', 'Neff']
 
 #MCMC
 pathlist = ['/home/sefa/chains/spec_opt_mnu+Neff/2023-06-09_10000_']
@@ -212,8 +214,10 @@ for i in range(len(cosmo_pars)):
             ttick.append(float('{:.2e}'.format(ticks_array[j,i])))
     tick_array.append(ttick)
 
+tick_array= [[0.67, 0.68], [0.31, 0.33], [0.045, 0.053], [0.79, 0.82], [0.93, 1.00], [0.12, 0.48], [2.5, 3.5]]
+
 ## Cosmo Triangle
-g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 0.75,width_inch=6)
+g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
 g.triangle_plot([mcmc1.samples,gauss1,gauss2],filled=[True,False,False],params=cosmo_pars,legend_labels=[r'${\tt MP/MCMC}$',r'${\tt CF/CAMB}$',r'${\tt MP/Fish}$'],contour_lws=[1,1,1],colors=colors,    contour_colors=colors)
 
 for i in range(len(cosmo_pars)):
@@ -223,20 +227,21 @@ for i in range(len(cosmo_pars)):
         # g.subplots[i,j].minorticks_on()
         if i == j:
             g.subplots[i,i].xaxis.set_ticks(tick_array[i],labelsize=20)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
             continue
         if i > 0 and j == 0:
             g.subplots[i,j].yaxis.set_ticks(tick_array[i],labelsize=15)
-            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=9)
         if i== len(cosmo_pars)-1:
             g.subplots[i,j].xaxis.set_ticks(tick_array[j],labelsize=15)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
 
 g.fig.align_ylabels(axs=None)
 
 g.export('./Validation_Plots/S_MN_validation.pdf')
 print('Cosmo triangle finished')
 del g
+
 
 ##########
 # mnu+w0 #
@@ -281,8 +286,10 @@ for i in range(len(cosmo_pars)):
             ttick.append(float('{:.2e}'.format(ticks_array[j,i])))
     tick_array.append(ttick)
 
+tick_array= [[0.63, 0.72], [0.31, 0.32], [0.043, 0.057], [0.8, 0.82], [0.94, 0.98], [0.06, 0.24], [-1.03, -0.97]]
+
 ## Cosmo Triangle
-g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 0.75,width_inch=6)
+g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
 g.triangle_plot([mcmc1.samples,gauss1,gauss2],filled=[True,False,False],params=cosmo_pars,legend_labels=[r'${\tt MP/MCMC}$',r'${\tt CF/CAMB}$',r'${\tt MP/Fish}$'],contour_lws=[1,1,1],colors=colors,    contour_colors=colors)
 
 for i in range(len(cosmo_pars)):
@@ -292,20 +299,21 @@ for i in range(len(cosmo_pars)):
         # g.subplots[i,j].minorticks_on()
         if i == j:
             g.subplots[i,i].xaxis.set_ticks(tick_array[i],labelsize=20)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
             continue
         if i > 0 and j == 0:
             g.subplots[i,j].yaxis.set_ticks(tick_array[i],labelsize=15)
-            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=9)
         if i== len(cosmo_pars)-1:
             g.subplots[i,j].xaxis.set_ticks(tick_array[j],labelsize=15)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
 
 g.fig.align_ylabels(axs=None)
 
 g.export('./Validation_Plots/P_w0M_validation.pdf')
 print('Cosmo triangle finished')
 del g
+
 #####################spectro######################
 all_pars =['Omegam','Omegab','h','ns','sigma8','w0','mnu','lnbgs8_1','lnbgs8_2','lnbgs8_3','lnbgs8_4','Ps_1','Ps_2','Ps_3','Ps_4']
 cosmo_pars = ['h','Omegam','Omegab','sigma8','ns','mnu', 'w0']
@@ -340,8 +348,10 @@ for i in range(len(cosmo_pars)):
             ttick.append(float('{:.2e}'.format(ticks_array[j,i])))
     tick_array.append(ttick)
 
+tick_array= [[0.67, 0.68], [0.3, 0.33], [0.047, 0.052], [0.79, 0.83], [0.95, 1.], [0.12, 0.48], [-1.07, -0.93]]
+
 ## Cosmo Triangle
-g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 0.75,width_inch=6)
+g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
 g.triangle_plot([mcmc1.samples,gauss1,gauss2],filled=[True,False,False],params=cosmo_pars,legend_labels=[r'${\tt MP/MCMC}$',r'${\tt CF/CAMB}$',r'${\tt MP/Fish}$'],contour_lws=[1,1,1],colors=colors,    contour_colors=colors)
 
 for i in range(len(cosmo_pars)):
@@ -351,14 +361,14 @@ for i in range(len(cosmo_pars)):
         # g.subplots[i,j].minorticks_on()
         if i == j:
             g.subplots[i,i].xaxis.set_ticks(tick_array[i],labelsize=20)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
             continue
         if i > 0 and j == 0:
             g.subplots[i,j].yaxis.set_ticks(tick_array[i],labelsize=15)
-            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=9)
         if i== len(cosmo_pars)-1:
             g.subplots[i,j].xaxis.set_ticks(tick_array[j],labelsize=15)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
 
 g.fig.align_ylabels(axs=None)
 
@@ -403,9 +413,10 @@ for i in range(len(cosmo_pars)):
         if True:
             ttick.append(float('{:.2e}'.format(ticks_array[j,i])))
     tick_array.append(ttick)
+tick_array= [[0.63, 0.73], [0.31, 0.32], [0.044, 0.055], [0.805, 0.815], [0.95, 1.], [-1.06, -0.94], [-0.25, 0.25]]
 
 ## Cosmo Triangle
-g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 0.75,width_inch=6)
+g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
 g.triangle_plot([mcmc1.samples,gauss1,gauss2],filled=[True,False,False],params=cosmo_pars,legend_labels=[r'${\tt MP/MCMC}$',r'${\tt CF/CAMB}$',r'${\tt MP/Fish}$'],contour_lws=[1,1,1],colors=colors,    contour_colors=colors)
 
 for i in range(len(cosmo_pars)):
@@ -415,20 +426,21 @@ for i in range(len(cosmo_pars)):
         # g.subplots[i,j].minorticks_on()
         if i == j:
             g.subplots[i,i].xaxis.set_ticks(tick_array[i],labelsize=20)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
             continue
         if i > 0 and j == 0:
             g.subplots[i,j].yaxis.set_ticks(tick_array[i],labelsize=15)
-            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=9)
         if i== len(cosmo_pars)-1:
             g.subplots[i,j].xaxis.set_ticks(tick_array[j],labelsize=15)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
 
 g.fig.align_ylabels(axs=None)
 
 g.export('./Validation_Plots/P_w0wa_validation.pdf')
 print('Cosmo triangle finished')
 del g
+
 #####################spectro######################
 all_pars =['Omegam','Omegab','h','ns','sigma8','w0','wa','lnbgs8_1','lnbgs8_2','lnbgs8_3','lnbgs8_4','Ps_1','Ps_2','Ps_3','Ps_4']
 cosmo_pars = ['h','Omegam','Omegab','sigma8','ns','w0', 'wa']
@@ -462,8 +474,10 @@ for i in range(len(cosmo_pars)):
             ttick.append(float('{:.2e}'.format(ticks_array[j,i])))
     tick_array.append(ttick)
 
+tick_array= [[0.67, 0.68], [0.30, 0.34], [0.045, 0.053], [0.79, 0.83], [0.94, 1.], [-1.2, -0.8], [-0.6, 0.6]]
+
 ## Cosmo Triangle
-g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 0.75,width_inch=6)
+g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
 g.triangle_plot([mcmc1.samples,gauss1,gauss2],filled=[True,False,False],params=cosmo_pars,legend_labels=[r'${\tt MP/MCMC}$',r'${\tt CF/CAMB}$',r'${\tt MP/Fish}$'],contour_lws=[1,1,1],colors=colors,    contour_colors=colors)
 
 for i in range(len(cosmo_pars)):
@@ -473,14 +487,14 @@ for i in range(len(cosmo_pars)):
         # g.subplots[i,j].minorticks_on()
         if i == j:
             g.subplots[i,i].xaxis.set_ticks(tick_array[i],labelsize=20)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
             continue
         if i > 0 and j == 0:
             g.subplots[i,j].yaxis.set_ticks(tick_array[i],labelsize=15)
-            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=9)
         if i== len(cosmo_pars)-1:
             g.subplots[i,j].xaxis.set_ticks(tick_array[j],labelsize=15)
-            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=8)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
 
 g.fig.align_ylabels(axs=None)
 
