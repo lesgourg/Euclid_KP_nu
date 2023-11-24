@@ -8,7 +8,7 @@
 
 # ask for 24 threads per task=MPI rank (which is 1 thread per core on one socket on CLAIX18)
 #SBATCH --cpus-per-task=6
-#SBATCH --time=48:00:00
+#SBATCH --time=16:00:00
 #SBATCH --output="PSSLMN.out"
 #SBATCH --error="PSSLMN.err"
 #SBATCH --job-name="PSSLMN"
@@ -26,9 +26,8 @@
 
 #change these modules acording to how it was compiled! they must be identical
 #modules in this order!
-module purge
-module restore monte
-
+#module purge
+#module restore intelmp
 #which mpicc
 
 ##so python knows we are in this custom enviroment with our own packages
@@ -41,6 +40,10 @@ module restore monte
 #
 #
 
+module purge
+module restore intelpy
+source ~/pyenv/intelpy/bin/activate
+
 PYTHON=python
 which $MPIEXEC
 echo $MPIEXEC" "$FLAGS_MPI_BATCH
@@ -50,8 +53,9 @@ echo $MPIEXEC" "$FLAGS_MPI_BATCH
 rootdir="../../Euclid_KP_nu/"
 datadir="data/"
 inputdir="input/montepython_mcmc/"
+scriptsdir="input/montepython_mcmc/scripts/"
 resultsdir="results/montepython_mcmc/"
-source "${inputdir}mpfunctions.sh"
+source "${scriptsdir}mpfunctions.sh"
 
 check_help $1
 process_arguments "$@"
