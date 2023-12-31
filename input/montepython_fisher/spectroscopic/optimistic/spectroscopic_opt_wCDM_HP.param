@@ -1,4 +1,5 @@
 #------Experiments to test (separated with commas)-----
+
 data.experiments=['euclid_spectroscopic']
 
 #------ Parameter list -------
@@ -11,41 +12,58 @@ data.experiments=['euclid_spectroscopic']
 
 
 # Cosmological parameter list
-data.parameters['w0_fld']          = [-1.0,      -1.5, -0.5,    0.086678,  1, 'cosmo']
-data.parameters['wa_fld']          = [ 0.0,      -1.0,  1.0,    0.281240,  1, 'cosmo']
-data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.0034449441402599,  1, 'cosmo']
-data.parameters['h']               = [0.6737,        0.1, 1.5,  0.0032288407710488,  1, 'cosmo']
-data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.0192950276636101,  1, 'cosmo']
-data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.0206365121091943,  1, 'cosmo']
-data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.0,  1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          5.e-3, 1,  0.0,  1, 'cosmo']
-data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.0171696502466091,  1, 'cosmo']
+data.parameters['w0_fld']       = [           -1,    -1,  -1, 6.2646e-03, 1, 'cosmo']
+data.parameters['wa_fld']       = [           0.,   -1.,   1, 1.8691e-02, 1, 'cosmo']
+data.parameters['Omega_b']      = [    0.0491989, 0.005,   1, 1.0808e-04, 1, 'cosmo']
+data.parameters['h']            = [       0.6737,   0.1, 1.5, 8.9740e-04, 1, 'cosmo']
+data.parameters['n_s']          = [      0.96605,   0.8, 1.2, 6.4100e-04, 1, 'cosmo']
+data.parameters['sigma8']       = [         0.81,   0.7, 0.9, 7.1729e-04, 1, 'cosmo']
+data.parameters['N_eff_camb']   = [        3.044,    0.,   6,          0, 1, 'cosmo']
+data.parameters['m_nu_camb']    = [         0.06,    0.,   1,          0, 1, 'cosmo']
+data.parameters['Omega_m_camb'] = [ 0.3145714273, 0.005,   1, 7.3397e-04, 1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
 # Arbitrary limits for faster convergence in MCMC
 
-data.parameters['P_shot0']  = [0,  None, None,   1.2414229947070299, 1, 'nuisance']
-data.parameters['P_shot1']  = [0,  None, None,   1.2204507894229653, 1, 'nuisance']
-data.parameters['P_shot2']  = [0,  None, None,   1.2752113374867249, 1, 'nuisance']
-data.parameters['P_shot3']  = [0,  None, None,   1.3288194978249617, 1, 'nuisance']
-data.parameters['lnbsigma8_0']  = [-0.324980,  None, None,   0.0016625147564206795,  1,  'nuisance']
-data.parameters['lnbsigma8_1']  = [-0.315229,  None, None,   0.0016358322473526191,  1,  'nuisance']
-data.parameters['lnbsigma8_2']  = [-0.310679,  None, None,   0.0016228318899675308,  1,  'nuisance']
-data.parameters['lnbsigma8_3']  = [-0.319153,  None, None,   0.0016186057623980890,  1,  'nuisance']
+data.parameters['P_shot0']  = [0, None, None, 9.7667e-01, 1, 'nuisance']
+data.parameters['P_shot1']  = [0, None, None, 9.8079e-01, 1, 'nuisance']
+data.parameters['P_shot2']  = [0, None, None, 1.0414e+00, 1, 'nuisance']
+data.parameters['P_shot3']  = [0, None, None, 1.0915e+00, 1, 'nuisance']
+data.parameters['lnbsigma8_0']  = [-0.32505312, None, None, 7.7152e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_1']  = [-0.31530447, None, None, 7.5454e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_2']  = [-0.31075713, None, None, 7.4263e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_3']  = [-0.31923368, None, None, 7.3272e-04, 1, 'nuisance']
 
 # Fixed parameter list
-data.cosmo_arguments['Omega_Lambda'] = 0
-data.cosmo_arguments['YHe'] = 0.2454006
 data.cosmo_arguments['T_cmb'] = 2.7255
-data.cosmo_arguments['reio_parametrization'] = 'reio_none'
 data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['YHe'] = 0.2454006
+data.cosmo_arguments['reio_parametrization'] = 'reio_none'
+data.cosmo_arguments['Omega_Lambda'] = 0.0
 
-# Linear matter power spectrum settings
-data.cosmo_arguments['P_k_max_1/Mpc'] = 50.
+# precision parameters
 data.cosmo_arguments['k_per_decade_for_pk'] = 50.
 data.cosmo_arguments['k_per_decade_for_bao'] = 50.
+data.cosmo_arguments['l_max_g'] = 20
+data.cosmo_arguments['l_max_pol_g'] = 15
+
 data.cosmo_arguments['non linear'] = 'none'
+
+data.cosmo_arguments['radiation_streaming_approximation'] = 2
+data.cosmo_arguments['radiation_streaming_trigger_tau_over_tau_k'] = 240.
+data.cosmo_arguments['radiation_streaming_trigger_tau_c_over_tau'] = 100.
+
+data.cosmo_arguments['ncdm_fluid_approximation'] = 3
+data.cosmo_arguments['tol_ncdm_synchronous'] = 1.e-5
+data.cosmo_arguments['l_max_ncdm'] = 22
+
+# ODEHP settings (ODE high precision)
+data.cosmo_arguments['evolver'] = 0
+data.cosmo_arguments['background_Nloga'] = 6000
+data.cosmo_arguments['thermo_Nz_log'] = 20000
+data.cosmo_arguments['thermo_Nz_lin'] = 40000
+data.cosmo_arguments['tol_perturbations_integration'] = 1.e-6
 
 #------ Mcmc parameters ----
 # Number of steps taken, by default (overwritten by the -N command)

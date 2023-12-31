@@ -1,6 +1,6 @@
 #------Experiments to test (separated with commas)-----
 
-data.experiments=['euclid_spectroscopic_cb']
+data.experiments=['euclid_spectroscopic']
 
 #------ Parameter list -------
 
@@ -12,28 +12,28 @@ data.experiments=['euclid_spectroscopic_cb']
 
 
 # Cosmological parameter list
-data.parameters['w0_fld']          = [-1,      -1,    1,        0.01110988734703211,  1, 'cosmo']
-data.parameters['wa_fld']          = [0.,      -1.  , 1,        0.04185704202358269,  1, 'cosmo']
-data.parameters['Omega_b']         = [0.0491989,     0.005, 1,  0.00034449441402599,  1, 'cosmo']
-data.parameters['h']               = [0.6737,        0.1, 1.5,  0.00032288407710488,  1, 'cosmo']
-data.parameters['n_s']             = [0.96605,       0.8, 1.2,  0.00192950276636101,  1, 'cosmo']
-data.parameters['sigma8']          = [0.81,          0.7, 0.9,  0.00206365121091943,  1, 'cosmo']
-data.parameters['N_eff_camb']      = [3.044,         0.,    6,  0.03077575120912134,  1, 'cosmo']
-data.parameters['m_nu_camb']       = [0.06,          0.,    1,  0.01477006057903574,  1, 'cosmo']
-data.parameters['Omega_m_camb']    = [0.3145714273,  0.005, 1,  0.00171696502466091,  1, 'cosmo']
+data.parameters['w0_fld']       = [           -1,    -1,  -1,          0, 1, 'cosmo']
+data.parameters['wa_fld']       = [           0.,   -1.,   1,          0, 1, 'cosmo']
+data.parameters['Omega_b']      = [    0.0491989, 0.005,   1, 1.1848e-04, 1, 'cosmo']
+data.parameters['h']            = [       0.6737,   0.1, 1.5, 6.7217e-04, 1, 'cosmo']
+data.parameters['n_s']          = [      0.96605,   0.8, 1.2, 1.0633e-03, 1, 'cosmo']
+data.parameters['sigma8']       = [         0.81,   0.7, 0.9, 4.3363e-04, 1, 'cosmo']
+data.parameters['N_eff_camb']   = [        3.044,    0.,   6, 1.4871e-02, 1, 'cosmo']
+data.parameters['m_nu_camb']    = [         0.06,    0.,   1, 8.2252e-03, 1, 'cosmo']
+data.parameters['Omega_m_camb'] = [ 0.3145714273, 0.005,   1, 3.3978e-04, 1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
 # Arbitrary limits for faster convergence in MCMC
 
-data.parameters['P_shot0']  = [0,  None, None,   1.2414229947070299, 1, 'nuisance']
-data.parameters['P_shot1']  = [0,  None, None,   1.2204507894229653, 1, 'nuisance']
-data.parameters['P_shot2']  = [0,  None, None,   1.2752113374867249, 1, 'nuisance']
-data.parameters['P_shot3']  = [0,  None, None,   1.3288194978249617, 1, 'nuisance']
-data.parameters['lnbsigma8_0']  = [-0.324980,  None, None,   0.0016625147564206795,  1,  'nuisance']
-data.parameters['lnbsigma8_1']  = [-0.315229,  None, None,   0.0016358322473526191,  1,  'nuisance']
-data.parameters['lnbsigma8_2']  = [-0.310679,  None, None,   0.0016228318899675308,  1,  'nuisance']
-data.parameters['lnbsigma8_3']  = [-0.319153,  None, None,   0.0016186057623980890,  1,  'nuisance']
+data.parameters['P_shot0']  = [0,  None, None, 2.1115e+00, 1, 'nuisance']
+data.parameters['P_shot1']  = [0,  None, None, 2.1916e+00, 1, 'nuisance']
+data.parameters['P_shot2']  = [0,  None, None, 2.3118e+00, 1, 'nuisance']
+data.parameters['P_shot3']  = [0,  None, None, 2.3880e+00, 1, 'nuisance']
+data.parameters['lnbsigma8_0']  = [-0.32505312,  None, None, 3.1862e-04, 1,  'nuisance']
+data.parameters['lnbsigma8_1']  = [-0.31530447,  None, None, 3.3423e-04, 1,  'nuisance']
+data.parameters['lnbsigma8_2']  = [-0.31075713,  None, None, 3.4877e-04, 1,  'nuisance']
+data.parameters['lnbsigma8_3']  = [-0.31923368,  None, None, 3.6178e-04, 1,  'nuisance']
 
 # Fixed parameter list
 data.cosmo_arguments['T_cmb'] = 2.7255
