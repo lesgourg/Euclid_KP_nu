@@ -1,4 +1,4 @@
-#!/usr/local_rwth/bin/zsh
+#!/usr/local_rwth/bin/bash
 
 # Function to display the help message
 display_help() {
@@ -100,6 +100,27 @@ echo "COVMAT: $COVMAT"
     fi
 }
 
+hashjob() {
+local Case=$1
+local prefix=$2
+rm -f $tempopts
+rm -f $tempscript
+sed "s/\$casevar/${Case}/g" $mpathopts >> $tempopts
+tempstri=$(cat $tempopts)
+tempstri="${tempstri//$'\n'/\\n}"
+#echo $tempstri
+shash=$((0x$(sha1sum <<< $tempstri | cut -c1-6)))
+jash=`echo "$shash" | tr 0123456789 santiegouy`
+source $tempopts
+rm -f $tempopts
+echo "Hashed jobname of script:  $jash"
+export jobname="${prefix}${jash}"
+export jobscript="${prefix}_${Case}_${jash}.sh"
+sed -e "s/\$jname/${jobname}/g" -e "s/\$casevar/${Case}/g" $slurmopts >> $tempscript
+sed "s/\$casevar/${Case}/g" $mpathopts >> $tempscript
+cat $runopts >> $tempscript
+}
+
 function check_run_info {
     if [[ -d "$CHAINS" && "$run" = "info" ]]; then
         echo "CHAINS folder exists, obtaining info from chains..."
@@ -186,8 +207,14 @@ done
 function remove_oldchains {
 if [[ -d "$CHAINS" && $rm_oldchains == true ]]; then 
 	echo "Removing $CHAINS folder after copying to a backup folder at ${CHAINS}_bckp_${date_time}"
-	cp -vr $CHAINS "${CHAINS}_bckp_${date_time}"
-	rm -Rfv $CHAINS
+	if [ "$run" = "dryrun" ]; then 
+		echo "cp -vr $CHAINS "${CHAINS}_bckp_${date_time}""
+	        echo "rm -Rfv $CHAINS"
+	else
+		cp -vr $CHAINS "${CHAINS}_bckp_${date_time}"
+	        rm -Rfv $CHAINS
+	fi
+
 else 
 	echo "Chains $CHAINS folder does not exist yet or option to remove old chains is not wanted"
 fi
@@ -201,10 +228,10 @@ remove_oldchains
 if [[ -e $COVMAT && $usecovmat == true ]]; then Copt="-c $COVMAT"; else echo "Covmat $COVMAT non-existing or use covmat option not wanted"; Copt=""; fi
 echo "Creating fiducial"
 if [[ "$run" = "fiducial" || "$run" = "run" || "$run" = "fisher" ]]; then
-  $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt
+  $MPIEXEC -n 1 $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt
   echo "Generated fiducial"
   echo "Running chain with 1 point on fiducial"
-  $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt --display-each-chi2
+  $MPIEXEC -n 1 $PYTHON montepython/MontePython.py run -p $INPUT -o $CHAINS -f 0 -N 1 $Copt --display-each-chi2
   if [ "$run" = "fiducial" ]; then
    echo "Only fiducial run requested, exiting script."
    exit 1
@@ -228,9 +255,9 @@ else
 fi
 if [[ "$run" = "run" || "$run" = "dryrun" ]]; then
         if [[ $input_param == true || "$1" = "input_param" ]]; then 
-	    $inputopt="-p $INPUT"
+	    inputopt="-p $INPUT"
         else  
-            $inputopt="" 
+            inputopt="" 
         fi
 	if [[ "$run" = "run" ]]; then
 	    echo "Deleting for security the _1_ files"

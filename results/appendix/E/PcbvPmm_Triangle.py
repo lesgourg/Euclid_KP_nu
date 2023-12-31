@@ -139,20 +139,22 @@ g.triangle_plot([gauss2,gauss1],filled=[False,False],params= cosmo_pars ,labels=
 g.legend.set_title(r'Photometric Optimistic')
 plt.style.use('../../../plots/plot-style-triangle.txt')
 
+tick_array= [[0.65, 0.7], [0.312, 0.316], [0.806, 0.814], [0.0, 0.1], [1.31, 1.32], [1.49,1.51]]
 for i in range(len(cosmo_pars)):
     for j in range(len(cosmo_pars)):
         if j > i:
             continue
-        #g.subplots[i,j].minorticks_on()
+        # g.subplots[i,j].minorticks_on()
         if i == j:
-            #g.subplots[i,i].xaxis.set_ticks(tick_array[i])
-            g.subplots[i,j].yaxis.set_tick_params(which='both', left=False)
+            g.subplots[i,i].xaxis.set_ticks(tick_array[i])
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
+            continue
         if i > 0 and j == 0:
-            #g.subplots[i,j].set_ylabel(f"${par_label_dict[p1]}$")
-            g.subplots[i,j].yaxis.set_tick_params(which='both',labelsize=8)
-            #g.subplots[i,j].yaxis.set_label_coords(-0.4,0.5)
-        if i == len(cosmo_pars)-1:
-            g.subplots[i,j].xaxis.set_tick_params(which='both',labelsize=8)
+            g.subplots[i,j].yaxis.set_ticks(tick_array[i])
+            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=9)
+        if i== len(cosmo_pars)-1:
+            g.subplots[i,j].xaxis.set_ticks(tick_array[j])
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
 
 g.fig.align_ylabels(axs=None)
 
