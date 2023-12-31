@@ -1,5 +1,5 @@
-w0    w_0    -1.0
-wa    w_a    0.0
+w0    w_0    -1
+wa    w_a    0.
 Omegab    \Omega_{\mathrm{b}, 0}    0.0491989
 h    h    0.6737
 ns    n_\mathrm{s}    0.96605
@@ -9,7 +9,7 @@ Ps_1    Ps_1    0
 Ps_2    Ps_2    0
 Ps_3    Ps_3    0
 Ps_4    Ps_4    0
-lnbgs8_1    lnbgs8_1    -0.324980
-lnbgs8_2    lnbgs8_2    -0.315229
-lnbgs8_3    lnbgs8_3    -0.310679
-lnbgs8_4    lnbgs8_4    -0.319153
+lnbgs8_1    lnbgs8_1    -0.32505312
+lnbgs8_2    lnbgs8_2    -0.31530447
+lnbgs8_3    lnbgs8_3    -0.31075713
+lnbgs8_4    lnbgs8_4    -0.31923368

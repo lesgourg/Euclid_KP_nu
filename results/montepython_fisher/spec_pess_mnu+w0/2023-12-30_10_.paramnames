@@ -1,10 +1,8 @@
 w0_fld 	 w0_{fld } 
-wa_fld 	 wa_{fld } 
 Omega_b 	 \Omega_{b } 
 h 	 h 
 n_s 	 n_{s } 
 sigma8 	 \sigma8 
-N_eff_camb 	 N_{eff camb } 
 m_nu_camb 	 m_{\nu camb } 
 Omega_m_camb 	 \Omega_{m camb } 
 P_shot0 	 P_{shot0 } 

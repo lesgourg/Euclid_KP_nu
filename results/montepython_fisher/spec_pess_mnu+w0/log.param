@@ -14,28 +14,28 @@ data.experiments=['euclid_spectroscopic']
 
 
 # Cosmological parameter list
-data.parameters['w0_fld']       = [           -1,    -1,  -1,          0, 1, 'cosmo']
+data.parameters['w0_fld']       = [           -1,    -1,  -1, 2.0994e-03, 1, 'cosmo']
 data.parameters['wa_fld']       = [           0.,   -1.,   1,          0, 1, 'cosmo']
-data.parameters['Omega_b']      = [    0.0491989, 0.005,   1, 1.0677e-04, 1, 'cosmo']
-data.parameters['h']            = [       0.6737,   0.1, 1.5, 5.4065e-04, 1, 'cosmo']
-data.parameters['n_s']          = [      0.96605,   0.8, 1.2, 7.7170e-04, 1, 'cosmo']
-data.parameters['sigma8']       = [         0.81,   0.7, 0.9, 3.7646e-04, 1, 'cosmo']
-data.parameters['N_eff_camb']   = [        3.044,    0.,   6, 1.2812e-02, 1, 'cosmo']
-data.parameters['m_nu_camb']    = [         0.06,    0.,   1, 6.5335e-03, 1, 'cosmo']
-data.parameters['Omega_m_camb'] = [ 0.3145714273, 0.005,   1, 3.1191e-04, 1, 'cosmo']
+data.parameters['Omega_b']      = [    0.0491989, 0.005,   1, 7.6191e-05, 1, 'cosmo']
+data.parameters['h']            = [       0.6737,   0.1, 1.5, 8.9926e-04, 1, 'cosmo']
+data.parameters['n_s']          = [      0.96605,   0.8, 1.2, 8.0800e-04, 1, 'cosmo']
+data.parameters['sigma8']       = [         0.81,   0.7, 0.9, 4.2316e-04, 1, 'cosmo']
+data.parameters['N_eff_camb']   = [        3.044,    0.,   6,          0, 1, 'cosmo']
+data.parameters['m_nu_camb']    = [         0.06,    0.,   1, 8.3689e-03, 1, 'cosmo']
+data.parameters['Omega_m_camb'] = [ 0.3145714273, 0.005,   1, 3.6694e-04, 1, 'cosmo']
 
 # Nuisance parameter list
 # Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
 # Arbitrary limits for faster convergence in MCMC
 
-data.parameters['P_shot0']  = [0,  None, None, 1.0647e+00, 1, 'nuisance']
-data.parameters['P_shot1']  = [0,  None, None, 1.1125e+00, 1, 'nuisance']
-data.parameters['P_shot2']  = [0,  None, None, 1.1916e+00, 1, 'nuisance']
-data.parameters['P_shot3']  = [0,  None, None, 1.2555e+00, 1, 'nuisance']
-data.parameters['lnbsigma8_0']  = [-0.32505312,  None, None, 2.6147e-04, 1,  'nuisance']
-data.parameters['lnbsigma8_1']  = [-0.31530447,  None, None, 2.7631e-04, 1,  'nuisance']
-data.parameters['lnbsigma8_2']  = [-0.31075713,  None, None, 2.8965e-04, 1,  'nuisance']
-data.parameters['lnbsigma8_3']  = [-0.31923368,  None, None, 3.0166e-04, 1,  'nuisance']
+data.parameters['P_shot0']  = [0,  None, None, 1.9686e+00, 1, 'nuisance']
+data.parameters['P_shot1']  = [0,  None, None, 2.0012e+00, 1, 'nuisance']
+data.parameters['P_shot2']  = [0,  None, None, 2.0828e+00, 1, 'nuisance']
+data.parameters['P_shot3']  = [0,  None, None, 2.1228e+00, 1, 'nuisance']
+data.parameters['lnbsigma8_0']  = [-0.32505312,  None, None, 5.1727e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_1']  = [-0.31530447,  None, None, 5.2522e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_2']  = [-0.31075713,  None, None, 5.2921e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_3']  = [-0.31923368,  None, None, 5.3073e-04, 1, 'nuisance']
 
 # Fixed parameter list
 data.cosmo_arguments['T_cmb'] = 2.7255
@@ -46,7 +46,7 @@ data.cosmo_arguments['Omega_Lambda'] = 0.0
 
 # precision parameters
 data.cosmo_arguments['k_per_decade_for_pk'] = 50.
-data.cosmo_arguments['k_per_decade_for_bao'] = 70.
+data.cosmo_arguments['k_per_decade_for_bao'] = 50.
 data.cosmo_arguments['l_max_g'] = 20
 data.cosmo_arguments['l_max_pol_g'] = 15
 
@@ -86,7 +86,7 @@ euclid_spectroscopic.fsky = 0.3636
 euclid_spectroscopic.mu_size = 9
 euclid_spectroscopic.k_size = 500
 euclid_spectroscopic.kmin = 0.001
-euclid_spectroscopic.kmax = 0.3
+euclid_spectroscopic.kmax = 0.25
 euclid_spectroscopic.dewiggling_k_min_invMpc = 3.527944863890298e-05
 euclid_spectroscopic.dewiggling_k_max_invMpc = 50.794593811035156
 euclid_spectroscopic.dewiggling_dlnk = 0.013541649917909737
@@ -101,7 +101,7 @@ euclid_spectroscopic.scale_dependent_growth_factor_f = True
 
 
 #-----------Cosmological-arguments---------
-data.cosmo_arguments.update({'T_cmb': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'Omega_Lambda': 0.0, 'k_per_decade_for_pk': 50.0, 'k_per_decade_for_bao': 70.0, 'l_max_g': 20, 'l_max_pol_g': 15, 'non linear': 'none', 'radiation_streaming_approximation': 2, 'radiation_streaming_trigger_tau_over_tau_k': 240.0, 'radiation_streaming_trigger_tau_c_over_tau': 100.0, 'ncdm_fluid_approximation': 3, 'tol_ncdm_synchronous': 1e-05, 'l_max_ncdm': 22, 'evolver': 0, 'background_Nloga': 6000, 'thermo_Nz_log': 20000, 'thermo_Nz_lin': 40000, 'tol_perturbations_integration': 1e-06, 'output': ' mPk ', 'z_max_pk': 1.8, 'P_k_max_1/Mpc': 51})
+data.cosmo_arguments.update({'T_cmb': 2.7255, 'N_ncdm': 1, 'YHe': 0.2454006, 'reio_parametrization': 'reio_none', 'Omega_Lambda': 0.0, 'k_per_decade_for_pk': 50.0, 'k_per_decade_for_bao': 50.0, 'l_max_g': 20, 'l_max_pol_g': 15, 'non linear': 'none', 'radiation_streaming_approximation': 2, 'radiation_streaming_trigger_tau_over_tau_k': 240.0, 'radiation_streaming_trigger_tau_c_over_tau': 100.0, 'ncdm_fluid_approximation': 3, 'tol_ncdm_synchronous': 1e-05, 'l_max_ncdm': 22, 'evolver': 0, 'background_Nloga': 6000, 'thermo_Nz_log': 20000, 'thermo_Nz_lin': 40000, 'tol_perturbations_integration': 1e-06, 'output': ' mPk ', 'z_max_pk': 1.8, 'P_k_max_1/Mpc': 51})
 
 
 #--------Default-Configuration------
