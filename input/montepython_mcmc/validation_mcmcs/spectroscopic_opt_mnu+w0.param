@@ -1,0 +1,56 @@
+#------Experiments to test (separated with commas)-----
+
+data.experiments=['euclid_spectroscopic']
+
+#------ Parameter list -------
+
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+
+# Cosmological parameter list
+data.parameters['w0_fld']       = [           -1,    -1,  -1, 1.8790e-03, 1, 'cosmo']
+data.parameters['wa_fld']       = [           0.,   -1.,   1,          0, 1, 'cosmo']
+data.parameters['Omega_b']      = [    0.0491989, 0.005,   1, 6.9408e-05, 1, 'cosmo']
+data.parameters['h']            = [       0.6737,   0.1, 1.5, 7.3893e-04, 1, 'cosmo']
+data.parameters['n_s']          = [      0.96605,   0.8, 1.2, 6.3866e-04, 1, 'cosmo']
+data.parameters['sigma8']       = [         0.81,   0.7, 0.9, 3.7232e-04, 1, 'cosmo']
+data.parameters['N_eff_camb']   = [        3.044,    0.,   6,          0, 1, 'cosmo']
+data.parameters['m_nu_camb']    = [         0.06,    0.,   1, 7.0843e-03, 1, 'cosmo']
+data.parameters['Omega_m_camb'] = [ 0.3145714273, 0.005,   1, 3.3406e-04, 1, 'cosmo']
+
+# Nuisance parameter list
+# Fiducial values are given by b=sqrt(1+\bar{z}) in each bin
+# Arbitrary limits for faster convergence in MCMC
+
+data.parameters['P_shot0']  = [0,  None, None, 1.0363e+00, 1, 'nuisance']
+data.parameters['P_shot1']  = [0,  None, None, 1.0686e+00, 1, 'nuisance']
+data.parameters['P_shot2']  = [0,  None, None, 1.1344e+00, 1, 'nuisance']
+data.parameters['P_shot3']  = [0,  None, None, 1.1849e+00, 1, 'nuisance']
+data.parameters['lnbsigma8_0']  = [-0.32505312,  None, None, 4.5705e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_1']  = [-0.31530447,  None, None, 4.6349e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_2']  = [-0.31075713,  None, None, 4.6667e-04, 1, 'nuisance']
+data.parameters['lnbsigma8_3']  = [-0.31923368,  None, None, 4.6820e-04, 1, 'nuisance']
+
+# Fixed parameter list
+data.cosmo_arguments['T_cmb'] = 2.7255
+data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['YHe'] = 0.2454006
+data.cosmo_arguments['reio_parametrization'] = 'reio_none'
+data.cosmo_arguments['Omega_Lambda'] = 0.0
+
+# precision parameters
+data.cosmo_arguments['P_k_max_1/Mpc'] = 50.
+data.cosmo_arguments['k_per_decade_for_pk'] = 50.
+data.cosmo_arguments['k_per_decade_for_bao'] = 50.
+data.cosmo_arguments['non linear'] = 'none'
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
