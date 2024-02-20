@@ -1,9 +1,10 @@
 #!/usr/local_rwth/bin/bash
 #SBATCH --ntasks=8
 #SBATCH --nodes=1
-#SBATCH --account=rwth1304
+#### --account=rwth1304
+###sBATCH --account=qh043052
 #SBATCH --cpus-per-task=6
-#SBATCH --time=48:00:00
+#SBATCH --time=7:00:00
 #SBATCH --output="slurm_outerr/$jname_$casevar.out"
 #SBATCH --error="slurm_outerr/$jname_$casevar.err"
 #SBATCH --job-name="$jname_$casevar"

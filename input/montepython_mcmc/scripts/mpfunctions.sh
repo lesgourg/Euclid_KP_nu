@@ -51,6 +51,11 @@ process_arguments() {
 export run="${1:-"print"}"
 # Initialize the option variable
 export secondchain=""
+export secondchaindir=""
+export thirdchain=""
+export thirdchaindir=""
+export infoextraopts=""
+export infoextraplotopts=""
 export input_param=false
 export non_markov=true
 # Loop through the command line arguments
@@ -63,6 +68,22 @@ do
       # Remove the current argument from the positional arguments
       #
       echo $secondchain
+      #shift
+      ;;
+    --third_chain=*)
+      # Extract the option value after the equal sign
+      export thirdchain="${arg#*=}"
+      # Remove the current argument from the positional arguments
+      #
+      echo $thirdchain
+      #shift
+      ;;
+    --extra=*)
+      # Extract the option value after the equal sign
+      export infoextraopts="${arg#*=}"
+      # Remove the current argument from the positional arguments
+      #
+      echo $infoextraopts
       #shift
       ;;
     --input_param)
@@ -124,14 +145,16 @@ cat $runopts >> $tempscript
 function check_run_info {
     if [[ -d "$CHAINS" && "$run" = "info" ]]; then
         echo "CHAINS folder exists, obtaining info from chains..."
-        if [[ -n "$secondchain" ]]; then echo "comparing against second chains at: $secondchain"; fi
+        if [[ -n "$secondchain" ]]; then CHAINSRESULTSDIR="$CHAINS/../"; secondchaindir="$CHAINSRESULTSDIR$secondchain"; echo "---> Comparing against second chains at: $secondchaindir" ; fi
+        if [[ -n "$thirdchain" ]]; then CHAINSRESULTSDIR="$CHAINS/../"; thirdchaindir="$CHAINSRESULTSDIR$thirdchain"; echo "---> Comparing against third chains at: $thirdchaindir" ; fi
+        if [[ -n "$infoextraopts" ]]; then infoextraplotopts="--extra=$infoextraopts" ; fi
         if [[ $non_markov == true ]]; then nmkvopt="--keep-non-markovian"; echo "non-markovian option selected, keeping non-markovian points"; else nmkvopt=""; fi
 	chainsnum=${def_Nsteps}
 	echo "Analyzing chains:  $CHAINS/$chainsnum "
 	pwdir=$(pwd)
 	echo $pwdir
-        echo "$PYTHON montepython/MontePython.py info --want-covmat --plot-mean $nmkvopt "$CHAINS/\*$chainsnum\*" $secondchain"
-        $PYTHON montepython/MontePython.py info --want-covmat --plot-mean $nmkvopt "$CHAINS/"*"$chainsnum"* $secondchain
+        echo "$PYTHON montepython/MontePython.py info --want-covmat --plot-mean $nmkvopt "$CHAINS/\*$chainsnum\*" $secondchaindir $thirdchaindir $infoextraplotopts"
+        $PYTHON montepython/MontePython.py info --want-covmat --plot-mean $nmkvopt "$CHAINS/"*"$chainsnum"* $secondchaindir $thirdchaindir $infoextraplotopts
 	echo "Copyng covmat into montepython's covmat folder"
         cp -v "${CHAINS}/${CASE}_${EXTRA}.covmat" "covmat/"
         echo "Info obtained, exit script."

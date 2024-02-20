@@ -1,32 +1,81 @@
 #!/usr/local_rwth/bin/bash
 
+
+# Function to display help information
+show_help() {
+    echo "Usage: $0 [pathopts] [Case] [action] [extra]"
+    echo "Usage: $0 --showjobid JOBID"
+    echo
+    echo "This script performs various actions based on the provided arguments."
+    echo
+    echo "Arguments:"
+    echo "  pathopts : The script providing location of paths and options. Without the .sh extension."
+    echo "  Case     : The MP case to process. Corresponding to the .param file to be run with MP, but leaving the '.param' extension out."
+    echo "  action   : The action to perform. Options include 'writejob', 'fiducial', 'info', and 'run'."
+    echo "  extra    : Additional arguments for the action."
+    echo
+    echo "Options:"
+    echo "  -h, --h : Show this help message and exit."
+    echo "  --showjobid : Show the job information corresponding to a JOBID number."
+    echo
+    echo "Examples:"
+    echo "  $0 mypathopts.sh myparamfile run"
+    echo
+}
+
+# Check for help option
+if [[ "$1" == "-h" || "$1" == "--h" ]]; then
+    show_help
+    exit 0
+fi
+
+if [[ "$1" = "--showjobid" ]]; then
+	JOBID=$2
+	scontrol show job $JOBID
+	exit 0
+fi	
+
+
+check_filedir() {
+if [ ! -e "$1" ]; then
+  echo "$1 does not exist."
+  script=$(readlink -f $0)
+  echo "exiting script $script"
+  exit 1
+fi
+}
+
+### Specify a file with proper paths and settings, opt, pess, covmats, etc
+pathopts=$1
+
 export scriptsdir="input/montepython_mcmc/scripts"
-export mpathopts="$scriptsdir/path_opts.sh"
+check_filedir $scriptsdir
+export mpathopts="$scriptsdir/${pathopts}.sh"
+echo "Checking if file in argument 1: $1 exists..."
+check_filedir $mpathopts
 export slurmopts="$scriptsdir/slurm_opts.sh"
+check_filedir $slurmopts
 export runopts="$scriptsdir/run_opts.sh"
+check_filedir $runopts
 export tempscript="$scriptsdir/tempjob.sh"
 export tempopts="$scriptsdir/tempopts.sh"
 
-source "$scriptsdir/mpfunctions.sh"
+export mpfunctions="$scriptsdir/mpfunctions.sh"
+source $mpfunctions
 #
 prefix="KP"
-Case=$1
+Case=$2
 
-action=${2:-"nada2"}
-extra=${3:-"nada3"}
+action=${3:-"nada2"}
+extra=${4:-"nada3"}
 allargs=$@
-actargs="${@:2}"
+actargs="${@:3}"
 echo $allargs
 echo $Case
 echo $action
 echo $extra
 echo $actargs
 
-if [[ "$Case" = "showjobid" ]]; then
-	JOBID=$action
-	scontrol show job $JOBID
-	exit 0
-fi	
 
 hashjob $Case $prefix 
 
