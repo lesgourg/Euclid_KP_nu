@@ -134,10 +134,10 @@ gauss1=GaussianND(mean=cf1.get_param_fiducial(), cov=cf1.get_fisher_matrix(), la
 gauss2=GaussianND(mean=cf2.get_param_fiducial(), cov=cf2.get_fisher_matrix(), labels=labels, names=cf2.get_param_names(), is_inv_cov=True)
 
 ## Cosmo Triangle
-g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
-g.triangle_plot([gauss2,gauss1],filled=[False,False],params= cosmo_pars ,labels=labels,legend_labels=[r'${\tt HALOFIT}$',r'${\tt HMcode}$'],contour_lws=[1,1],colors=colors,    contour_colors=colors)
-g.legend.set_title(r'Photometric Optimistic')
 plt.style.use('../../../plots/plot-style-triangle.txt')
+g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
+g.triangle_plot([gauss2,gauss1],filled=[False,False],params= cosmo_pars ,labels=labels,legend_labels=[r'${\tt HALOFIT}$',r'${\tt HMcode}$'],colors=colors)
+g.legend.set_title(r'Photometric optimistic')
 
 tick_array= [[0.6, 0.7], [0.31, 0.32], [0.803, 0.818], [0.0, 0.2], [1.31, 1.33], [1.49,1.51]]
 

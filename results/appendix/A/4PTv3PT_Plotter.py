@@ -60,7 +60,7 @@ plot_options = {'fishers_list':fishers_list,
           'patches_legend_fontsize':35,
           'yrang':[-1,1],
           'transform_latex_dict':transform_latex_dict,
-          'figure_title':r'Impact of Derivative Method'
+          'figure_title':r'Impact of derivative method'
           ,'xticksrotation':45
           } 
 import matplotlib.pyplot as plt

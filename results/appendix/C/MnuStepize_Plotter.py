@@ -47,7 +47,7 @@ plot_options = {'fishers_list':fishers_list,
           'file_format': '.pdf',   ##file format for all the plots
           'outpath' : './plots/',  ## directory where to store the files, if non-existent, it will be created
           'outroot':'cosmopars_mnu_stepsize',  ## file name root for all the plots, extra names can be added individually
-          'legend_title':r'${\tt CF/CAMB}$ Spectro Opt, rel. Stepsize for $m_\nu$',
+          'legend_title':r'${\tt CF/CAMB}$ Spectro Opt, rel. stepsize for $m_\nu$',
           'legend_title_fontsize':30,
           'dots_legend_fontsize':30,
           'xtickfontsize' :45,
@@ -58,7 +58,7 @@ plot_options = {'fishers_list':fishers_list,
           'patches_legend_fontsize':35,
           'yrang':[-5,5],
           'transform_latex_dict':transform_latex_dict,
-          'figure_title':r'Impact of Neutrino Derivative Stepsize'
+          'figure_title':r'Impact of neutrino derivative stepsize'
           ,'xticksrotation':45
           } 
 import matplotlib.pyplot as plt

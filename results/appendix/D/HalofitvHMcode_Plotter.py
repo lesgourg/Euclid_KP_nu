@@ -50,7 +50,7 @@ plot_options = {'fishers_list':fishers_list[:],
           'outpath' : './plots/',  ## directory where to store the files, if non-existent, it will be created
 #          'outroot':'cosmopars_HalofitvHMcode_photo_Comparision',  ## file name root for all the plots, extra names can be added individually
           'outroot':'cosmopars_Halofit_v_HMcode',  ## file name root for all the plots, extra names can be added individually
-          'legend_title':r'${\tt CF/CLASS}$ Photometric Optimistic',
+          'legend_title':r'${\tt CF/CLASS}$ Photometric optimistic',
           'legend_title_fontsize':30,
           'dots_legend_fontsize':30,
           'xtickfontsize' :45,
@@ -61,7 +61,7 @@ plot_options = {'fishers_list':fishers_list[:],
           'patches_legend_fontsize':35,
           'yrang':[-40,40],
           'transform_latex_dict':transform_latex_dict,
-          'figure_title':r'Impact of Nonlinear Modeling'
+          'figure_title':r'Impact of nonlinear modeling'
           ,'xticksrotation':45
           }
 import matplotlib.pyplot as plt

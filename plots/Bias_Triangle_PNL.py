@@ -59,7 +59,7 @@ labels_dict={
 'AIA' : 'A_{\mathrm{IA}}', 'etaIA' :'\eta_\mathrm{IA}', 'betaIA' : '\beta_\mathrm{IA}',
 'lnbgs8_1' : '\ln(b_g \sigma_8)_1', 'lnbgs8_2' : '\ln(b_g \sigma_8)_2', 'lnbgs8_3' : '\ln(b_g \sigma_8)_3', 'lnbgs8_4' : '\ln(b_g \sigma_8)_4',
 'Ps_1'  :  'P_{S1}', 'Ps_2'  :  'P_{S2}','Ps_3'  :  'P_{S3}','Ps_4'  :  'P_{S4}',
-'Neff' : 'N_\mathrm{eff}', 'mnu':r'\sum m_\nu\, \mathrm{(eV)}','logfR0':r'\log_{10}(f_{R0})',
+'Neff' : 'N_\mathrm{eff}', 'mnu':r'\sum m_\nu\, \mathrm{[eV]}','logfR0':r'\log_{10}(f_{R0})',
         'sigmap_0': r'\sigma_{p\,0}',
         'sigmap_1': r'\sigma_{p\,1}',
         'sigmap_2': r'\sigma_{p\,2}',
@@ -146,26 +146,29 @@ for i in range(len(cosmo_pars)):
 
 plot_pars = ['h','Omegam','sigma8','mnu','b4', 'b8']
 
-g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
-g.triangle_plot([mcmc1.samples,mcmc2.samples],filled=[False,False],params=plot_pars,legend_labels=[r'Data ${\tt HALOFIT}$ Model ${\tt HMCODE}$',r'Data ${\tt HMCODE}$ Model ${\tt HMCODE}$'], contour_lws=[1,1],colors=colors,    contour_colors=colors)
-g.legend.set_title(r'Photometric Optimistic')
-plt.style.use('../../Euclid_KP_nu/plots/plot-style-triangle.txt')
+tick_array= [[0.6, 0.7], [0.31, 0.317], [0.81, 0.82], [0.1, 0.2], [1.28, 1.31], [1.46,1.5]]
 
+g = plots.get_subplot_plotter(rc_sizes=True,subplot_size = 6,subplot_size_ratio= 1,width_inch=6)
+g.triangle_plot([mcmc1.samples,mcmc2.samples],filled=[False,False],params=plot_pars,legend_labels=[r'Data ${\tt HALOFIT}$ model ${\tt HMcode}$',r'Data ${\tt HMcode}$ model ${\tt HMcode}$'], contour_lws=[1,1],colors=colors,    contour_colors=colors)
+g.legend.set_title(r'Photometric optimistic')
+plt.style.use('../../Euclid_KP_nu/plots/plot-style-triangle.txt')
 
 for i in range(len(cosmo_pars)):
     for j in range(len(cosmo_pars)):
         if j > i:
             continue
-        #g.subplots[i,j].minorticks_on()
+        # g.subplots[i,j].minorticks_on()
         if i == j:
-            #g.subplots[i,i].xaxis.set_ticks(tick_array[i])
-            g.subplots[i,j].yaxis.set_tick_params(which='both', left=False)
+            g.subplots[i,i].xaxis.set_ticks(tick_array[i],labelsize=20)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
+            continue
         if i > 0 and j == 0:
-            #g.subplots[i,j].set_ylabel(f"${par_label_dict[p1]}$")
-            g.subplots[i,j].yaxis.set_tick_params(which='both',labelsize=8)
-            #g.subplots[i,j].yaxis.set_label_coords(-0.4,0.5)
-        if i == len(cosmo_pars)-1:
-            g.subplots[i,j].xaxis.set_tick_params(which='both',labelsize=8)
+            g.subplots[i,j].yaxis.set_ticks(tick_array[i],labelsize=15)
+            g.subplots[i,j].yaxis.set_tick_params('both',labelsize=9)
+        if i== len(cosmo_pars)-1:
+            g.subplots[i,j].xaxis.set_ticks(tick_array[j],labelsize=15)
+            g.subplots[i,j].xaxis.set_tick_params('both',labelsize=9)
+
 
 g.fig.align_ylabels(axs=None)
 

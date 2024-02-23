@@ -8,13 +8,13 @@ PYTHON=python3
 
 # Select here the probe (photometric/spectroscopic)
 #
-#PROBE=photometric
-#PROBE_SHORT=photo
-#LKL=euclid_photometric_z
+PROBE=photometric
+PROBE_SHORT=photo
+LKL=euclid_photometric_z
 #
-PROBE=spectroscopic
-PROBE_SHORT=spec
-LKL=euclid_spectroscopic_cb
+#PROBE=spectroscopic
+#PROBE_SHORT=spec
+#LKL=euclid_spectroscopic_cb
 
 # Select here the case (pessimistic/optimistic)
 #
@@ -76,7 +76,7 @@ if [ "$answer" = "y" ] ; then
             rm data/euclid_pk_cb_fiducial.dat
         fi
         rm -rf ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
-        $PYTHON montepython/MontePython.py run -p ../Euclid_KP_nu/input/montepython_fisher/$PROBE/$CASE/${PROBE}_${CASE_SHORT}_${CLASS_PREC}.param -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} -f 0
+        $PYTHON montepython/MontePython.py run -p ../Euclid_KP_nu/input/montepython_fisher/$PROBE/$CASE/${PROBE}_${CASE_SHORT}_${CLASS_PREC}_wCDM+mnu+Neff.param -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} -f 0
         $PYTHON montepython/MontePython.py run -o ../Euclid_KP_nu/results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC} --fisher --fisher-step-it 1 --fisher-tol 10000
         cd ../Euclid_KP_nu
         $PYTHON input/montepython_fisher/paramnames_for_cosmicfish.py results/montepython_fisher/$PROBE/${CASE}_${CLASS_PREC}
